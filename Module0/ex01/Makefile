@@ -4,7 +4,7 @@ CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
-SOURCE_FILES	= phonebook.cpp
+SOURCE_FILES	= phonebook.cpp #phonebook or PhoneBook?
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
