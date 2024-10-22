@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:30:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/07/29 17:55:49 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/22 12:58:06 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,18 +18,12 @@ class Contact;
 class PhoneBook
 {
 private:
-    Contact contacts[8];
+    Contact array[8];
 public:
-    phonebook(/* args */);
-    ~phonebook();
+    void    add_contact(inputed)
+    {
+        //hm;
+    }
 };
-
-phonebook::phonebook(/* args */)
-{
-}
-
-phonebook::~phonebook()
-{
-}
 
 #endif

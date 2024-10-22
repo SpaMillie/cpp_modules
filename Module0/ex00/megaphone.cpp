@@ -6,11 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:31:29 by mspasic           #+#    #+#             */
-/*   Updated: 2024/07/29 16:31:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/22 11:36:43 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <iostream>
+
+/*starting off with an easy exercise, this one is about
+taking in lowercase characters and making them uppercase*/
 
 int main(int argc, char **argv)
 {
@@ -33,4 +36,3 @@ int main(int argc, char **argv)
         }
     }
 }
-// for (int j = 0; j != '\0'; j++)

@@ -1,14 +1,14 @@
-NAME	=	megaphone
+NAME	=	phonebook
 
 CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
-SOURCE_FILES	= megaphone.cpp
+SOURCE_FILES	= phonebook.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
-HEADER_FILES	= include/
+# HEADER_FILES	= include/
 
 RM = rm -f
 
@@ -19,9 +19,9 @@ YELLOW=\033[1;33m
 BLUE=\033[1;34m
 CYAN=\033[1;36m
 
-${NAME}:	${OBJECT_FILES}
+${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} -o ${NAME} ${OBJECT_FILES}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME} -I include/
 			@echo "${GREEN}${NAME} created ✔️"
 
 all:		${NAME}
