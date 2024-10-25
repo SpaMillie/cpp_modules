@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:48:26 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/24 19:46:57 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/25 17:38:16 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,27 +17,23 @@
 
 class Contact
 {
-private:
-   std::string name;
-   std::string last_name;
-   std::string nickname;
-   std::string phonenumber;
-   std::string darkest_secret; 
-public:
-    Contact(std::string nm, std::string l_nm, std::string n_nm, std::string num, std::string scrt)
-    {
-        name = nm;
-        last_name = l_nm;
-        nickname = n_nm;
-        phonenumber = num;
-        darkest_secret = scrt;
-    }
-
-    ~Contact() {}
-
-    void    adding_contact(size_t i) const;
-
-    // void    set_values(std::string nm, std::string l_nm, std::string n_nm, std::string num, std::string scrt);
+    private:
+        std::string name;
+        std::string last_name;
+        std::string nickname;
+        std::string phonenumber;
+        std::string darkest_secret; 
+    public:
+        void    set_name(std::string str);
+        void    set_l_name(std::string str);
+        void    set_n_name(std::string str);
+        void    set_num(std::string str);
+        void    set_secr(std::string str);
+        void    get_name(std::string str);
+        void    get_l_name(std::string str);
+        void    get_n_name(std::string str);
+        void    get_num(std::string str);
+        void    get_secr(std::string str);
 };
 
 #endif
