@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:57:28 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/25 17:11:41 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/25 18:28:29 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,113 +19,105 @@
 up to 8 contacts, stores the contacts statically, outputs
 the existing contacts on request, and exits cleanly whether
 by inputting EXIT or using ctrl+c*/
-int is_letter(char c)
-{
-    if ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'))
-        return (1);
-    return (0);
-}
 
-int check_name(std::string nm)
-{
-    int i = 0;
-    while (is_letter(nm[i]))
-        i++;
-    if (nm[i] == '\0' && nm.size() != 0)
-        return (0);
-    return (0);
-}
+// void ft_add(PhoneBook *cur)
+// {
+//     std::string nm;
+//     // std::string l_nm;
+//     // std::string n_nm;
+//     // std::string num;
+//     // std::string scrt;
 
-void ft_add(PhoneBook *cur)
-{
-    std::string nm;
-    // std::string l_nm;
-    // std::string n_nm;
-    // std::string num;
-    // std::string scrt;
-
-    while (check_name(nm))
-    {
-        std::cout << "Input first name: ";
-        std::cin >> nm;
-        std::cout << "\n";
-    }
+//     while (check_name(nm))
+//     {
+//         std::cout << "Input first name: ";
+//         std::cin >> nm;
+//         std::cout << "\n";
+//     }
     
+// }
+
+//add
+int check_num(std::string value)
+{
+    if (value.size() == 0 || value.size() != 10)
+        return (1);
+    for (int i = 0; i < value.size(); i++)
+    {
+        if (!(value[i] >= '0' && value[i] <= '9'))
+            return (1);
+    }
+    return (0); 
 }
 //add
 int check_name(std::string value)
 {
+    if (value.size() == 0 || value.size() > 50)
+        return (1);
     for (int i = 0; i < value.size(); i++)
     {
         if (!(value[i] >= 'A' && value[i] <= 'Z') && \
             !(value[i] >= 'a' && value[i] <= 'z'))
             return (1);
-        i++;
     }
     return (0);
 }
 //add
-void    which_info(int j)
+void    output_msg(int val)
 {
-    switch(j)
+    switch(val)
     {
-        case(0):
+        case 0:
             std::cout << "First name: ";
             break;
-        case(1):
+        case 1:
             std::cout << "Last name: ";
             break;
-        case(2):
+        case 2:
             std::cout << "Nickname: ";
             break;
-        case(3):
+        case 3:
             std::cout << "Phonenumber: ";
-            break;
-        case(4):
+            break;             
+        case 4:
             std::cout << "Darkest secret: ";
             break;
     }
 }
 //add
-int    add_chosen(PhoneBook cur, int i)
+std::string setnmatch(int val)
 {
-    std::string nm;
-    int check;
-    int j = 0;
+    std::string data;
 
-    if (i > 7)
-        i = i % 7;
     while (1)
     {
-        std::cin >> nm;
+        output_msg(val);
+        std::cin >> data;
         if (std::cin.eof()) //should this exit completely; returning 1
-            return (abrupt_exit());
-        if (check_name(nm) == 0)
+        {
+            abrupt_exit();
+            return (NULL);
+        }
+        if (check_name(data) == 0)
             break ;
         std::cout << "Invalid value: Please use only letters.\n";
     }
-    
+    return (data);
 }
-//utils
-int    abrupt_exit(void)
+//add
+int    add_chosen(PhoneBook *cur, int i)
 {
-    std::cout << "Rude.\n";
-    return (1);
-}
-//utils
-int get_case(const char *str)
-{
-    int num;
+    std::string nm;
+    Contact current;
 
-    if (std::strcmp("ADD", str) == 0)
-        num = 1;
-    else if (std::strcmp("SEARCH", str) == 0)
-        num = 2;
-    else if (std::strcmp("EXIT", str) == 0)
-        num = 3;
-    else
-        num = 4;
-    return (num);
+    if (i > 7)
+        i = i % 7;
+    current.set_name(setnmatch(0));
+    current.set_l_name(setnmatch(1));
+    current.set_n_name(setnmatch(2));
+    current.set_num(setnmatch(3));
+    // current.set_secr(top_secreting());
+    cur->add_contact(current);
 }
 
 int main(void)
@@ -149,8 +141,8 @@ int main(void)
         case_num = get_case(cc_data);
         switch(case_num)
         {
-            case 1: add_chosen(current, i); i++; break;
-            case 2: search_chosen(current); break;
+            case 1: add_chosen(&current, i); i++; break;
+            case 2: std::cout << "search_chosen(&current)\n"; break;
             case 3: std::cout << "Bye, bye\n"; return ;
             default: std::cout << "Um. Let's try again. \
                 Remember:choose ADD, SEARCH, or EXIT.\n"; break;

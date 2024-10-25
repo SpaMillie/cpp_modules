@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PhoneBook.cpp                                      :+:      :+:    :+:   */
+/*   utils.cpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 19:04:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/25 18:18:08 by mspasic          ###   ########.fr       */
+/*   Created: 2024/10/25 18:01:43 by mspasic           #+#    #+#             */
+/*   Updated: 2024/10/25 18:07:20 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/PhoneBook.hpp"
-#include "include/Contact.hpp"
+#include "Contact.cpp"
+#include "PhoneBook.hpp"
 
-
-void    add_contact(Contact current, int i)
+int    abrupt_exit(void)
 {
-    array[i] = current;
+    std::cout << "Rude.\n";
+    return (1);
 }
 
+int get_case(const char *str)
+{
+    int num;
 
+    if (std::strcmp("ADD", str) == 0)
+        num = 1;
+    else if (std::strcmp("SEARCH", str) == 0)
+        num = 2;
+    else if (std::strcmp("EXIT", str) == 0)
+        num = 3;
+    else
+        num = 4;
+    return (num);
+}
