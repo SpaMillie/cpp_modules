@@ -6,14 +6,16 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:16:32 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/31 12:24:50 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/31 16:08:15 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/PhoneBook.hpp"
+#include <limits>
 
 static int check_num(std::string value)
 {
+    std::cout << value.size() << " checking size\n";
     if (value.size() == 0 || value.size() != 10)
         return (1);
     for (unsigned long i = 0; i < value.size(); i++)
@@ -82,18 +84,18 @@ static std::string setnmatch(int val)
 {
     std::string data;
 
+    // std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
     while (1)
     {
         output_msg(val);
-        std::cin.ignore();
         std::getline(std::cin, data, '\n');
         if (std::cin.eof())
         {
             std::cout << "\n";
             abrupt_exit();
-            exit(1);
         }
-        if ((val < 3 && check_name(data) == 0) || (val == 3 && check_num(data) == 0) || val == 4)
+        std::cout << data << " cehcking value\n";
+        if ((val < 3 && check_name(data) == 0) || (val == 3 && check_num(data) == 0) || (val == 4 && data.size() != 0))
             break ;
         output_error_msg(val);
     }
@@ -116,5 +118,6 @@ int add_chosen(PhoneBook *cur, int i, bool *pb_full)
     current.set_num(setnmatch(3));
     current.set_secr(setnmatch(4));
     cur->add_contact(current, i);
+    std::cout<< "Contact sucessfully added!\n";
     return (i);
 }

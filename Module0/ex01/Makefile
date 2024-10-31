@@ -8,6 +8,7 @@ SOURCE_FILES	= main.cpp \
 					PhoneBook.cpp \
 					Contact.cpp \
 					add.cpp \
+					search.cpp \
 					utils.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:30:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/31 12:20:50 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/31 13:11:04 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 //add.cpp
 int add_chosen(PhoneBook *cur, int i, bool *pb_full);
 //utils.cpp
-int abrupt_exit(void);
+void    abrupt_exit(void);
 int get_case(const char *str);
 
 
