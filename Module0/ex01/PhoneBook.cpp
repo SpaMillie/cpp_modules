@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:04:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/25 18:18:08 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/31 10:23:15 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "include/Contact.hpp"
 
 
-void    add_contact(Contact current, int i)
+void    PhoneBook::add_contact(Contact current, int i)
 {
     array[i] = current;
 }

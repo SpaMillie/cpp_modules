@@ -6,15 +6,16 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:30:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/25 18:07:14 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/31 12:20:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "include/Contact.hpp"
+# include "Contact.hpp"
 # include <iostream>
+# include <string>
 # include <cstring>
 
 class PhoneBook
@@ -23,10 +24,11 @@ private:
     Contact array[8];
 public:
     // void    getting_contacts() const;
-    void    add_contact(Contact current);
+    void    add_contact(Contact current, int i);
 };
 
-
+//add.cpp
+int add_chosen(PhoneBook *cur, int i, bool *pb_full);
 //utils.cpp
 int abrupt_exit(void);
 int get_case(const char *str);

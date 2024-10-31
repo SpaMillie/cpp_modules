@@ -1,12 +1,13 @@
-NAME	=	phonebook
+NAME	=	open_phonebook
 
-CXXFLAGS= -Wall -Werror -Wextra
+CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
 
 CXX = c++
 
 SOURCE_FILES	= main.cpp \
 					PhoneBook.cpp \
 					Contact.cpp \
+					add.cpp \
 					utils.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
@@ -22,12 +23,12 @@ YELLOW=\033[1;33m
 BLUE=\033[1;34m
 CYAN=\033[1;36m
 
+all:		${NAME}
+
 ${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME} -I include/
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
-
-all:		${NAME}
 
 clean:
 			@ echo "${YELLOW}Deleting ${NAME} object files${COLOUR_END}..."

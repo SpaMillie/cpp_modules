@@ -1,4 +1,5 @@
 FIND OUT.txt
 */*.o
-*/phonebook
+*/open_phonebook
 */megaphone
+*/.vscode/

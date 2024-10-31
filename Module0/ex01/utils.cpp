@@ -6,12 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/25 18:01:43 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/25 18:07:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/10/31 10:26:06 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Contact.cpp"
-#include "PhoneBook.hpp"
+#include "include/Contact.hpp" //both of these every time or is PB.hpp enough?
+#include "include/PhoneBook.hpp"
 
 int    abrupt_exit(void)
 {
