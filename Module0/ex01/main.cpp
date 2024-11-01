@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:57:28 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/01 14:50:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/01 15:29:44 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,6 @@ int main(void)
             case 2: search_chosen(&current, i); break;
             case 3: std::cout << "Bye, bye\n"; return (0);
         }
-        std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n"; break;
+        std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n";
     }
 }
