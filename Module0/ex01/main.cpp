@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:57:28 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/01 10:27:02 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/01 13:46:47 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ by inputting EXIT or using ctrl+c*/
 
 void    signalHandler(int signum)
 {
-    std::cout << signum << "\nyou KICK miette???\nyou kick her body like a football?? \noh! oh! jail for mother! jail for mother for One Thousand Years!!!\n";
-    exit (1);
+    std::cout << "\nyou KICK miette???\nyou kick her body like a football?? \noh! oh! jail for mother! jail for mother for One Thousand Years!!!\n";
+    exit (signum);
 }
 
 int main(void)
@@ -33,12 +33,11 @@ int main(void)
     bool pb_full = false;
 
     signal(SIGINT, signalHandler);
+    signal(SIGQUIT, signalHandler);
     // try {
         std::cout << "Welcome to the PHONEBOOK!\nPlease choose one of the following three commands: \nADD, SEARCH, or EXIT\nChoose now:\n";
         while (1)
         {
-            signal(SIGQUIT, SIG_IGN);
-            std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n"; break;
             std::getline(std::cin, data);
             if (std::cin.eof())
                 abrupt_exit();
@@ -52,12 +51,6 @@ int main(void)
                 case 2: std::cout << "search_chosen(&current, i, &pb_full)\n"; break;
                 case 3: std::cout << "Bye, bye\n"; return (0);
             }
-        //     throw (error_code);
-        // }
-    }
-//    catch (error_code)
-//    {
-//     std::cout << "\nBye Bye\n";
-//     exit (1);
-//    }
+            std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n"; break;
+        }
 }
