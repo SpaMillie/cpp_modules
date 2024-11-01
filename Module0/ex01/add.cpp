@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 12:16:32 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/31 16:08:15 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/01 14:49:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,22 +102,21 @@ static std::string setnmatch(int val)
     return (data);
 }
 
-int add_chosen(PhoneBook *cur, int i, bool *pb_full)
+int add_chosen(PhoneBook *cur, int i)
 {
     std::string nm;
     Contact current;
 
     if (i == 8)
-    {
-        *pb_full = true;
         i = 0;
-    }
     current.set_name(setnmatch(0));
     current.set_l_name(setnmatch(1));
     current.set_n_name(setnmatch(2));
     current.set_num(setnmatch(3));
     current.set_secr(setnmatch(4));
     cur->add_contact(current, i);
+    if (cur->get_size() < 7)
+        cur->increase_size();
     std::cout<< "Contact sucessfully added!\n";
     return (i);
 }
