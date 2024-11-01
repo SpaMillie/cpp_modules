@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:57:28 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/31 16:11:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:27:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,32 +17,47 @@ up to 8 contacts, stores the contacts statically, outputs
 the existing contacts on request, and exits cleanly whether
 by inputting EXIT or using ctrl+c*/
 
+void    signalHandler(int signum)
+{
+    std::cout << signum << "\nyou KICK miette???\nyou kick her body like a football?? \noh! oh! jail for mother! jail for mother for One Thousand Years!!!\n";
+    exit (1);
+}
+
 int main(void)
 {
-   PhoneBook current;
-   std::string data;
-   const char *cc_data;
-   int  case_num;
-   int  i = 0;
-   bool pb_full = false;
+    PhoneBook current;
+    std::string data;
+    const char *cc_data;
+    int  case_num;
+    int  i = 0;
+    bool pb_full = false;
 
-    std::cout << "Welcome to the PHONEBOOK!\nPlease choose one of the following three commands: \nADD, SEARCH, or EXIT\nChoose now:\n";
-    while (1)
-    {
-        std::getline(std::cin, data);
-        if (std::cin.eof())
-            abrupt_exit();
-        // std::cin.ignore();
-        //doing things complicatedly to make it more cpp
-        cc_data = data.c_str();
-        case_num = get_case(cc_data);
-        switch(case_num)
+    signal(SIGINT, signalHandler);
+    // try {
+        std::cout << "Welcome to the PHONEBOOK!\nPlease choose one of the following three commands: \nADD, SEARCH, or EXIT\nChoose now:\n";
+        while (1)
         {
-            case 1: i = add_chosen(&current, i, &pb_full); i++; break;
-            case 2: std::cout << "search_chosen(&current, i, &pb_full)\n"; break;
-            case 3: std::cout << "Bye, bye\n"; return (0);
-        }
-        std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n"; break;
+            signal(SIGQUIT, SIG_IGN);
+            std::cout << "Please choose one of the following three commands: ADD, SEARCH, or EXIT\nChoose now:\n"; break;
+            std::getline(std::cin, data);
+            if (std::cin.eof())
+                abrupt_exit();
+            // std::cin.ignore();
+            //doing things complicatedly to make it more cpp
+            cc_data = data.c_str();
+            case_num = get_case(cc_data);
+            switch(case_num)
+            {
+                case 1: i = add_chosen(&current, i, &pb_full); i++; break;
+                case 2: std::cout << "search_chosen(&current, i, &pb_full)\n"; break;
+                case 3: std::cout << "Bye, bye\n"; return (0);
+            }
+        //     throw (error_code);
+        // }
     }
-   
+//    catch (error_code)
+//    {
+//     std::cout << "\nBye Bye\n";
+//     exit (1);
+//    }
 }

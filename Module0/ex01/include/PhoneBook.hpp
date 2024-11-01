@@ -6,17 +6,19 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:30:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/10/31 13:11:04 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/01 10:18:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include "Contact.hpp"
+# include "Contact.hpp" //maybe you dont need some of these?
 # include <iostream>
 # include <string>
 # include <cstring>
+# include <csignal>
+// #include <signal.h>
 
 class PhoneBook
 {

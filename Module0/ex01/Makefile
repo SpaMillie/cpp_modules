@@ -1,5 +1,5 @@
 NAME	=	open_phonebook
-
+#remember to delete the extra flags
 CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
 
 CXX = c++
