@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:20:56 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/01 17:57:29 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/04 18:50:42 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,13 +70,31 @@ void	print_PB(PhoneBook *cur)
 	std::cout << " ===========================================\n\n";
 }
 
+std::string	check_for_zeroes(std::string data)
+{
+	size_t i = 0;
+
+	while(data[i] != '\0' && data[i] == '0')
+		i++;
+	if (i == data.size())
+		return (data);
+	if (i != 0)
+		data = data.erase(i - 1);
+	return (data);
+}
+
+
 int	check_index(std::string data)
 {
 	const char *cc_data;
 	int	num;
 
-	if (data.size() > 10)
-		return (-1);
+	if (data.size() >= 10)
+	{
+		data = check_for_zeroes(data);
+		if (data.size() >= 10)
+			return (-1);
+	}
 	cc_data = data.c_str();
 	num = std::atoi(cc_data);
 	if (num >= 1 && num <= 8)
