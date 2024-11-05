@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 19:04:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/01 17:30:28 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/05 15:50:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,6 @@ size_t  PhoneBook::str_len(size_t check, int i)
         case 0: check = array[i].get_name().size(); break;
         case 1: check = array[i].get_l_name().size(); break;
         case 2: check = array[i].get_n_name().size(); break;
-        // case 3: check = array[i].get_num().size(); break;
-        // case 4: check = array[i].get_secr().size(); break;
     }
     return (check);
 }

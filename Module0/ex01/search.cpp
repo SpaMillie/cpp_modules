@@ -6,13 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:20:56 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/04 18:50:42 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/05 16:13:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/PhoneBook.hpp"
+#include <iomanip>
 
-void	print_contact(int i, PhoneBook *cur)
+static void	print_contact(int i, PhoneBook *cur)
 {
 	std::cout << "Printing contact no#" << i << ".\n";
 	std::cout << "First name: " << cur->pb_name(i - 1) << "\n";
@@ -22,7 +23,7 @@ void	print_contact(int i, PhoneBook *cur)
 	std::cout << "Darkest secret: " << cur->pb_secret(i - 1) << "\n\n";
 }
 
-void	print_info(size_t index, int i, PhoneBook *cur, std::string str)
+static void	print_info(size_t index, int i, PhoneBook *cur, std::string str)
 {
 	if (cur->str_len(index, i) > 10)
 	{
@@ -41,28 +42,17 @@ void	print_info(size_t index, int i, PhoneBook *cur, std::string str)
 	}
 }
 
-void	print_PB(PhoneBook *cur)
+static void	print_PB(PhoneBook *cur)
 {
-	// char	data[50];
-	// const char	*cc_str;
-	// size_t		i = 0;
-
 	std::cout << " ===========================================\n";
 	std::cout << "|  INDEX   |FIRST NAME| LAST NAME| NICKNAME |\n";
-	// cc_str = cur->pb_name(i).c_str();
-	// std::cout << cc_str << "\n";
 	for (int i = 0; i < cur->get_size(); i++)
 	{
 		std::cout << "|         " << i + 1;
-		// std::strncpy(data, cc_str, 45);
 		std::cout << "|";
 		print_info(0, i, cur, cur->pb_name(i));
-		// cc_str = cur->pb_l_name(i).c_str();
-		// std::strncpy(data, cc_str, 45);
 		std::cout << "|";
 		print_info(1, i, cur, cur->pb_l_name(i));
-		// cc_str = cur->pb_n_name(i).c_str();
-		// std::strncpy(data, cc_str, 45);
 		std::cout << "|";
 		print_info(2, i, cur, cur->pb_n_name(i));
 		std::cout << "|\n";
@@ -70,7 +60,7 @@ void	print_PB(PhoneBook *cur)
 	std::cout << " ===========================================\n\n";
 }
 
-std::string	check_for_zeroes(std::string data)
+static std::string	check_for_zeroes(std::string data)
 {
 	size_t i = 0;
 
@@ -79,12 +69,11 @@ std::string	check_for_zeroes(std::string data)
 	if (i == data.size())
 		return (data);
 	if (i != 0)
-		data = data.erase(i - 1);
+		data.erase(0, i);
 	return (data);
 }
 
-
-int	check_index(std::string data)
+static int	check_index(std::string data)
 {
 	const char *cc_data;
 	int	num;
@@ -121,13 +110,8 @@ void    search_chosen(PhoneBook *cur, int i)
 		std::cout << "Please provide a valid contact index (from 1 to 8):\n";
 		std::getline(std::cin, data);
 		if (std::cin.eof())
-		{
-			// std::cout << "\n";
 			abrupt_exit();	
-		}
-		// std::cout << data << " checking value\n";
 		index = check_index(data);
-		// std::cout << index << " checking index\n";
 		if (index != -1)
 		{
 			if (index <= cur->get_size())

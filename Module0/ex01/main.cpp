@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 18:57:28 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/01 15:29:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/05 15:54:41 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/PhoneBook.hpp"
+#include <csignal>
 
 /*a program called phonebook that can be used to store
 up to 8 contacts, stores the contacts statically, outputs
@@ -40,7 +41,6 @@ int main(void)
         std::getline(std::cin, data);
         if (std::cin.eof())
             abrupt_exit();
-        // std::cin.ignore();
         //doing things complicatedly to make it more cpp
         cc_data = data.c_str();
         case_num = get_case(cc_data);

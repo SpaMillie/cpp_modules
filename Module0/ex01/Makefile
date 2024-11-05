@@ -1,6 +1,6 @@
 NAME	=	open_phonebook
-#remember to delete the extra flags
-CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
+
+CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
@@ -12,8 +12,6 @@ SOURCE_FILES	= main.cpp \
 					utils.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
-
-# HEADER_FILES	= include/
 
 RM = rm -f
 
