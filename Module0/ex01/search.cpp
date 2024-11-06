@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/31 13:20:56 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/05 16:13:46 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/06 10:28:09 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,15 +31,8 @@ static void	print_info(size_t index, int i, PhoneBook *cur, std::string str)
 			std::cout << str[y];
 		std::cout << ".";
 	}
-	else if (cur->str_len(index, i) == 10)
-		std::cout << str;
 	else
-	{
-		for (int spaces = 10 - cur->str_len(index, i); spaces > 0; spaces--)
-			std::cout << " ";
-		for (size_t y = 0; y < cur->str_len(index, i); y++)
-			std::cout << str[y];
-	}
+		std::cout << std::setw(10) << str;
 }
 
 static void	print_PB(PhoneBook *cur)
