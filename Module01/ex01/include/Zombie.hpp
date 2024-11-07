@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:24 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/07 16:51:51 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/07 18:23:37 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,7 @@ class Zombie {
         ~Zombie();
 };
 
-//newZombie.cpp
-Zombie  *newZombie(std::string name);
-//randomChump.cpp
-void    randomChump(std::string name);
+//zombieHorde.cpp
+Zombie *zombieHorde(int N, std::string name);
 
 #endif
