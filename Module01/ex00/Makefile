@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/05 17:08:28 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/07 16:39:04 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	=	HarmfulZombieStereotypes
+NAME	= zombify	
 
-CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
+CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
