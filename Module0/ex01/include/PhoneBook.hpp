@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:30:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/05 16:14:08 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/07 09:31:18 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,6 @@ int     add_chosen(PhoneBook *cur, int i);
 void    search_chosen(PhoneBook *cur, int i); 
 //utils.cpp
 void    abrupt_exit(void);
-int get_case(const char *str);
+int     get_case(const char *str);
 
 #endif

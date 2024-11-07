@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/29 16:31:29 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/06 10:23:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/07 09:30:15 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int main(int argc, char **argv)
     {
         for (int i = 1; i < argc; i++)
         {
-            for(int j = 0; argv[i][j] != '\0'; j++)
+            for (int j = 0; argv[i][j] != '\0'; j++)
                     argv[i][j] = std::toupper(argv[i][j]);
             std::cout <<  argv[i];
             if (i + 1 == argc)
