@@ -1,23 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   newZombie.cpp                                      :+:      :+:    :+:   */
+/*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 16:57:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/07 17:42:47 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/05 16:57:24 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/07 16:51:51 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Zombie.hpp"
+#ifndef ZOMBIE_HPP
+# define ZOMBIE_HPP
 
-Zombie  *newZombie(std::string name)
-{
-    Zombie *new_one;
+# include <iostream>
 
-    new_one = new (std::nothrow) Zombie(name);
-    if (!new_one)
-        std::cout << "Memory allocation failed.\n";
-    return (new_one);
-}
+class Zombie {
+    private:
+        std::string z_name;
+    public:
+        void        announce(void);
+        Zombie(std::string name);
+        ~Zombie();
+};
+
+//newZombie.cpp
+Zombie  *newZombie(std::string name);
+//randomChump.cpp
+void    randomChump(std::string name);
+
+#endif
