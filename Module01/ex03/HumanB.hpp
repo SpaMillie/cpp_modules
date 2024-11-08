@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:40:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 18:45:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 22:45:30 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@
 class HumanB {
     private:
         std::string name;
-        Weapon cur;
+        Weapon *wPtr;
     public:
         void    attack(void);
-        void    setWeapon(Weapon cur_one);
+        void    setWeapon(Weapon& cur_one);
         HumanB(std::string name_one);
         ~HumanB();
 };

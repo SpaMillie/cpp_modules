@@ -6,16 +6,18 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:12:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 20:41:29 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 22:24:42 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "HumanA.hpp"
 
-HumanA::HumanA(std::string name_one, Weapon& cur_one){
-    name = name_one;
-    wRef = cur_one; 
-}
+HumanA::HumanA(std::string name_one, Weapon& cur_one) : name(name_one), wRef(cur_one) {}
+
+// HumanA::HumanA(std::string name_one, Weapon& cur_one){
+//     name = name_one;
+//     wRef = cur_one; 
+// }
 
 HumanA::~HumanA(){
     std::cout << name << " died.\n";
