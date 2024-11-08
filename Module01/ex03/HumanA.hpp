@@ -1,28 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:02:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 17:45:32 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/08 18:08:15 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/08 20:35:41 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
+# include "Weapon.hpp"
 
-int main(void)
-{
-    //testing the best ways to allocate new variables
-    //test #1: using heap
-    Zombie *random_guy;
+class HumanA {
+    private:
+        std::string name;
+        Weapon& wRef;
+    public:
+        void    attack(void) const;
+        HumanA(std::string name_one, Weapon& cur_one);
+        ~HumanA();
+};
 
-    random_guy = newZombie("Odysseus");
-    if (random_guy)
-        random_guy->announce();
-    randomChump("Penelope");
-    if (random_guy)
-        delete(random_guy);
-    //test #2: using stack
-}
+#endif

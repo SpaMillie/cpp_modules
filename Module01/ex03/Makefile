@@ -6,17 +6,20 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/08 17:51:20 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/08 20:37:45 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= stringing_me_along 
+NAME	= going_clubbing 
 
 CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp
+SOURCE_FILES	= main.cpp \
+					HumanA.cpp \
+					HumanB.cpp \
+					Weapon.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
@@ -33,7 +36,7 @@ all:		${NAME}
 
 ${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
 
 clean:

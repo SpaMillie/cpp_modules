@@ -6,11 +6,11 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/08 16:44:57 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/08 17:49:38 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= zombify
+NAME	= meeseeks_zombies 
 
 CXXFLAGS= -Wall -Werror -Wextra
 
@@ -35,7 +35,7 @@ all:		${NAME}
 
 ${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
 
 clean:

@@ -6,11 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/07 17:42:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 17:45:41 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Zombie.hpp"
+#include "Zombie.hpp"
 
 Zombie  *newZombie(std::string name)
 {

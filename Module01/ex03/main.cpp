@@ -5,24 +5,31 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:02:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 17:45:32 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/08 18:38:07 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/08 18:39:54 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "HumanA.hpp"
+#include "Weapon.hpp"
+#include "HumanB.hpp"
 
-int main(void)
+int main()
 {
-    //testing the best ways to allocate new variables
-    //test #1: using heap
-    Zombie *random_guy;
-
-    random_guy = newZombie("Odysseus");
-    if (random_guy)
-        random_guy->announce();
-    randomChump("Penelope");
-    if (random_guy)
-        delete(random_guy);
-    //test #2: using stack
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanA bob("Bob", club);
+        bob.attack();
+        club.setType("some other type of club");
+        bob.attack();
+    }
+    {
+        Weapon club = Weapon("crude spiked club");
+        HumanB jim("Jim");
+        jim.setWeapon(club);
+        jim.attack();
+        club.setType("some other type of club");
+        jim.attack();
+    }
+    return 0;
 }

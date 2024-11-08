@@ -1,28 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/05 17:02:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 17:45:32 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/08 18:01:54 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/08 20:41:19 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#include "Weapon.hpp"
 
-int main(void)
+Weapon::Weapon()
 {
-    //testing the best ways to allocate new variables
-    //test #1: using heap
-    Zombie *random_guy;
+    std::cout << "Weapon created without a type\n";
+}
 
-    random_guy = newZombie("Odysseus");
-    if (random_guy)
-        random_guy->announce();
-    randomChump("Penelope");
-    if (random_guy)
-        delete(random_guy);
-    //test #2: using stack
+Weapon::Weapon(const std::string& new_one){
+    type = new_one;
+}
+
+Weapon::~Weapon(){
+    std::cout << type <<" was destroyed\n";
+}
+
+const std::string& Weapon::getType(void){
+    return type;
+}
+
+void Weapon::setType(std::string new_one){
+    type = new_one;
 }

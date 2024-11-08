@@ -6,11 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:12:53 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 16:45:43 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 17:46:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Zombie.hpp"
+#include "Zombie.hpp"
 
 int main(void)
 {

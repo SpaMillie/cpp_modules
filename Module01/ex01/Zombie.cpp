@@ -6,11 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 10:36:59 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 17:47:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "include/Zombie.hpp"
+#include "Zombie.hpp"
 
 Zombie::Zombie(){
     z_name = "<name>";
