@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/08 16:44:57 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/08 16:47:48 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,7 @@ CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp \
-					Zombie.cpp \
-					zombieHorde.cpp
+SOURCE_FILES	= main.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

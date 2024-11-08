@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:24 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/07 18:23:37 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 10:35:47 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,9 @@ class Zombie {
     private:
         std::string z_name;
     public:
-        void        announce(void);
-        Zombie(std::string name);
+        void    announce(void) const;
+        void    set_name(std::string name);
+        Zombie();
         ~Zombie();
 };
 

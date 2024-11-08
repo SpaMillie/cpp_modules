@@ -6,21 +6,26 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/07 16:55:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 10:36:59 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "include/Zombie.hpp"
 
-Zombie::Zombie(std::string name){
-    z_name = name;
-};
+Zombie::Zombie(){
+    z_name = "<name>";
+}
 
 Zombie::~Zombie(){
     std::cout << Zombie::z_name << " has been unalived.\n";
 }
 
-void    Zombie::announce(void)
+void    Zombie::set_name(std::string name)
 {
-    std::cout << Zombie::z_name << ": BraiiiiiiinnnzzzZ...\n";
+    z_name = name;
+}
+
+void    Zombie::announce(void) const
+{
+    std::cout << z_name << ": BraiiiiiiinnnzzzZ...\n";
 }
