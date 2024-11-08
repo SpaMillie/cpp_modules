@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:13:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 16:44:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 16:52:12 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Zombie *zombieHorde(int N, std::string name)
     int i = 0;
     try
     {
-        the_horde = new Zombie[N]; //make_unique or unique_ptr look up
+        the_horde = new Zombie[N];
         while (i < N)
         {
             the_horde[i].set_name(name);
