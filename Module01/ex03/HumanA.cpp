@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:12:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 22:24:42 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/08 22:59:48 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ HumanA::HumanA(std::string name_one, Weapon& cur_one) : name(name_one), wRef(cur
 
 // HumanA::HumanA(std::string name_one, Weapon& cur_one){
 //     name = name_one;
-//     wRef = cur_one; 
+//     wRef = cur_one; this is impossible to initialize this way because of the reference
 // }
 
 HumanA::~HumanA(){
