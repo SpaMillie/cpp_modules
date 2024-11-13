@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/13 23:05:12 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/13 23:10:20 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,6 +101,8 @@ int main(int argc, char **argv)
    //cant use string::replace
    //handle errors and unexpected inputs
    //ifstream, ofstream, fstream
+
+    //use string find and then maybe output until pos and from pos search again etc?
 
     if (argc == 4)
     {
