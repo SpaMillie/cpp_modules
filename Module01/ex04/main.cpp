@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/13 23:10:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/14 00:15:00 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ int start_this(char **argv)
     std::string repl_str(argv[0]);
     repl_str.append(".replace");
     std::string text;
-    char *c_text;
-    char *copy_c_text;
+    // char *c_text;
+    // char *copy_c_text;
+    size_t n;
     size_t length;
-    size_t counter;
 
     filename.open(argv[0], std::ios::in);
     if (!filename.is_open())
@@ -72,21 +72,39 @@ int start_this(char **argv)
         return (-1);
     }
     std::ofstream repl_filename(repl_str);
-    while (getline(filename, text))
+    length = strlen(argv[1]);
+    while (getline(filename, text) && text.size() >= length)
     {
-        c_text = (char *)text.c_str();
-        counter = count_inst(c_text, argv[1]);
-        if (counter != 0)
+        n = 0;
+        while (1)
         {
-            length = strlen(c_text) - (counter * strlen(argv[1])) + (counter * strlen(argv[2])) + 1;
-            copy_c_text = ft_replace(c_text, argv[1], argv[2], length);
-            if (!copy_c_text)
-                return (-1);
-            repl_filename << copy_c_text << std::endl;
-            delete[] copy_c_text;
+            std::cout << "line at the beginning: " << text << std::endl; 
+            n = text.find(argv[1], n);
+            if (n == std::string::npos)
+                break ;
+            std::cout << n << " is n\n";
+            text.erase(n, n + length);
+            std::cout << "line after erase: " << text << std::endl; 
+            text.insert(n, argv[2]);
+            std::cout << "line after insert: " << text << std::endl; 
+            n += strlen(argv[2]);
+            std::cout << n << " is n before a new loop\n";
         }
-        else
-            repl_filename << c_text << std::endl;
+        std::cout << text << std::endl;
+        repl_filename << text << std::endl;
+        // c_text = (char *)text.c_str();
+        // counter = count_inst(c_text, argv[1]);
+        // if (counter != 0)
+        // {
+        //     length = strlen(c_text) - (counter * strlen(argv[1])) + (counter * strlen(argv[2])) + 1;
+        //     copy_c_text = ft_replace(c_text, argv[1], argv[2], length);
+        //     if (!copy_c_text)
+        //         return (-1);
+        //     repl_filename << copy_c_text << std::endl;
+        //     delete[] copy_c_text;
+        // }
+        // else
+        //     repl_filename << c_text << std::endl;
     }
     filename.close();
     repl_filename.close();
@@ -112,6 +130,7 @@ int main(int argc, char **argv)
             std::cerr << "Error: Invalid arguments\n";
             return (1);
         }
+
         if (start_this(argv) == -1)
             return (1);
     }
