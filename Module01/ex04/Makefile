@@ -6,17 +6,18 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/08 23:01:33 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/13 16:25:38 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= going_clubbing 
+NAME	= streaming 
 
-CXXFLAGS= -Wall -Werror -Wextra
+CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp
+SOURCE_FILES	= main.cpp \
+					Streaming.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
@@ -33,7 +34,7 @@ all:		${NAME}
 
 ${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
 
 clean:
