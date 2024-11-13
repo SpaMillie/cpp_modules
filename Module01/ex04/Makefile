@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/13 16:25:38 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/13 23:07:00 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,7 @@ CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp \
-					Streaming.cpp
+SOURCE_FILES	= main.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

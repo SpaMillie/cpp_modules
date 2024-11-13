@@ -6,33 +6,88 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/13 16:28:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/13 23:05:12 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Streaming.hpp"
+#include <fstream>
+#include <iostream>
+#include <cstring>
+#include <new>
 
-void write_error(std::string str)
+size_t count_inst(char *line, char *compare)
 {
-    std::cout << str;
+    size_t counter = 0;
+
+    for (size_t i = 0; i < strlen(line); i++)
+    {
+        if (line[i] == compare[0] && !strncmp(line + i, compare, strlen(compare)))
+            counter++;
+    }
+    return (counter);
 }
 
-int start_this(Streaming *cur)
+char    *ft_replace(char *source, char *replace, char *replace_with, size_t len)
+{
+    char *new_str;
+    size_t z = 0;
+    size_t i = 0;
+
+    new_str = new(std::nothrow) char[len];
+    if (!new_str)
+    {
+        std::cerr << "Memory allocation failed.\n";
+        return (NULL);
+    }
+    while(i < strlen(source))
+    {
+        if (source[i] == replace[0] && !strncmp(source + i, replace, strlen(replace)))
+        {
+            for (size_t y = 0; y < strlen(replace_with); y++)
+                new_str[z++] = replace_with[y];
+            i += strlen(replace);
+        }
+        else
+            new_str[z++] = source[i++];
+    }
+    new_str[z] = '\0';
+    return (new_str);
+}
+
+int start_this(char **argv)
 {
     std::fstream filename;
-    std::fstream repl_filename;
-    std::string repl_str = ".replace";
+    std::string repl_str(argv[0]);
+    repl_str.append(".replace");
+    std::string text;
+    char *c_text;
+    char *copy_c_text;
+    size_t length;
+    size_t counter;
 
-    filename.open(cur->get_element(1), std::ios::in);
+    filename.open(argv[0], std::ios::in);
     if (!filename.is_open())
     {
-        write_error("Error: Cannot access file.\n");
+        std::cerr << "Error: Failed to open file\n";
         return (-1);
     }
-    repl_filename.open(cur->get_element(1) + repl_str, std::ios::out);
-    // cur->set_element(*argv, 1);
-
-    std::cout << " got here\n";
+    std::ofstream repl_filename(repl_str);
+    while (getline(filename, text))
+    {
+        c_text = (char *)text.c_str();
+        counter = count_inst(c_text, argv[1]);
+        if (counter != 0)
+        {
+            length = strlen(c_text) - (counter * strlen(argv[1])) + (counter * strlen(argv[2])) + 1;
+            copy_c_text = ft_replace(c_text, argv[1], argv[2], length);
+            if (!copy_c_text)
+                return (-1);
+            repl_filename << copy_c_text << std::endl;
+            delete[] copy_c_text;
+        }
+        else
+            repl_filename << c_text << std::endl;
+    }
     filename.close();
     repl_filename.close();
     return (0);
@@ -46,17 +101,18 @@ int main(int argc, char **argv)
    //cant use string::replace
    //handle errors and unexpected inputs
    //ifstream, ofstream, fstream
-    // int check = 0;
-    Streaming cur;
 
     if (argc == 4)
     {
-        cur.set_element(argv[1], 1);
-        cur.set_element(argv[2], 2);
-        cur.set_element(argv[3], 3);
-        if (start_this(&cur) == -1)
+        argv++;
+        if (!strlen(argv[0]) || !strlen(argv[1]) || !strlen(argv[2]))
+        {
+            std::cerr << "Error: Invalid arguments\n";
+            return (1);
+        }
+        if (start_this(argv) == -1)
             return (1);
     }
     else
-        std::cout << "Error: Wrong number of arguments given. Please provide 3 arguments.\n";
+        std::cerr << "Error: Wrong number of arguments given. Please provide 3 arguments.\n";
 }
