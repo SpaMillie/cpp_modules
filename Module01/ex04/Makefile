@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/13 23:07:00 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/14 11:00:19 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= streaming 
 
-CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
+CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
