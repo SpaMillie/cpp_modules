@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:52:04 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/14 16:55:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/16 20:43:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,28 +35,51 @@ void    Harl::error(void)
 void    Harl::complain(std::string level)
 {
     int dig_level = 0;
-
-    try 
+    std::string arr[] = {"debug", "info", "warning", "error"};
+    if (level.empty())
     {
-        dig_level = stoi(level);
+        std::cerr << "\nError: Invalid level\n";
+        return ;
+    }    
+    for (int i = 0; i < 4; i++)
+    {
+        if (level == arr[i])
+        {
+            dig_level = i + 1;
+            break ;
+        }
     }
-    catch()
+    //fun fact:if i were to use stoi this how that would go
+    // try 
+    // {
+    //     dig_level = stoi(level);
+    // }
+    // catch (const std::invalid_argument& ia)
+    // {
+    //     std::cerr << "\nError: Invalid level\n";
+    //     return ;
+    // }
+    // catch (const std::out_of_range& oor)
+    // {
+    //     std::cerr << "\nError: Invalid level\n";
+    //     return ;
+    // }
     switch (dig_level)
     {
-    case (1):
-        Harl::debug();
-        break;
-    case (2):
-        Harl::info();
-        break;
-    case (3):
-        Harl::warning();
-        break;
-    case (4):
-        Harl::error();
-        break;
-    default:
-        std::cout << "\nAll good\n";
-        break;
+        case (1):
+            Harl::debug();
+            break;
+        case (2):
+            Harl::info();
+            break;
+        case (3):
+            Harl::warning();
+            break;
+        case (4):
+            Harl::error();
+            break;
+        default:
+            std::cout << "\nAll good\n";
+            break;
     }
 }

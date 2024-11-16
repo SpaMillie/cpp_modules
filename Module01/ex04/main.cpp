@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/14 10:59:31 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/16 20:32:26 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,13 @@
 #include <cstring>
 #include <new>
 
-size_t count_inst(char *line, char *compare)
-{
-    size_t counter = 0;
-
-    for (size_t i = 0; i < strlen(line); i++)
-    {
-        if (line[i] == compare[0] && !strncmp(line + i, compare, strlen(compare)))
-            counter++;
-    }
-    return (counter);
-}
-
-int start_this(char **argv)
+int ft_replace(char **argv)
 {
     std::fstream filename;
     std::string repl_str(argv[0]);
     repl_str.append(".replace");
     std::string text;
+    std::string line;
     size_t n;
     size_t length;
 
@@ -44,9 +33,11 @@ int start_this(char **argv)
     }
     std::ofstream repl_filename(repl_str);
     length = strlen(argv[1]);
-    while (getline(filename, text) && text.size() >= length)
+    while(getline(filename, line))
+        text += (line + "\n");
+    n = 0;
+    if (text.size() >= length)
     {
-        n = 0;
         while (1)
         {
             n = text.find(argv[1], n);
@@ -73,8 +64,7 @@ int main(int argc, char **argv)
             std::cerr << "Error: Invalid arguments\n";
             return (1);
         }
-
-        if (start_this(argv) == -1)
+        if (ft_replace(argv) == -1)
             return (1);
     }
     else

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:02:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 17:45:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/16 17:44:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ int main(void)
     random_guy = newZombie("Odysseus");
     if (random_guy)
         random_guy->announce();
-    randomChump("Penelope");
     if (random_guy)
         delete(random_guy);
     //test #2: using stack
+    randomChump("Penelope");
 }

@@ -6,12 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:13:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 17:47:15 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/16 20:15:39 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-// #include <new>
 
 Zombie *zombieHorde(int N, std::string name)
 {

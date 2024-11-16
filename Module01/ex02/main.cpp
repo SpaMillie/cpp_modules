@@ -13,8 +13,8 @@ the ref isnt an object so it should have the same address as its referent*/
 int main(void)
 {
     std::string str = "HI THIS IS BRAIN"; //a string variable
-    std::string *stringPTR = &str; //a pointer to the string variable
-    std::string &stringREF = str; //a reference to the string variable
+    std::string* stringPTR = &str; //a pointer to the string variable
+    std::string& stringREF = str; //a reference to the string variable
 
     std::cout << "The memory address of the string is: " << &str << std::endl;
     std::cout << "The memory address held by stringPTR: " << stringPTR << std::endl;

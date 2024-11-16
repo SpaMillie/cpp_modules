@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:42:58 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 22:56:21 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/16 20:17:36 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ HumanB::~HumanB(){
     std::cout << name << " died.\n";
 }
 
-void HumanB::attack(void){
+void HumanB::attack(void) const{
     if (wPtr)
         std::cout << name << " attacks with their " << wPtr->getType() << std::endl;
 }
