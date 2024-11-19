@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:52:04 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/16 20:43:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/19 14:48:22 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,9 @@ void    Harl::error(void)
 void    Harl::complain(std::string level)
 {
     int dig_level = 0;
-    std::string arr[] = {"debug", "info", "warning", "error"};
+    std::string arr[] = {"error", "warning", "info", "debug"};
+    void(Harl::*ptr)(void) = NULL;
+
     if (level.empty())
     {
         std::cerr << "\nError: Invalid level\n";
@@ -45,11 +47,11 @@ void    Harl::complain(std::string level)
     {
         if (level == arr[i])
         {
-            dig_level = i + 1;
+            dig_level = i + 2;
             break ;
         }
     }
-    //fun fact:if i were to use stoi this how that would go
+    //practising using stoi
     // try 
     // {
     //     dig_level = stoi(level);
@@ -66,20 +68,21 @@ void    Harl::complain(std::string level)
     // }
     switch (dig_level)
     {
-        case (1):
-            Harl::debug();
-            break;
-        case (2):
-            Harl::info();
-            break;
-        case (3):
-            Harl::warning();
+        case (5):
+            ptr = &Harl::debug;
             break;
         case (4):
-            Harl::error();
+            ptr = &Harl::info;
+            break;
+        case (3):
+            ptr = &Harl::warning;
+            break;
+        case (2):
+            ptr = &Harl::error;
             break;
         default:
             std::cout << "\nAll good\n";
-            break;
+            return ;
     }
+    (this->*ptr)();
 }

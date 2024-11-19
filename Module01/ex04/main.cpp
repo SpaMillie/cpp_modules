@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/16 20:32:26 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/19 15:15:14 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int ft_replace(char **argv)
     repl_str.append(".replace");
     std::string text;
     std::string line;
-    size_t n;
+    size_t n = 0;;
     size_t length;
 
     filename.open(argv[0], std::ios::in);
@@ -35,7 +35,6 @@ int ft_replace(char **argv)
     length = strlen(argv[1]);
     while(getline(filename, line))
         text += (line + "\n");
-    n = 0;
     if (text.size() >= length)
     {
         while (1)
@@ -47,8 +46,10 @@ int ft_replace(char **argv)
             text.insert(n, argv[2]);
             n += strlen(argv[2]);
         }
-        repl_filename << text << std::endl;
+        repl_filename << text;
     }
+    else
+        repl_filename << text;
     filename.close();
     repl_filename.close();
     return (0);

@@ -6,13 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:13:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/16 20:15:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/19 15:26:22 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-Zombie *zombieHorde(int N, std::string name)
+Zombie* zombieHorde(int N, std::string name)
 {
     Zombie *the_horde = nullptr;
     int i = 0;

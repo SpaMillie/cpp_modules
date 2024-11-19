@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:01:54 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/08 22:48:52 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/19 15:17:13 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ Weapon::~Weapon(){
     std::cout << type <<" was destroyed\n";
 }
 
-const std::string& Weapon::getType(void){
+const std::string& Weapon::getType(void) const{
     return type;
 }
 

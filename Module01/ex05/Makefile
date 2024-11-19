@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/14 12:51:57 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/19 15:00:49 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= makesmewanttoharl 
 
-CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
+CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
