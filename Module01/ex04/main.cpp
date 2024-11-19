@@ -43,7 +43,8 @@ int ft_replace(char **argv)
             if (n == std::string::npos)
                 break ;
             text.erase(n, length);
-            text.insert(n, argv[2]);
+            if (strlen(argv[2]))
+                text.insert(n, argv[2]);
             n += strlen(argv[2]);
         }
         repl_filename << text;
@@ -60,7 +61,7 @@ int main(int argc, char **argv)
     if (argc == 4)
     {
         argv++;
-        if (!strlen(argv[0]) || !strlen(argv[1]) || !strlen(argv[2]))
+        if (!strlen(argv[0]) || !strlen(argv[1]))
         {
             std::cerr << "Error: Invalid arguments\n";
             return (1);

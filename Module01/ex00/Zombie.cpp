@@ -13,7 +13,10 @@
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string z_name){
-    name = z_name;
+    if (z_name.size() == 0)
+        name = "<name>";
+    else
+        name = z_name;
 };
 
 Zombie::~Zombie(){

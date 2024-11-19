@@ -1,31 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/08 18:42:58 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/16 20:17:36 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/14 12:31:13 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/14 16:44:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "HumanB.hpp"
+#ifndef HARL_HPP
+#define HARL_HPP
 
-HumanB::HumanB(std::string name_one) {
-    name = name_one;
-    wPtr = NULL;
-}
+# include <iostream>
+# include <iomanip>
+# include <string>
 
-HumanB::~HumanB(){
-    std::cout << name << " died.\n";
-}
+class Harl{
+    private:
+        void    debug(void);
+        void    info(void);
+        void    warning(void);
+        void    error(void);
+    public:
+        void    complain(std::string level);
+};
 
-void HumanB::attack(void) const{
-    if (wPtr)
-        std::cout << name << " attacks with their " << wPtr->getType() << std::endl;
-}
-
-void    HumanB::setWeapon(Weapon& cur_one){
-    wPtr = &cur_one;
-}
+#endif

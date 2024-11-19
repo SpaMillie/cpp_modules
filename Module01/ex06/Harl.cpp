@@ -36,11 +36,11 @@ void    Harl::complain(std::string level)
 {
     int dig_level = 0;
     void(Harl::*ptr)(void) = NULL;
-    std::string arr[] = {"error", "warning", "info", "debug"};
+    std::string arr[] =  {"error", "warning", "info", "debug"};
 
     if (level.empty())
     {
-        std::cerr << "\nError: Invalid level\n";
+        std::cerr << "Error: Invalid level\n";
         return ;
     }    
     for (int i = 0; i < 4; i++)
@@ -51,21 +51,6 @@ void    Harl::complain(std::string level)
             break ;
         }
     }
-    //practising using stoi
-    // try 
-    // {
-    //     dig_level = stoi(level);
-    // }
-    // catch (const std::invalid_argument& ia)
-    // {
-    //     std::cerr << "\nError: Invalid level\n";
-    //     return ;
-    // }
-    // catch (const std::out_of_range& oor)
-    // {
-    //     std::cerr << "\nError: Invalid level\n";
-    //     return ;
-    // }
     switch (dig_level)
     {
         case (5):
@@ -81,8 +66,10 @@ void    Harl::complain(std::string level)
             ptr = &Harl::error;
             break;
         default:
-            std::cout << "\nCan't complain :3\n";
+            std::cout << "Can't complain :3\n";
             return ;
     }
     (this->*ptr)();
+    if (dig_level > 2)
+        complain(arr[dig_level - 3]);
 }

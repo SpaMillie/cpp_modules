@@ -5,21 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/07 16:39:04 by mspasic          ###   ########.fr        #
+#    Created: 2024/11/07 17:09:33 by mspasic           #+#    #+#              #
+#    Updated: 2024/11/19 15:00:49 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= call_a_zombie_service	
+NAME	= harlFilter
 
 CXXFLAGS= -Wall -Werror -Wextra
 
 CXX = c++
 
 SOURCE_FILES	= main.cpp \
-					newZombie.cpp \
-					randomChump.cpp \
-					Zombie.cpp
+					Harl.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
@@ -36,7 +34,7 @@ all:		${NAME}
 
 ${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
 
 clean:
@@ -52,3 +50,4 @@ fclean:		clean
 re:			fclean all
 
 .PHONY:		all clean fclean re
+
