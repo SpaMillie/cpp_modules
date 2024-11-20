@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:24 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 15:26:15 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:38:54 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Zombie {
         ~Zombie();
 };
 
-//zombieHorde.cpp
 Zombie* zombieHorde(int N, std::string name);
 
 #endif

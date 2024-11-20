@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 12:52:04 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 14:48:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:41:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ void    Harl::error(void)
 void    Harl::complain(std::string level)
 {
     int dig_level = 0;
-    void(Harl::*ptr)(void) = NULL;
+    void(Harl::*ptr)(void) = nullptr;
     std::string arr[] =  {"error", "warning", "info", "debug"};
 
     if (level.empty())
     {
-        std::cerr << "Error: Invalid level\n";
+        std::cout << "Error: Invalid level\n";
         return ;
     }    
     for (int i = 0; i < 4; i++)

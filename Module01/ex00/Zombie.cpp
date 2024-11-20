@@ -6,17 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 16:57:34 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 15:27:43 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:36:37 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
 Zombie::Zombie(std::string z_name){
-    if (z_name.size() == 0)
-        name = "<name>";
-    else
-        name = z_name;
+    name = z_name;
 };
 
 Zombie::~Zombie(){

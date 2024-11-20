@@ -6,46 +6,44 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 23:01:45 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 15:15:14 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:54:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <fstream>
 #include <iostream>
-#include <cstring>
-#include <new>
 
-int ft_replace(char **argv)
+int ft_replace(std::string name, std::string str1, std::string str2)
 {
     std::fstream filename;
-    std::string repl_str(argv[0]);
+    std::string repl_str(name);
     repl_str.append(".replace");
     std::string text;
     std::string line;
     size_t n = 0;;
     size_t length;
 
-    filename.open(argv[0], std::ios::in);
+    filename.open(name, std::ios::in);
     if (!filename.is_open())
     {
-        std::cerr << "Error: Failed to open file\n";
+        std::cout << "Error: Failed to open file\n";
         return (-1);
     }
     std::ofstream repl_filename(repl_str);
-    length = strlen(argv[1]);
+    length = str1.size();
     while(getline(filename, line))
         text += (line + "\n");
     if (text.size() >= length)
     {
         while (1)
         {
-            n = text.find(argv[1], n);
+            n = text.find(str1, n);
             if (n == std::string::npos)
                 break ;
             text.erase(n, length);
-            if (strlen(argv[2]))
-                text.insert(n, argv[2]);
-            n += strlen(argv[2]);
+            if (str2.size())
+                text.insert(n, str2);
+            n += str2.size();
         }
         repl_filename << text;
     }
@@ -61,14 +59,17 @@ int main(int argc, char **argv)
     if (argc == 4)
     {
         argv++;
-        if (!strlen(argv[0]) || !strlen(argv[1]))
+        std::string filename(argv[0]);
+        std::string str1(argv[1]);
+        std::string str2(argv[2]);
+        if (filename.size() == 0 || str1.size() == 0)
         {
-            std::cerr << "Error: Invalid arguments\n";
+            std::cout << "Error: Invalid arguments\n";
             return (1);
         }
-        if (ft_replace(argv) == -1)
+        if (ft_replace(filename, str1, str2) == -1)
             return (1);
     }
     else
-        std::cerr << "Error: Wrong number of arguments given. Please provide 3 arguments.\n";
+        std::cout << "Error: Wrong number of arguments given. Please provide 3 arguments.\n";
 }

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/05 17:02:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/16 17:44:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 20:02:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,19 @@ int main(void)
     Zombie *random_guy;
 
     random_guy = newZombie("Odysseus");
-    if (random_guy)
+    if (random_guy != nullptr)
         random_guy->announce();
-    if (random_guy)
+    if (random_guy != nullptr)
         delete(random_guy);
+    random_guy = newZombie("");
+    if (random_guy != nullptr)
+        random_guy->announce();
+    if (random_guy != nullptr)
+        delete(random_guy);    
     //test #2: using stack
     randomChump("Penelope");
+    randomChump("bye");
+    randomChump("");
+    randomChump("123");
+    randomChump("\n");
 }

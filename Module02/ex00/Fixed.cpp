@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:46:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/20 15:40:48 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 16:41:56 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ Fixed::Fixed(const Fixed& obj){
 
 Fixed& Fixed::operator=(const Fixed& other){
 	std::cout << "Copy assignment operator called\n";
-	if (this == &other) //check if the curobj is the same as the one being assigned to it
+	if (this == &other) //check if the cur_obj is the same as the one being assigned to it
 		return (*this);
 	value = other.getRawBits(); 
 	return (*this);
@@ -39,6 +39,6 @@ int Fixed::getRawBits(void) const {
 }
 
 void Fixed::setRawBits(int const raw){
-	std::cout << "setRawBits member function called\n"; //maybe without this?
-	value = raw << bits; //bit shift
+	std::cout << "setRawBits member function called\n";
+	value = raw; //this is wehre the bit shift goes but not in this exercise?
 }

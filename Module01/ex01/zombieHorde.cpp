@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/07 17:13:38 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 15:26:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:40:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ Zombie* zombieHorde(int N, std::string name)
     }
     catch(const std::bad_alloc &e)
     {
-        std::cerr << "Allocation failed: " << e.what() << '\n';
+        std::cout << "Allocation failed: " << e.what() << '\n';
         exit(1);
     }
 }

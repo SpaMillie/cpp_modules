@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/08 18:01:54 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/19 15:17:13 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/20 19:55:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 Weapon::Weapon()
 {
-    type = nullptr;
+    type = "their fist";
     std::cout << "Weapon created without a type\n";
 }
 
