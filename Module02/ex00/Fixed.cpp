@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 13:46:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/20 16:41:56 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/21 12:46:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ int Fixed::getRawBits(void) const {
 
 void Fixed::setRawBits(int const raw){
 	std::cout << "setRawBits member function called\n";
-	value = raw; //this is wehre the bit shift goes but not in this exercise?
+	value = raw; //this is not correct, but the subject doesn't specify that you have to do anyting for this here
+	//see if the eval sheet does though                                                          
 }

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:37:21 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/20 19:39:00 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/21 13:51:18 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class Fixed{
         Fixed();
         Fixed(const int param_int);
         Fixed(const float param_fl);
-        Fixed(Fixed &obj);
+        Fixed(const Fixed &obj);
         Fixed& operator=(const Fixed& other);
         ~Fixed();
         int     getRawBits(void) const;
