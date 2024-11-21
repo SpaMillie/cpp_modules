@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:36:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/21 17:53:55 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/21 19:27:51 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,12 @@ Fixed::Fixed(const int param_int){
 Fixed::Fixed(const float param_fl){
     std::cout << "Float constructor called\n";
     this->value = (int)roundf((param_fl) * (1 << bits));
+    int test = (int)roundf(param_fl * pow(2, bits));
+    std::cout << "test is " << test << " vs the real deal which is " << this->value << std::endl;
+    float intpart = test >> bits;
+    float flpart = (float)(test & ((1 << bits) - 1)) / (1 << bits);
+    intpart += flpart; 
+    std::cout << "floating point value for test is " << intpart << " flpart is " << flpart << std::endl;
 }
 
 Fixed::Fixed(const Fixed &obj):value(obj.value){
