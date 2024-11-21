@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:37:21 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/21 13:51:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:04:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,5 +32,7 @@ class Fixed{
         float   toFloat(void) const;
         int     toInt(void) const;
 };
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj);
 
 #endif

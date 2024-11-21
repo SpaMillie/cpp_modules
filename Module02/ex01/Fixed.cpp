@@ -6,23 +6,24 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:36:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/21 14:25:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/21 17:53:55 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-Fixed::Fixed():value(0){};
+Fixed::Fixed():value(0){
+    std::cout << "Default constructor called\n";
+};
 
 Fixed::Fixed(const int param_int){
     std::cout << "Int constructor called\n";
-    this->value = param_int << bits;
+    setRawBits(param_int); 
 }
 
 Fixed::Fixed(const float param_fl){
     std::cout << "Float constructor called\n";
-    int temp = static_cast <int> (std::roundf(param_fl));
-    this->value = temp << bits;
+    this->value = (int)roundf((param_fl) * (1 << bits));
 }
 
 Fixed::Fixed(const Fixed &obj):value(obj.value){
@@ -38,24 +39,28 @@ Fixed& Fixed::operator=(const Fixed& other){
 }
 
 Fixed::~Fixed(){
-    std::cout << "destructor called\n";
+    std::cout << "Destructor called\n";
 }
 
 int Fixed::getRawBits(void) const{
     return value;
 }
 
-void    Fixed::setRawBits(int const raw)
-{
+void    Fixed::setRawBits(int const raw){
     value = raw << bits;
 }
 
 int   Fixed::toInt(void) const{
-    int temp = this->value >> bits;
-    return(temp);
+    return(this->value >> bits);
 }
 
 float   Fixed::toFloat(void) const{
-    float temp = this->value >> bits;
-    return(temp);
+    float intpart = this->value >> bits;
+    float flpart = (float)(this->value & ((1 << bits) - 1)) / (1 << bits);
+    return (intpart + flpart);
+}
+
+std::ostream& operator<<(std::ostream& os, const Fixed& obj){
+    os << obj.toFloat();
+    return(os);
 }
