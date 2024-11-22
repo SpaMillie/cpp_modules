@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:36:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/22 17:31:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/22 18:07:07 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,7 +117,6 @@ Fixed& Fixed::operator++(){
 Fixed Fixed::operator++(int){
     Fixed temp = *this;
     ++(*this);
-    std::cout << "checking if it updates " << *this << std::endl; 
     return (temp);
 }
 

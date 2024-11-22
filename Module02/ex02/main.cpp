@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:39:23 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/22 17:30:19 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/22 18:08:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,43 +16,49 @@ int main( void ) {
     
     Fixed a;
     Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
+    // Fixed c(40);
+    // Fixed d(a);
+
+    // std::cout << c << std::endl << d << std::endl;
+
+    // d = c;
+
+    // std::cout << d << std::endl;
+
+    // Fixed const f (2.16f);
+
+    // // d = (d + a);
+    // std::cout << d << " - " << a << " = " << (d - a) << std::endl;
+    // // d = (d - a);
+    // std::cout << d << " + " << a << " = " << (d + a) << std::endl;
+    // // d = (c * d);
+    // std::cout << d << " * " << c << " = " << (d * c) << std::endl;
+    // // d = (d / c);
+    // std::cout << d << " / " << c << " = " << (d / c) << std::endl;
+
+    // std::cout << c << " > " << b << " = " << (c > b) << std::endl;
+    // std::cout << c << " < " << b << " = " << (c < b) << std::endl;
+    // std::cout << c << " >= " << b << " = " << (c >= b) << std::endl;
+    // std::cout << c << " <= " << b << " = " << (c <= b) << std::endl;
+    // std::cout << c << " == " << b << " = " << (c == b) << std::endl;
+    // std::cout << c << " != " << b << " = " << (c != b) << std::endl;
 
     std::cout << a << std::endl;
     std::cout << ++a << std::endl;
     std::cout << a << std::endl;
     std::cout << a++ << std::endl;
     std::cout << a << std::endl;
-    
+    // std::cout << --a << std::endl;
+    // std::cout << a << std::endl;
+    // std::cout << a-- << std::endl;
+    // std::cout << a << std::endl;
+
     std::cout << b << std::endl;
 
     std::cout << Fixed::max( a, b ) << std::endl;
-
+    // std::cout << "max between " << a << " and " << c << " is " << Fixed::max(a, c) <<std::endl;
+    // std::cout << "min between " << a << " and " << c << " is " << Fixed::min(a, c) <<std::endl;
+    // std::cout << "max between " << b << " and " << f << " is " << Fixed::max(b, f) <<std::endl;
+    // std::cout << "min between " << b << " and " << f << " is " << Fixed::min(b, f) <<std::endl;
     return 0;
-
-    // Fixed a;
-    // Fixed const b( 10 );
-    // Fixed const c( 42.42f );
-    // Fixed const d( b );
-
-    // a = Fixed( 1234.4321f );
-
-    // // std::cout.precision(2);
-
-    // std::cout << "a is " << a << std::endl;
-    // std::cout << "b is " << b << std::endl;
-    // std::cout << "c is " << c << std::endl;
-    // std::cout << "d is " << d << std::endl;
-
-    // std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-    // std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-    // std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-    // std::cout << "d is " << d.toInt() << " as integer" << std::endl;
-
-    // // std::cout << std::fixed;
-    // std::cout << "a is " << a.toFloat() << " as float" << std::endl;
-    // std::cout << "b is " << b.toFloat() << " as float" << std::endl;
-    // std::cout << "c is " << c.toFloat() << " as float" << std::endl;
-    // std::cout << "d is " << d.toFloat() << " as float" << std::endl;
-
-    // return 0;
 }
