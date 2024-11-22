@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 16:36:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/22 15:44:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/22 17:31:27 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,20 +81,28 @@ bool Fixed::operator!=(const Fixed& other){
 
 /* arithmetic operators */
 
-int Fixed::operator+(const Fixed& other){
-    return (this->value + other.value);
+float Fixed::operator+(const Fixed& other){
+    float temp = this->toFloat() + other.toFloat();
+    this->value = (int)roundf((temp) * (1 << bits));
+    return (this->toFloat());
 }
 
-int Fixed::operator-(const Fixed& other){
-    return (this->value - other.value);
+float Fixed::operator-(const Fixed& other){
+    float temp = this->toFloat() - other.toFloat();
+    this->value = (int)roundf((temp) * (1 << bits));
+    return (this->toFloat());
 }
 
-int Fixed::operator*(const Fixed& other){
-    return (this->value * other.value);
+float Fixed::operator*(const Fixed& other){
+    float temp = this->toFloat() * other.toFloat();
+    this->value = (int)roundf((temp) * (1 << bits));
+    return (this->toFloat());
 }
 
-int Fixed::operator/(const Fixed& other){
-    return (this->value / other.value);
+float Fixed::operator/(const Fixed& other){
+    float temp = this->toFloat() / other.toFloat();
+    this->value = (int)roundf((temp) * (1 << bits));
+    return (this->toFloat());
 }
 
 /*increment and decrement operators*/
@@ -106,9 +114,10 @@ Fixed& Fixed::operator++(){
 }
 
 //a++
-Fixed Fixed::operator++(int n){
+Fixed Fixed::operator++(int){
     Fixed temp = *this;
-    this->value += 1;
+    ++(*this);
+    std::cout << "checking if it updates " << *this << std::endl; 
     return (temp);
 }
 
@@ -119,9 +128,9 @@ Fixed& Fixed::operator--(){
 }
 
 //a++
-Fixed Fixed::operator--(int n){
+Fixed Fixed::operator--(int){
     Fixed temp = *this;
-    this->value -= 1;
+    --(*this);
     return (temp);
 }
 
@@ -144,21 +153,24 @@ float   Fixed::toFloat(void) const{
 }
 
 /*min and max*/
-static Fixed&  min(Fixed& obj1, Fixed& obj2){
+Fixed&  Fixed::min(Fixed& obj1, Fixed& obj2){
+    if (obj1 > obj2)
+        return (obj2);
+    return (obj1);
+}
+
+Fixed&  Fixed::min(const Fixed& obj1, const Fixed& obj2){
+   return (min((Fixed&)obj1, (Fixed&)obj2)); 
+}
+
+Fixed&  Fixed::max(Fixed& obj1, Fixed& obj2){
     if (obj1 < obj2)
-        return (obj1);
+        return (obj2);
+    return (obj1);
 }
 
-static Fixed&  min(const Fixed& obj1, const Fixed& obj2){
-
-}
-
-static Fixed&  max(Fixed& obj1, Fixed& obj2){
-
-}
-
-static Fixed&  max(const Fixed& obj1, const Fixed& obj2){
-
+Fixed&  Fixed::max(const Fixed& obj1, const Fixed& obj2){
+   return (max((Fixed&)obj1, (Fixed&)obj2)); 
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& obj){
