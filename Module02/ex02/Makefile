@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/22 13:16:34 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/20 15:29:58 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= a.out 
 
-CXXFLAGS= -Wall -Werror -Wextra
+CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
 
 CXX = c++
 
