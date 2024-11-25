@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:23:21 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/25 14:46:10 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/25 19:04:04 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 # define CLAPTRAP_HPP
 
 # include <iostream>
+
+//set const what can be  consst
 
 class ClapTrap {
     private:
@@ -30,8 +32,10 @@ class ClapTrap {
         void            attack(const std::string& target);
         void            takeDamage(unsigned int amount);
         void            beRepaired(unsigned int amount);
-        std::string     get_name(void);
-        unsigned int    get_int(int whichone);
+        void            attacks_the_other(ClapTrap& other);
+        std::string     get_name(void) const;
+        unsigned int    get_int(int whichone) const;
+        void            set_name(std::string name);
 };
 
 #endif
