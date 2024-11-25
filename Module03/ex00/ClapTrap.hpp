@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:23:21 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/25 14:31:29 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/25 14:46:10 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class ClapTrap {
         void            takeDamage(unsigned int amount);
         void            beRepaired(unsigned int amount);
         std::string     get_name(void);
-        unsigned int    get_int(void);
+        unsigned int    get_int(int whichone);
 };
 
 #endif
