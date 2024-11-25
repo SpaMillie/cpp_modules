@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:24:40 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/25 14:36:23 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/25 14:44:34 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,15 +35,31 @@ ClapTrap::~ClapTrap(){
 }
 
 void    ClapTrap::attack(const std::string& target){
-    std::cout << "ClapTrap " << this->name << " attacks " << target <<  "causing <damage> points of damage!\n";
+    if (this->energy_pts > 0 && this->hit_pts > 0)
+    {
+        std::cout << "ClapTrap " << this->name << " attacks " << target <<  " causing 3 points of damage!\n";
+        this->energy_pts--;
+    }
 }
 
 void    ClapTrap::takeDamage(unsigned int amount){
-
+    if (this->energy_pts >= 0 && this->hit_pts > 0)
+    {
+        std::cout << "ClapTrap " << this->name << " receives " << amount <<  " points of damage!\n";
+        if (amount > this->hit_pts)
+            this->hit_pts = 0;
+        else
+            this->hit_pts -= amount;
+    }
 }
 
 void    ClapTrap::beRepaired(unsigned int amount){
-
+    if (this->energy_pts > 0 && this->hit_pts > 0)
+    {
+        std::cout << "ClapTrap " << this->name << " repairs itself by " << amount <<  " points\n";
+        this->energy_pts--;
+        this->hit_pts += amount;
+    }
 }
 
 
