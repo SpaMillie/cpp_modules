@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 14:11:55 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/20 14:12:35 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/26 11:55:23 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ int main( void ) {
     c = b;
     std::cout << a.getRawBits() << std::endl;
     std::cout << b.getRawBits() << std::endl;
+    std::cout << c.getRawBits() << std::endl;
+    c.setRawBits(0);
     std::cout << c.getRawBits() << std::endl;
     return 0;
 }
