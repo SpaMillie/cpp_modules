@@ -6,27 +6,31 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:24:40 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/25 19:20:38 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/28 13:34:44 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
 ClapTrap::ClapTrap():name(" "), hit_pts(10), energy_pts(10), attack_dmg(0){
-    std::cout <<  "Default constructor called\n";
+    std::cout <<  "ClapTrap default constructor called\n";
 }
 
 ClapTrap::ClapTrap(std::string name):name(name), hit_pts(10), energy_pts(10), attack_dmg(0){
-    std::cout <<  "Named constructor called\n";
+    std::cout <<  "ClapTrap named constructor called\n";
+}
+
+ClapTrap::ClapTrap(std::string name, unsigned int hp, unsigned int ep, unsigned int ad):name(name), hit_pts(hp), energy_pts(ep), attack_dmg(ad){
+    std::cout << "ClapTrap constructor called\n";
 }
 
 ClapTrap::ClapTrap(const ClapTrap& obj){
-    std::cout <<  "Copy constructor called\n";
+    std::cout <<  "ClapTrap copy constructor called\n";
     *this = obj;
 }
 
 ClapTrap& ClapTrap::operator=(const ClapTrap& other){
-    std::cout <<  "Copy assignment operator called\n";
+    std::cout <<  "ClapTrap copy assignment operator called\n";
     if (this == &other)
         return (*this);
     this->name = other.name;
@@ -37,7 +41,7 @@ ClapTrap& ClapTrap::operator=(const ClapTrap& other){
 }
 
 ClapTrap::~ClapTrap(){
-    std::cout << "Destructor called\n";
+    std::cout << "ClapTrap destructor called\n";
 }
 
 void    ClapTrap::attack(const std::string& target){
@@ -73,13 +77,13 @@ void    ClapTrap::takeDamage(unsigned int amount){
     }
 }
 
-void ClapTrap::attacks_the_other(ClapTrap& other)
-{
-    int randomNum = rand() % 11;
-    this->attack(other.get_name());
-    if (this->get_int(1) != 0 && this->get_int(2) != 0)
-        other.takeDamage(randomNum);
-}
+// void ClapTrap::attacks_the_other(ClapTrap& other)
+// {
+//     int randomNum = rand() % 11;
+//     this->attack(other.get_name());
+//     if (this->get_int(1) != 0 && this->get_int(2) != 0)
+//         other.takeDamage(randomNum);
+// }
 
 void    ClapTrap::beRepaired(unsigned int amount){
     if (amount > 10)
@@ -115,5 +119,21 @@ unsigned int ClapTrap::get_int(int whichone) const{
             return this->attack_dmg;
         default:
             return 100;
+    }
+}
+
+void    ClapTrap::set_int(int whichone, unsigned int value) {
+    switch(whichone){
+        case 1:
+            this->hit_pts = value;
+            break;
+        case 2:
+            this->energy_pts = value;
+            break;
+        case 3:
+            this->attack_dmg = value;
+            break;
+        default:
+            break;
     }
 }
