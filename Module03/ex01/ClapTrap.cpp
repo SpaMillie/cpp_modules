@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:24:40 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/28 13:34:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/28 16:49:07 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,14 +77,6 @@ void    ClapTrap::takeDamage(unsigned int amount){
     }
 }
 
-// void ClapTrap::attacks_the_other(ClapTrap& other)
-// {
-//     int randomNum = rand() % 11;
-//     this->attack(other.get_name());
-//     if (this->get_int(1) != 0 && this->get_int(2) != 0)
-//         other.takeDamage(randomNum);
-// }
-
 void    ClapTrap::beRepaired(unsigned int amount){
     if (amount > 10)
         amount = 10;
@@ -98,6 +90,8 @@ void    ClapTrap::beRepaired(unsigned int amount){
     {
         if (this->energy_pts == 0)
             std::cout << "ClapTrap " << this->name << " is out of energy points.\n";
+        if (this->hit_pts == 0)
+            std::cout << "ClapTrap " << this->name << " is out of hit points.\n"; 
     }
 }
 
