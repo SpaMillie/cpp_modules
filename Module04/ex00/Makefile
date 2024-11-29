@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/29 12:14:03 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/29 12:23:48 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,11 @@ CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 CXX = c++
 
 SOURCE_FILES	= main.cpp \
-				ClapTrap.cpp	
+				Animal.cpp \
+				Cat.cpp \
+				Dog.cpp \
+				WrongAnimal.cpp \
+				WrongCat.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

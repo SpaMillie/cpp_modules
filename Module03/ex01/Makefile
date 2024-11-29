@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/26 12:16:22 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/29 12:14:39 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= bumClapBumDiClapDiClap
 
-CXXFLAGS= -Wall -Werror -Wextra -fsanitize=address -g
+CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 
 CXX = c++
 
