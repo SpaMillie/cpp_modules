@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 15:26:21 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:06:58 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Dog:public Animal{
         Dog(const Dog& obj);
         Dog& operator=(const Dog& other);
         ~Dog();
-        void    make_sound(void) const override;
+        void    makeSound(void) const override;
 };
 
 #endif

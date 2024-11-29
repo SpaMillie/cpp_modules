@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:02:00 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 12:03:50 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:56:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,57 +42,6 @@ FragTrap::~FragTrap(){
 
 void    FragTrap::highFivesGuys(void) const{
     std::cout << this->get_name() << " gets a high five, they get a high five, you all get a HIGH FIVE!\n";
-}
-
-void    FragTrap::attack(const std::string& target){
-    if (this->energy_pts > 0 && this->hit_pts > 0)
-    {
-        std::cout << "FragTrap " << this->name << " attacks " << target <<  " causing points of damage!\n";
-        this->energy_pts--;
-    }
-    else 
-    {
-        if (this->energy_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of energy points.\n";
-        if (this->hit_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of hit points.\n";
-    }
-}
-
-void    FragTrap::takeDamage(unsigned int amount){
-    if (this->energy_pts > 0 && this->hit_pts > 0)
-    {
-        if (amount > this->hit_pts)
-            amount = this->hit_pts;
-        std::cout << "FragTrap " << this->name << " receives " << amount <<  " points of damage!\n";
-        this->hit_pts -= amount;
-        this->attack_dmg += amount;
-    }
-    else 
-    {
-        if (this->energy_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of energy points.\n";
-        if (this->hit_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of hit points.\n";
-    }
-}
-
-void    FragTrap::beRepaired(unsigned int amount){
-    if (amount > 10)
-        amount = 10;
-    if (this->energy_pts > 0 && this->hit_pts > 0)
-    {
-        std::cout << "FragTrap " << this->name << " repairs itself by " << amount <<  " points\n";
-        this->energy_pts--;
-        this->hit_pts += amount;
-    }
-    else 
-    {
-        if (this->energy_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of energy points.\n";
-        if (this->hit_pts == 0)
-            std::cout << "FragTrap " << this->name << " is out of hit points.\n"; 
-    }
 }
 
 void FragTrap::attacks_the_other(FragTrap& other)

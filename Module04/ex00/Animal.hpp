@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:07 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 15:19:31 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:10:09 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class Animal{
         // Animal(std::string type);
         Animal(const Animal& obj);
         Animal& operator=(const Animal& other);
-        ~Animal();
-        virtual void make_sound(void) const;
-        std::string get_type(void) const;
-        void    set_type(std::string type);
+        virtual ~Animal();
+        virtual void makeSound(void) const;
+        std::string getType(void) const;
+        void    setType(std::string type);
 };
 
 #endif

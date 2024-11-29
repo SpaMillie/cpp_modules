@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:33 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 15:20:49 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:40:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,10 @@ class WrongAnimal{
         // Animal(std::string type);
         WrongAnimal(const WrongAnimal& obj);
         WrongAnimal& operator=(const WrongAnimal& other);
-        ~WrongAnimal();
-        void make_sound(void) const;
-        std::string get_type(void) const;
-        void    set_type(std::string type);
+        virtual ~WrongAnimal();
+        void makeSound(void) const;
+        std::string getType(void) const;
+        void    setType(std::string type);
 };
 
 #endif

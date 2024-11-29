@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:07:19 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 12:04:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:54:29 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,42 +56,6 @@ void    ScavTrap::attack(const std::string& target){
             std::cout << "ScavTrap " << this->name << " is out of energy points.\n";
         if (this->hit_pts == 0)
             std::cout << "ScavTrap " << this->name << " is out of hit points.\n";
-    }
-}
-
-void    ScavTrap::takeDamage(unsigned int amount){
-    if (this->energy_pts > 0 && this->hit_pts > 0)
-    {
-        if (amount > this->hit_pts)
-            amount = this->hit_pts;
-        std::cout << "ScavTrap " << this->name << " receives " << amount <<  " points of damage!\n";
-        this->hit_pts -= amount;
-        this->attack_dmg += amount;
-    }
-    else 
-    {
-        if (this->energy_pts == 0)
-            std::cout << "ScavTrap " << this->name << " is out of energy points.\n";
-        if (this->hit_pts == 0)
-            std::cout << "ScavTrap " << this->name << " is out of hit points.\n";
-    }
-}
-
-void    ScavTrap::beRepaired(unsigned int amount){
-    if (amount > 10)
-        amount = 10;
-    if (this->energy_pts > 0 && this->hit_pts > 0)
-    {
-        std::cout << "ScavTrap " << this->name << " repairs itself by " << amount <<  " points\n";
-        this->energy_pts--;
-        this->hit_pts += amount;
-    }
-    else 
-    {
-        if (this->energy_pts == 0)
-            std::cout << "ScavTrap " << this->name << " is out of energy points.\n";
-        if (this->hit_pts == 0)
-            std::cout << "ScavTrap " << this->name << " is out of hit points.\n"; 
     }
 }
 

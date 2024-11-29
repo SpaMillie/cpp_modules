@@ -6,11 +6,11 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/11/29 12:23:48 by mspasic          ###   ########.fr        #
+#    Updated: 2024/11/29 17:38:31 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= bumClapBumDiClapDiClap
+NAME	= petCafe 
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 

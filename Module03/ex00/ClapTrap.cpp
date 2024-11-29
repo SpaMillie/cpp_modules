@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:24:40 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/28 13:50:07 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 18:47:01 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,8 +82,6 @@ void ClapTrap::attacks_the_other(ClapTrap& other)
 }
 
 void    ClapTrap::beRepaired(unsigned int amount){
-    if (amount > 10)
-        amount = 10;
     if (this->energy_pts > 0 && this->hit_pts > 0)
     {
         std::cout << "ClapTrap " << this->name << " repairs itself by " << amount <<  " points\n";

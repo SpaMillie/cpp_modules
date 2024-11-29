@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:23:59 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 15:32:24 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 17:07:28 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,14 +36,14 @@ Animal::~Animal(){
     std::cout << "Destructor of class Animal called\n";
 }
 
-void    Animal::make_sound(void) const{
+void    Animal::makeSound(void) const{
     std::cout << "Unknown animal noises. Please consult the bestiary for the exact type first.\n";
 }
 
-std::string Animal::get_type(void) const{
+std::string Animal::getType(void) const{
     return type;
 }
 
-void    Animal::set_type(std::string type){
+void    Animal::setType(std::string type){
     this->type = type;
 }
