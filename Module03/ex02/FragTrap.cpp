@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:02:00 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/28 18:48:55 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 12:03:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ FragTrap&  FragTrap::operator=(const FragTrap& other){
 }
 
 FragTrap::~FragTrap(){
-    std::cout << "FragTrap " << this->get_name() << " has been destroyed\n";
+    std::cout << this->get_name() << " : destructor called\n";
 }
 
 void    FragTrap::highFivesGuys(void) const{
-    std::cout << "She gets a high five, they get a high five, you all get a high five!\n";
+    std::cout << this->get_name() << " gets a high five, they get a high five, you all get a HIGH FIVE!\n";
 }
 
 void    FragTrap::attack(const std::string& target){

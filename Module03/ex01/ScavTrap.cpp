@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:07:19 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/28 16:53:45 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 12:05:05 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,11 +37,11 @@ ScavTrap&  ScavTrap::operator=(const ScavTrap& other){
 }
 
 ScavTrap::~ScavTrap(){
-    std::cout << "ScavTrap " << this->get_name() << " has been destroyed\n";
+    std::cout << this->get_name() << " : destructor called\n";
 }
 
 void    ScavTrap::guardGate(void) const{
-    std::cout << "I guess ScavTrap " << this->get_name() << " is guarding the gate, whatever that means\n";
+    std::cout << "ScavTrap " << this->get_name() << " got a temporary reassignment as a gateguard. GUARD WELL, BOY!\n";
 }
 
 void    ScavTrap::attack(const std::string& target){

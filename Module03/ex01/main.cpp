@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/25 13:25:23 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/28 16:53:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/11/29 12:05:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,8 +79,8 @@ int main(void)
     std::cout << "Current state is:\nName: " << obj2.get_name() << "\nHP: " << obj2.get_int(1) << "\nEP: " << obj2.get_int(2) << "\nAD: " << obj2.get_int(3) << std::endl;
     
     ScavTrap obj3;
-    ScavTrap obj4("Jim");
-    obj3.set_name("Spock");
+    ScavTrap obj4("MirrorJim");
+    obj3.set_name("MirrorSpock");
 
     std::cout << "Let the PonFarr begin!\n";
     std::cout << "Current state is:\nName: " << obj3.get_name() << "\nHP: " << obj3.get_int(1) << "\nEP: " << obj3.get_int(2) << "\nAD: " << obj3.get_int(3) << std::endl;
