@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:23:59 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 16:54:31 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:42:31 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,3 @@ std::string Animal::getType(void) const{
     return type;
 }
 
-void    Animal::setType(std::string type){
-    this->type = type;
-}

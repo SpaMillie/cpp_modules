@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 12:05:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 17:25:49 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,5 +35,5 @@ WrongCat::~WrongCat(){
 }
 
 void    WrongCat::makeSound(void) const{
-    std::cout << "Meow! Meow!\n";
+    std::cout << "Woem! Woem!\n";
 }

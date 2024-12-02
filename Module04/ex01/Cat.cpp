@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:12 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 16:19:56 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:43:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Cat::Cat(){
     std::cout << "A kitten was born!\n";
-    this->setType("Cat");
+    this->type = "Cat";
     thoughts = new Brain(type);
 }
 
 Cat::Cat(const Cat& obj):Animal(obj){
     std::cout << "Copy constructor for class Cat called\n";
-    *this = obj;
+    this->thoughts = new Brain(*obj.thoughts);
 }
 
 Cat& Cat::operator=(const Cat& other){
@@ -28,8 +28,8 @@ Cat& Cat::operator=(const Cat& other){
     if (this == &other)
         return (*this);
     delete this->thoughts;
-    this->setType(other.getType());
-    this->thoughts = new Brain(type);
+    this->type = other.type;
+    this->thoughts = new Brain(*other.thoughts);
     return (*this);
 }
 

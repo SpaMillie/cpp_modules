@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:30 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 14:18:35 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 17:30:14 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ WrongAnimal::~WrongAnimal(){
 }
 
 void    WrongAnimal::makeSound(void) const{
-    std::cout << "\nWarning: Unfamiliar noise detected.\nPlease be aware that your safety has most likely been compromised.\nThe secret government alien shelter closest to you has been notified of the alien creature's presence.\nPlease note that the secret government is NOT under legal obligation to ensure your safety or notify your loved ones in case of sudden death.\nHave a nice day!\n\n";
+    std::cout << "????\n";
 }
 
 std::string WrongAnimal::getType(void) const{

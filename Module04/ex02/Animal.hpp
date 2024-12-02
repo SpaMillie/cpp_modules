@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:07 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 16:54:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:42:56 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,6 @@ class Animal{
         virtual ~Animal();
         virtual void makeSound(void) const = 0;
         std::string getType(void) const;
-        void    setType(std::string type);
 };
 
 #endif

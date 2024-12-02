@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 12:21:42 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:48:01 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(){
     this->setType("WrongCat");
-    std::cout << "A wrongkitten was born!\n"; //try not to assign the corrct ideas to this?
+    std::cout << "A wrongkitten was born!\n";
 }
 
 WrongCat::WrongCat(const WrongCat& obj):WrongAnimal(obj){
@@ -26,7 +26,7 @@ WrongCat& WrongCat::operator=(const WrongCat& other){
     std::cout << "Copy assignment operator for class WrongCat called\n";
     if (this == &other)
         return (*this);
-    this->setType(other.getType());
+    this->type = other.type;
     return (*this);
 }
 
@@ -35,5 +35,5 @@ WrongCat::~WrongCat(){
 }
 
 void    WrongCat::makeSound(void) const{
-    std::cout << "Meow! Meow!\n";
+    std::cout << "Woem! Woem!\n";
 }

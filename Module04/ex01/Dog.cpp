@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:19 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 16:19:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:45:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 Dog::Dog(){
     std::cout << "A doggo was born!\n";
-    this->setType("Dog");
+    this->type = "Dog";
     thoughts = new Brain(type);
 }
 
 Dog::Dog(const Dog& obj):Animal(obj){
     std::cout << "Copy constructor for class Dog called\n";
-    *this = obj;
+    thoughts = new Brain(*obj.thoughts);
 }
 
 Dog& Dog::operator=(const Dog& other){
@@ -28,8 +28,8 @@ Dog& Dog::operator=(const Dog& other){
     if (this == &other)
         return (*this);
     delete this->thoughts;
-    this->setType(other.getType());
-    this->thoughts = new Brain(type);
+    this->type = other.type;
+    this->thoughts = new Brain(*other.thoughts);
     return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/02 11:36:03 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 14:58:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 18:49:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <iostream>
 
 class Brain{
-    private: //should this be private instead? probably
+    private:
         std::string ideas[100];
     public:
         Brain();
