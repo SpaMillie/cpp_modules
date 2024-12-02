@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:26 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 16:21:59 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 16:57:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,14 @@
 int main(void){
     try {
         std::cout << "BASIC TEST: ANIMAL, CAT, DOG TYPES\n";
-        const Animal* meta = new Animal();
         const Animal* j = new Dog();
         const Animal* i = new Cat();
         std::cout << j->getType() << " " << std::endl;
         std::cout << i->getType() << " " << std::endl;
         i->makeSound(); //will output the cat sound!
         j->makeSound();
-        meta->makeSound();
         delete(j);
         delete(i);
-        delete(meta);
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: BRAIN CLASS, MEMBER FUNCTIONING\n";
         const Brain* check = new Brain();
@@ -92,6 +89,9 @@ int main(void){
         m->makeSound();
         delete(m);
         delete(zeta);
+        // std::cout << "*--------------------------------------------------------------*\n";
+        // std::cout << "TEST: TRY INSTANTIATING THE ANIMAL CLASS\n"; //should not even compile
+        // Animal character;
     }
     catch(std::bad_alloc& e){
         std::cout << "Allocation failed: " << e.what() << std::endl;
