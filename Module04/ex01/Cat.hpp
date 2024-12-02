@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 12:24:07 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 12:17:09 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/29 12:24:15 by mspasic           #+#    #+#             */
+/*   Updated: 2024/12/02 11:40:27 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include <iostream>
+# include "Animal.hpp"
+# include "Brain.hpp"
 
-class Animal{
-    protected:
-        std::string type;
+class Cat:public Animal{
+    private:
+        Brain *ideas;
     public:
-        Animal();
-        Animal(const Animal& obj);
-        Animal& operator=(const Animal& other);
-        virtual ~Animal();
-        virtual void makeSound(void) const;
-        std::string getType(void) const;
-        void    setType(std::string type);
+        Cat();
+        Cat(const Cat& obj);
+        Cat& operator=(const Cat& other);
+        ~Cat();
+        void    makeSound(void) const override;
 };
 
 #endif

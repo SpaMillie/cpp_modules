@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 17:02:00 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 18:56:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 11:11:59 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name, 100, 100, 30){
     std::cout << "FragTrap constructor called\n";
 }
 
-FragTrap::FragTrap(const FragTrap& obj){
+FragTrap::FragTrap(const FragTrap& obj):ClapTrap(obj){
     std::cout << "FragTrap copy constructor called\n";
     *this = obj;
 }

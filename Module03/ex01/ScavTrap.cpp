@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/28 13:07:19 by mspasic           #+#    #+#             */
-/*   Updated: 2024/11/29 18:48:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 11:11:04 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name, 100, 50, 20){
     std::cout << "ScavTrap constructor called\n";
 }
 
-ScavTrap::ScavTrap(const ScavTrap& obj){
+ScavTrap::ScavTrap(const ScavTrap& obj):ClapTrap(obj){
     std::cout << "ScavTrap copy constructor called\n";
     *this = obj;
 }

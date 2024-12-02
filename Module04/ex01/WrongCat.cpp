@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/29 12:24:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 12:05:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/02 12:21:42 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 WrongCat::WrongCat(){
     this->setType("WrongCat");
-    std::cout << "A wrongkitten was born!\n";
+    std::cout << "A wrongkitten was born!\n"; //try not to assign the corrct ideas to this?
 }
 
 WrongCat::WrongCat(const WrongCat& obj):WrongAnimal(obj){

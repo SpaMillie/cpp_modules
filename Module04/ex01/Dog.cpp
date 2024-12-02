@@ -1,39 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongCat.cpp                                       :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 12:24:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 12:05:58 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/29 12:24:19 by mspasic           #+#    #+#             */
+/*   Updated: 2024/12/02 12:20:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "WrongCat.hpp"
+#include "Dog.hpp"
 
-WrongCat::WrongCat(){
-    this->setType("WrongCat");
-    std::cout << "A wrongkitten was born!\n";
+Dog::Dog(){
+    this->setType("Dog");
+    std::cout << "A doggo was born!\n";
 }
 
-WrongCat::WrongCat(const WrongCat& obj):WrongAnimal(obj){
-    std::cout << "Copy constructor for class WrongCat called\n";
+Dog::Dog(const Dog& obj):Animal(obj){
+    std::cout << "Copy constructor for class Dog called\n";
     *this = obj;
 }
 
-WrongCat& WrongCat::operator=(const WrongCat& other){
-    std::cout << "Copy assignment operator for class WrongCat called\n";
+Dog& Dog::operator=(const Dog& other){
+    std::cout << "Copy assignment operator for class Dog called\n";
     if (this == &other)
         return (*this);
     this->setType(other.getType());
     return (*this);
 }
 
-WrongCat::~WrongCat(){
-    std::cout << "Trigger warning: a wrongkitty has died\n";
+Dog::~Dog(){
+    std::cout << "Trigger warning: a doggo has died :(\n";
 }
 
-void    WrongCat::makeSound(void) const{
-    std::cout << "Meow! Meow!\n";
+void    Dog::makeSound(void) const{
+    std::cout << "Bork! Bork!\n";
 }
