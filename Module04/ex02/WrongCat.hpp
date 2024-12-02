@@ -1,32 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 12:24:15 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 14:50:46 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/29 12:24:40 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/29 17:06:58 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGCAT_HPP
+# define WRONGCAT_HPP
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
+# include "WrongAnimal.hpp"
 
-class Cat:public Animal{
-    private:
-        Brain *thoughts;
+class WrongCat:public WrongAnimal{
     public:
-        Cat();
-        Cat(const Cat& obj);
-        Cat& operator=(const Cat& other);
-        ~Cat();
-        void    makeSound(void) const override;
-        std::string getAnIdea(int index) const;
+        WrongCat();
+        WrongCat(const WrongCat& obj);
+        WrongCat& operator=(const WrongCat& other);
+        ~WrongCat();
+        void    makeSound(void) const;
 };
 
 #endif

@@ -1,32 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Cat.hpp                                            :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/29 12:24:15 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/02 14:50:46 by mspasic          ###   ########.fr       */
+/*   Created: 2024/11/29 12:24:33 by mspasic           #+#    #+#             */
+/*   Updated: 2024/11/29 17:40:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef CAT_HPP
-# define CAT_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
-# include "Animal.hpp"
-# include "Brain.hpp"
 
-class Cat:public Animal{
-    private:
-        Brain *thoughts;
+class WrongAnimal{
+    protected:
+        std::string type;
     public:
-        Cat();
-        Cat(const Cat& obj);
-        Cat& operator=(const Cat& other);
-        ~Cat();
-        void    makeSound(void) const override;
-        std::string getAnIdea(int index) const;
+        WrongAnimal();
+        // Animal(std::string type);
+        WrongAnimal(const WrongAnimal& obj);
+        WrongAnimal& operator=(const WrongAnimal& other);
+        virtual ~WrongAnimal();
+        void makeSound(void) const;
+        std::string getType(void) const;
+        void    setType(std::string type);
 };
 
 #endif
