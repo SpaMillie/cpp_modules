@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/03 19:56:36 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 11:20:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,11 @@ class Bureaucrat : public std::exception{
         Bureaucrat(std::string name, int grade);
         Bureaucrat(int grade);
         ~Bureaucrat();
+        const char  *what(void) const throw();
         std::string getName(void) const;
-        unsigned int getGrade(void) const;
-        const char *what(void) const throw();
+        int         getGrade(void) const;
+        void        increment(void);
+        void        decrement(void);
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

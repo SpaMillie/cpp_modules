@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/03 19:56:54 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 11:19:28 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,26 @@ std::string Bureaucrat::getName(void) const{
     return (name);
 }
 
-unsigned int Bureaucrat::getGrade(void) const{
+int Bureaucrat::getGrade(void) const{
     return (grade);
 }
 
 const char* Bureaucrat::what(void) const throw(){
     return (error_message.c_str());
+}
+
+void    Bureaucrat::increment(void){
+    if (grade - 1 < 1)
+        throw (Bureaucrat(grade - 1));
+    grade -= 1;
+    std::cout << "Grade incremented\n";
+}
+
+void    Bureaucrat::decrement(void){
+    if (grade + 1 > 150)
+        throw (Bureaucrat(grade + 1));
+    grade += 1;
+    std::cout << "Grade decremented\n";
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj){
