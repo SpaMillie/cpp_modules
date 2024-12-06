@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 14:59:38 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 16:52:13 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
 int main(void){
     try {
@@ -24,6 +25,14 @@ int main(void){
         std::cout << obj3 << std::endl;
         Bureaucrat obj5("Miranda", 148);
         std::cout << obj5 << std::endl;
+        Form form1("Shepardise", 4, 76);
+        std::cout << form1 << std::endl;
+        Form form2("Legionise", 34, 1);
+        std::cout << form2 << std::endl;
+        Form form3("Garrusise", 45, 90);
+        std::cout << form3 << std::endl;
+        Form form4("Mirandise", 150, 7);
+        std::cout << form4 << std::endl;
 
         // std::cout << "*--------------------------------------------------------------*\n";
         // std::cout << "TEST: CREATING OBJECTS OUTSIDE THE VALID GRADE RANGE\n";
@@ -54,13 +63,13 @@ int main(void){
     catch (Bureaucrat& ge){
         std::cout << "Error: " << ge.what() << std::endl;
     }
-    try {
-        //...
-    }
-    catch (const Bureaucrat& fi){
-        //...
-    }
-    catch (const Form& ge){
-        //...
-    }
+    // try {
+    //     //...
+    // }
+    // catch (const Bureaucrat& fi){
+    //     //...
+    // }
+    // catch (const Form& ge){
+    //     //...
+    // }
 }

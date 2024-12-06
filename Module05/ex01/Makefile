@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/12/03 19:31:30 by mspasic          ###   ########.fr        #
+#    Updated: 2024/12/06 16:27:45 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 CXX = c++
 
 SOURCE_FILES	= main.cpp \
-				Bureaucrat.cpp	
+				Bureaucrat.cpp \
+				Form.cpp	
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

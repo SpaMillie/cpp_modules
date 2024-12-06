@@ -6,47 +6,26 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 14:11:01 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 16:41:39 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
-class Form : public std::exception{
-    private:
-        const std::string name;
-        bool isSigned;
-        const int gradeSign;
-        const int gradeExecute;
-
-        void    beSigned(void);
-        void    signForm(void);
-        const char *what(void) const throw();
 
 Form::Form(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
-    if (grade1 < 1 || grade2 < 1)
-        throw(Form(0));
-    if (grade1 > 150 || grade2 > 150)
-        throw(Form(151));
+    if (grade1 < 1 || grade2 < 1 || grade1 > 150 || grade2 > 150)
+        throw (*this);
     std::cout << "Form created!\n";
 }
 
-Form::Form(int state){
-    if (state == 0)
-        this->errorMessage = "Grade too high\n";
-    else
-        this->errorMessage = "Grade too low\n";
-}
-
-Form::Form(const Form& obj):name(obj.name), isSigned(obj.isSigned), gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
-    std::cout << "Form class: copy constructor called\n";
+Form::Form(const Form& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){ {
+    std::cout << "Form: copy constructor called\n";
 }
 
 Form& Form::operator=(const Form& other){
-    if (this == &other)
-        return (*this);
-    std::cout << "Form class: copy assignment  operator called\n";
-    Form temp(other);
-    return (temp);
+    std::cout << "Form: copy assignment operator called\n";
+    Form new(other);
+    return (&new);
 }
 
 Form::~Form(){
@@ -69,6 +48,31 @@ int Form::getGradeExec(void) const{
     return(gradeExecute);
 }
 
-void Form::beSigned(Bureaucrat& obj){
-    if (obj.getGrade() < )
+const char* Form::what(void) const throw(){
+    if (gradeSign < 1 || gradeExecute < 1)
+        return (GradeTooHighException);
+    // else if (gradeSign > 150 || gradeExecute > 150)
+    //     return (GradeTooLowException);
+    else
+        return (GradeTooLowException);
 }
+
+void Form::beSigned(Bureaucrat& obj){
+    if (obj.getGrade() <= gradeSign)
+    {
+        if (isSigned == true)
+            obj.signForm(*this, "the form is already signed\n");
+        else{
+            isSigned = true;
+            obj.signForm(*this, "");
+        }
+    }
+    else
+        throw (*this);
+}
+
+std::ostream& operator<<(std::ostream& os, const Form& obj){
+    os << "Form: " << obj.getName() << "\n  Grade required for signature: " << obj.getGradeSign() << "\nGrade required for execution: " << obj.getGradeExec() << std::endl;
+    return (os);
+}
+

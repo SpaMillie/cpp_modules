@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 15:05:14 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 16:26:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,12 @@ void    Bureaucrat::decrement(void){
     std::cout << "Grade decremented\n";
 }
 
-void        Bureaucrat::signForm(Form& obj) const{
-    if (obj.getState() == true)
+void        Bureaucrat::signForm(Form& obj, std::string str) const{
+    if (obj.getState() == true && str.size() == 0)
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     else{
-        std::cout << this->name << " couldn't sign " << obj.getName() << " because ";
-        
-            
+        std::cout << this->name << " couldn't sign " << obj.getName() << " because " << str;
+    }
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj){
