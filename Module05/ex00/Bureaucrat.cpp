@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 11:18:54 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 12:22:43 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ Bureaucrat::Bureaucrat(int grade){
 }
 
 Bureaucrat::~Bureaucrat(){
-    std::cout << "Bureaucrat destroyed\n"; //gets destroyed with the exceptions too?
+    std::cout << "Bureaucrat destroyed\n";
 }
 
 std::string Bureaucrat::getName(void) const{
