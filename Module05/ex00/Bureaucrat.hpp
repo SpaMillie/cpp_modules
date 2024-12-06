@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 14:04:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:55:41 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ class Bureaucrat : public std::exception{
         const char* GradeTooLowException = "grade is too low";
     public:
         Bureaucrat(std::string name, int grade);
+        Bureaucrat(const Bureaucrat& obj);
         ~Bureaucrat();
         const char  *what(void) const throw();
         std::string getName(void) const;

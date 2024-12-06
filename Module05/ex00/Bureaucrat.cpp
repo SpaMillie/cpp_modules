@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 14:04:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:55:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@ Bureaucrat::Bureaucrat(std::string name, int grade):name(name), grade(grade){
     if (grade < 1 || grade > 150)
         throw (*this);
     std::cout << "Bureaucrat created\n";
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& obj):name(obj.name), grade(obj.grade), GradeTooHighException(obj.GradeTooHighException), GradeTooLowException(obj.GradeTooLowException){
+    std::cout << "Bureaucrat class: copy constructor called\n";
 }
 
 Bureaucrat::~Bureaucrat(){
