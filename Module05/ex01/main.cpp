@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 11:14:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 14:59:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,5 +53,14 @@ int main(void){
     }
     catch (Bureaucrat& ge){
         std::cout << "Error: " << ge.what() << std::endl;
+    }
+    try {
+        //...
+    }
+    catch (const Bureaucrat& fi){
+        //...
+    }
+    catch (const Form& ge){
+        //...
     }
 }
