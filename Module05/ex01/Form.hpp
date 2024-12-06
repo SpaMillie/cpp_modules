@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:30 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 16:52:06 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 18:31:47 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define FORM_HPP
 
 # include <iostream>
-# include "Bureaucrat.hpp"
+
+class Bureaucrat;
 
 class Form : public std::exception{
     private:
@@ -26,15 +27,14 @@ class Form : public std::exception{
         const char* GradeTooLowException = "grade is too low";        
     public:
         Form(std::string name, int grade1, int grade2);
-        // Form(const Form& obj);
-        // Form& operator=(const Form& other);
+        Form(const Form& obj);
         ~Form();
         const char *what(void) const throw();
         std::string getName(void) const;
-        bool    getState(void) const;
+        std::string getState(void) const;
         int     getGradeSign(void) const;
         int     getGradeExec(void) const;
-        void    beSigned(Bureaucrat& obj);
+        void    beSigned(const Bureaucrat& obj);
 };
 
 std::ostream& operator<<(std::ostream& os, const Form& obj);

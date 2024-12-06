@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 15:59:57 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 17:52:05 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define BUREAUCRAT_HPP
 
 #include <iostream>
-#include "Form.hpp"
+
+class Form;
 
 class Bureaucrat : public std::exception{
     private:
@@ -24,6 +25,7 @@ class Bureaucrat : public std::exception{
         const char* GradeTooLowException = "grade is too low";
     public:
         Bureaucrat(std::string name, int grade);
+        Bureaucrat(const Bureaucrat& obj);
         ~Bureaucrat();
         const char  *what(void) const throw();
         std::string getName(void) const;

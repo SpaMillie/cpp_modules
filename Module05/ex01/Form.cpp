@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 16:41:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/06 18:47:20 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
+#include "Bureaucrat.hpp"
 
 Form::Form(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
     if (grade1 < 1 || grade2 < 1 || grade1 > 150 || grade2 > 150)
@@ -18,14 +19,8 @@ Form::Form(std::string name, int grade1, int grade2):name(name),isSigned(false),
     std::cout << "Form created!\n";
 }
 
-Form::Form(const Form& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){ {
+Form::Form(const Form& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
     std::cout << "Form: copy constructor called\n";
-}
-
-Form& Form::operator=(const Form& other){
-    std::cout << "Form: copy assignment operator called\n";
-    Form new(other);
-    return (&new);
 }
 
 Form::~Form(){
@@ -36,8 +31,11 @@ std::string Form::getName(void) const{
     return (name);
 }
 
-bool Form::getState(void) const{
-    return (isSigned);
+std::string Form::getState(void) const{
+    if (isSigned == 1)
+        return ("true");
+    else
+        return ("false");
 }
 
 int Form::getGradeSign(void) const{
@@ -57,11 +55,11 @@ const char* Form::what(void) const throw(){
         return (GradeTooLowException);
 }
 
-void Form::beSigned(Bureaucrat& obj){
+void Form::beSigned(const Bureaucrat& obj){ //think if there is some other reason why sigining would fail and adjust this
     if (obj.getGrade() <= gradeSign)
     {
         if (isSigned == true)
-            obj.signForm(*this, "the form is already signed\n");
+            obj.signForm(*this, "it has already been signed\n");
         else{
             isSigned = true;
             obj.signForm(*this, "");
@@ -72,7 +70,7 @@ void Form::beSigned(Bureaucrat& obj){
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj){
-    os << "Form: " << obj.getName() << "\n  Grade required for signature: " << obj.getGradeSign() << "\nGrade required for execution: " << obj.getGradeExec() << std::endl;
+    os << "Form: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
     return (os);
 }
 
