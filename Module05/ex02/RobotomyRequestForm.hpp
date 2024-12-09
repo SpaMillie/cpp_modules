@@ -6,12 +6,19 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:57 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 13:07:33 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 21:09:25 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-class RobotomyRequestForm {
+# include "AForm.hpp"
 
+class Bureaucrat;
+
+class RobotomyRequestForm : protected AForm {
+    public:
+        RobotomyRequestForm(std::string target);
+        ~RobotomyRequestForm();
+        void execute(Bureaucrat const& executor) override;
 };

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 14:29:38 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 20:38:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ const char* Bureaucrat::what(void) const throw(){
 }
 
 void    Bureaucrat::increment(void){
+    if (grade < 1 || grade > 150)
+        throw (*this);
     grade -= 1;
     if (grade < 1)
         throw (*this);
@@ -50,19 +52,30 @@ void    Bureaucrat::increment(void){
 }
 
 void    Bureaucrat::decrement(void){
+    if (grade < 1 || grade > 150)
+        throw (*this);    
     grade += 1;
     if (grade > 150)
         throw (*this);
     std::cout << "Grade decremented\n";
 }
 
-void        Bureaucrat::signAForm(AForm& obj, std::string str) const{
+void        Bureaucrat::signForm(AForm& obj, std::string str) const{
     if (obj.getState() == "true" && str.size() == 0)
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     else{
         std::cout << this->name << " couldn't sign " << obj.getName() << " because " << str;
     }
 }
+
+void    Bureaucrat::executeForm(AForm const& form) const{
+    if (form.getState() == "true" && grade < form.getGradeExec()){
+        std::cout << name << " executed " << form.getName() << "\n";
+    }
+    else
+        std::cout << name << " cannot execute " << form.getName() << "\n";
+}
+
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj){
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;

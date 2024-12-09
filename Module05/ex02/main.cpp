@@ -6,12 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 15:37:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 21:05:53 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "PresidentialPardonForm.hpp"
+#include "RobotomyRequestForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 void test1(){
     Bureaucrat obj6("Grunt", 160);
@@ -19,14 +21,6 @@ void test1(){
 
 void test2(){
     Bureaucrat obj4("Liara", 0);
-}
-
-void test3(){
-    Form form6("Gruntise", 234, 1);
-}
-
-void test4(){
-    Form form7("Liarise", 3, 0);   
 }
 
 int main(void){
@@ -43,29 +37,6 @@ int main(void){
         std::cout << obj5 << std::endl;
         // Bureaucrat obj6(obj5); //testing the copy constructor
         // std::cout << obj6 << std::endl;
-
-        Form form1("Shepardise", 4, 76);
-        std::cout << form1 << std::endl;
-        Form form2("Legionise", 34, 1);
-        std::cout << form2 << std::endl;
-        Form form3("Garrusise", 45, 90);
-        std::cout << form3 << std::endl;
-        Form form4("Mirandise", 150, 7);
-        std::cout << form4 << std::endl;
-        // Form form5(form3); //testing the copy cnstructor 
-        // std::cout << form5 << std::endl;
-
-        std::cout << "*--------------------------------------------------------------*\n";
-        std::cout << "TEST: CREATING OBJECTS OUTSIDE THE VALID GRADE RANGE\n";
-        for (auto testing : {test1, test2, test3, test4}){
-            try{
-                testing();
-            }
-            catch (std::exception& e){
-                std::cout << "Error: " << e.what() << "\n";
-            }
-        }
-        std::cout << "\n";
 
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: INCREMENTING\n";
@@ -95,7 +66,10 @@ int main(void){
         try {
             std::cout << "\n";
             Bureaucrat obj1("Lady Gaga", 4);
-          
+            PresidentialPardonForm obj2 ("Arthur Dent");
+            ShrubberyCreationForm obj3 ("Ford Prefect");
+            RobotomyRequestForm obj4 ("Marvin the Paranoid Android");
+            AForm *current;         
 
             std::cout << "*--------------------------------------------------------------*\n";
             std::cout << "TEST: BE_SIGNED MEMBER FUNCTION; VALID\n";
@@ -114,11 +88,11 @@ int main(void){
             // std::cout << "Form is signed: " << form2.getState() << std::endl;
             // std::cout << "*--------------------------------------------------------------*\n";
         }
-        catch (const Bureaucrat& fi){
-           std::cout << "Error: " << fi.getName() << " " << fi.what() << std::endl; 
-        }
-        catch (const Form& ge){
-            std::cout << "Error: " << ge.getName() << " " << ge.what() << std::endl;
+        catch (const std::exception& e){
+            std::cout << "Error: " << e.what() << "\n";
         }
     }
+}
+{
+
 }

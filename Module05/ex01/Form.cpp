@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 18:47:20 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 19:27:47 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,8 +49,6 @@ int Form::getGradeExec(void) const{
 const char* Form::what(void) const throw(){
     if (gradeSign < 1 || gradeExecute < 1)
         return (GradeTooHighException);
-    // else if (gradeSign > 150 || gradeExecute > 150)
-    //     return (GradeTooLowException);
     else
         return (GradeTooLowException);
 }

@@ -13,14 +13,8 @@
 #include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-AForm::AForm(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
-    if (grade1 < 1 || grade2 < 1 || grade1 > 150 || grade2 > 150)
-        throw (*this);
+AForm::AForm(std::string target, int grade1, int grade2):target(target),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
     std::cout << "AForm created!\n";
-}
-
-AForm::AForm(const AForm& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
-    std::cout << "AForm: copy constructor called\n";
 }
 
 AForm::~AForm(){
@@ -28,7 +22,7 @@ AForm::~AForm(){
 }
 
 std::string AForm::getName(void) const{
-    return (name);
+    return (target);
 }
 
 std::string AForm::getState(void) const{
@@ -46,27 +40,39 @@ int AForm::getGradeExec(void) const{
     return(gradeExecute);
 }
 
-const char* AForm::what(void) const throw(){
-    if (gradeSign < 1 || gradeExecute < 1)
-        return (GradeTooHighException);
-    // else if (gradeSign > 150 || gradeExecute > 150)
-    //     return (GradeTooLowException);
-    else
-        return (GradeTooLowException);
+void    AForm::setState(void){
+    isSigned = true;
 }
 
-void AForm::beSigned(const Bureaucrat& obj){ //think if there is some other reason why sigining would fail and adjust this
-    if (obj.getGrade() <= gradeSign)
+const char* AForm::what(void) const throw(){
+    return(message);
+}
+
+void    AForm::setMessage(int i){
+    if (i == 0)
+        message = (char*)GradeTooHighException;
+    else
+        message = (char*)GradeTooLowException;
+}
+ //maybe I dont need this because of e.what
+const char* AForm::getMessage(void) const{
+    return message;
+}
+
+bool AForm::beSigned(const Bureaucrat& obj) {
+    if (obj.getGrade() <= this->getGradeSign())
     {
-        if (isSigned == true)
-            obj.signAForm(*this, "it has already been signed\n");
+        if (this->getState() == "true")
+                obj.signForm(*this, "it has already been signed\n");
         else{
-            isSigned = true;
-            obj.signAForm(*this, "");
+            this->setState();
+            obj.signForm(*this, "");
+            return (true);
         }
     }
     else
-        throw (*this);
+        throw (AForm::GradeTooLowException);
+    return (false);
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj){
