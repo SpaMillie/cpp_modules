@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 15:30:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 15:38:11 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,22 +28,6 @@ void test3(){
 void test4(){
     Form form7("Liarise", 3, 0);   
 }
-
-// void test5(){
-    
-// }
-
-// void test6(){
-    
-// }
-
-// void test7(){
-    
-// }
-
-// void test8(){
-    
-// }
 
 int main(void){
     {
