@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
+/*   AAForm.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:30 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 13:10:28 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 14:24:08 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class Bureaucrat;
 
-class Form : public std::exception{
+class AForm : public std::exception{
     private:
         const std::string   name;
         bool                isSigned;
@@ -25,16 +25,16 @@ class Form : public std::exception{
         const char* GradeTooHighException = "grade is too high";
         const char* GradeTooLowException = "grade is too low";        
     public:
-        Form(std::string name, int grade1, int grade2);
-        Form(const Form& obj);
-        ~Form();
+        AForm(std::string name, int grade1, int grade2);
+        AForm(const AForm& obj);
+        virtual ~AForm();
         const char *what(void) const throw();
         std::string getName(void) const;
         std::string getState(void) const;
         int     getGradeSign(void) const;
         int     getGradeExec(void) const;
-        void    beSigned(const Bureaucrat& obj);
+        virtual void    beSigned(const Bureaucrat& obj);
 };
 
-std::ostream& operator<<(std::ostream& os, const Form& obj);
+std::ostream& operator<<(std::ostream& os, const AForm& obj); //should I delete this?
 

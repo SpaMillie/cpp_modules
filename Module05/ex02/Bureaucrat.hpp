@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 13:10:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 14:29:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <iostream>
 
-class Form;
+class AForm;
 
 class Bureaucrat : public std::exception{
     private:
@@ -31,7 +31,7 @@ class Bureaucrat : public std::exception{
         int         getGrade(void) const;
         void        increment(void);
         void        decrement(void);
-        void        signForm(Form &obj, std::string str) const;
+        void        signAForm(AForm &obj, std::string str) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

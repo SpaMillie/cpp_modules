@@ -6,12 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 18:33:49 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 14:29:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
 
 Bureaucrat::Bureaucrat(std::string name, int grade):name(name), grade(grade){
     if (grade < 1 || grade > 150)
@@ -56,7 +56,7 @@ void    Bureaucrat::decrement(void){
     std::cout << "Grade decremented\n";
 }
 
-void        Bureaucrat::signForm(Form& obj, std::string str) const{
+void        Bureaucrat::signAForm(AForm& obj, std::string str) const{
     if (obj.getState() == "true" && str.size() == 0)
         std::cout << this->name << " signed " << obj.getName() << std::endl;
     else{

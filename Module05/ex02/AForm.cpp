@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Form.cpp                                           :+:      :+:    :+:   */
+/*   AForm.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,43 +10,43 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Form.hpp"
+#include "AForm.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
+AForm::AForm(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
     if (grade1 < 1 || grade2 < 1 || grade1 > 150 || grade2 > 150)
         throw (*this);
-    std::cout << "Form created!\n";
+    std::cout << "AForm created!\n";
 }
 
-Form::Form(const Form& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
-    std::cout << "Form: copy constructor called\n";
+AForm::AForm(const AForm& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
+    std::cout << "AForm: copy constructor called\n";
 }
 
-Form::~Form(){
-    std::cout << "Form destruction\n";
+AForm::~AForm(){
+    std::cout << "AForm destruction\n";
 }
 
-std::string Form::getName(void) const{
+std::string AForm::getName(void) const{
     return (name);
 }
 
-std::string Form::getState(void) const{
+std::string AForm::getState(void) const{
     if (isSigned == 1)
         return ("true");
     else
         return ("false");
 }
 
-int Form::getGradeSign(void) const{
+int AForm::getGradeSign(void) const{
     return (gradeSign);
 }
 
-int Form::getGradeExec(void) const{
+int AForm::getGradeExec(void) const{
     return(gradeExecute);
 }
 
-const char* Form::what(void) const throw(){
+const char* AForm::what(void) const throw(){
     if (gradeSign < 1 || gradeExecute < 1)
         return (GradeTooHighException);
     // else if (gradeSign > 150 || gradeExecute > 150)
@@ -55,22 +55,22 @@ const char* Form::what(void) const throw(){
         return (GradeTooLowException);
 }
 
-void Form::beSigned(const Bureaucrat& obj){ //think if there is some other reason why sigining would fail and adjust this
+void AForm::beSigned(const Bureaucrat& obj){ //think if there is some other reason why sigining would fail and adjust this
     if (obj.getGrade() <= gradeSign)
     {
         if (isSigned == true)
-            obj.signForm(*this, "it has already been signed\n");
+            obj.signAForm(*this, "it has already been signed\n");
         else{
             isSigned = true;
-            obj.signForm(*this, "");
+            obj.signAForm(*this, "");
         }
     }
     else
         throw (*this);
 }
 
-std::ostream& operator<<(std::ostream& os, const Form& obj){
-    os << "Form: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
+std::ostream& operator<<(std::ostream& os, const AForm& obj){
+    os << "AForm: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
     return (os);
 }
 

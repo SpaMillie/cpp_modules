@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 18:33:49 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/09 15:31:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,8 @@ const char* Bureaucrat::what(void) const throw(){
 }
 
 void    Bureaucrat::increment(void){
+    if (grade < 1 || grade > 150)
+        throw (*this);
     grade -= 1;
     if (grade < 1)
         throw (*this);
@@ -50,6 +52,8 @@ void    Bureaucrat::increment(void){
 }
 
 void    Bureaucrat::decrement(void){
+    if (grade < 1 || grade > 150)
+        throw (*this);
     grade += 1;
     if (grade > 150)
         throw (*this);
