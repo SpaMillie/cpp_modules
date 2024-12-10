@@ -49,7 +49,7 @@ const char* AForm::what(void) const throw(){
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj){
-    os << "AForm: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
+    os << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
     return (os);
 }
 

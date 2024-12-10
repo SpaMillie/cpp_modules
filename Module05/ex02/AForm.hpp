@@ -22,9 +22,7 @@ class AForm : public std::exception{
         bool                isSigned;
         const int   gradeSign;
         const int   gradeExecute;
-        const char* GradeTooHighException = "grade is too high";
         const char* GradeTooLowException = "grade is too low";
-        char *message;      
     public:
         AForm(std::string target, int grade1, int grade2);
         virtual ~AForm();
@@ -33,12 +31,10 @@ class AForm : public std::exception{
         int     getGradeSign(void) const;
         int     getGradeExec(void) const;
         void    setState(void);
-        void    setMessage(int i);
-        const char* getMessage(void) const;
         const char* what(void) const noexcept;
-        virtual void    beSigned(const Bureaucrat& obj) = 0;
+        virtual void beSigned(const Bureaucrat& obj) = 0;
         virtual void execute(Bureaucrat const& executor) = 0;
 };
 
-std::ostream& operator<<(std::ostream& os, const AForm& obj); //should I delete this?
+std::ostream& operator<<(std::ostream& os, const AForm& obj);
 

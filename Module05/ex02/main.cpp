@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 18:39:36 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 19:08:37 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -276,5 +276,18 @@ int main(void){
         catch (const std::exception& e){
             std::cout << "Error: " << e.what() << "\n";
         }
+    }
+    { std::cout << "\n*INTERMISSION*\n\n";}
+    {
+        ShrubberyCreationForm obj2 ("Ford Prefect");
+        RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
+        PresidentialPardonForm obj4 ("Arthur Dent");
+
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: OVERLOADED INSERTION OPERATOR\n";
+        std::cout << obj2 << "\n";
+        std::cout << obj3 << "\n";
+        std::cout << obj4 << "\n";
+        std::cout << "*--------------------------------------------------------------*\n";
     }
 }
