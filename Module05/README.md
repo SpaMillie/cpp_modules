@@ -25,4 +25,15 @@ you include the full definition in the header file only when it is absolutely ne
 ```const char* what() noexcept; 
 VS
 const char* what() throw();```
-write this
+
+both do the same thing essentially - indicate that the function does not throw any exceptions
+
+throw()
+- is deprecated in C++11 and removed in C++17
+- replaced by noexcept
+- If a function declared with throw() attempts to throw an exception, std::unexpected() is called, which typically terminates the program.
+
+noexcept
+- the preferred way currently
+- can take a condition so it's more versatile
+- If a function declared as noexcept attempts to throw an exception, std::terminate() is called immediately.
