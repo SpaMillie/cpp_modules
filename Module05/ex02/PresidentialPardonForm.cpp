@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:08:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 16:52:38 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:22:39 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,10 @@ void PresidentialPardonForm::execute(Bureaucrat const& executor) {
             std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox\n";
         }
         else
+        {
+            std::cout << executor.getName() << " is not authorised to execute this form\n";
             throw (*this);
+        }
     }
     else
         std::cout << "Could not pardon " << this->getName() << " because the form is missing a signature.\n";
@@ -45,7 +48,7 @@ void PresidentialPardonForm::beSigned(const Bureaucrat& obj) {
     }
     else
     {
-        obj.signForm(*this, "their grade is too low\n");
+        obj.signForm(*this, "they are not authorised to sign this form\n");
         throw (*this);
     }
 }

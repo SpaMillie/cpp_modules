@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 16:54:13 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:22:49 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) {
                 std::cout << "Uh-oh, robotomy failed :(\n";
         }
         else
+        {
+            std::cout << executor.getName() << " is not authorised to execute this form\n";
             throw (*this);
+        }
     }
     else
         std::cout << "Could not robotomise " << this->getName() << " because the form is missing a signature.\n";
@@ -51,7 +54,7 @@ void RobotomyRequestForm::beSigned(const Bureaucrat& obj) {
     }
     else
     {
-        obj.signForm(*this, "their grade is too low\n");
+        obj.signForm(*this, "they are not authorised to sign this form\n");
         throw (*this);
     }
 }

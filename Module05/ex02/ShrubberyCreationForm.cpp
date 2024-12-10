@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:18 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 16:58:24 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:22:58 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,10 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
             std::cout << "Created shrubbery for " << this->getName() << "\n";
         }
         else
+        {
+            std::cout << executor.getName() << " is not authorised to execute this form\n";
             throw (*this);
+        }
     }
     else
         std::cout << "Could not create shrubbery for " << this->getName() << " because the form is missing a signature.\n";
@@ -50,7 +53,7 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat& obj) {
     }
     else
     {
-        obj.signForm(*this, "their grade is too low\n");
+        obj.signForm(*this, "they are not authorised to sign this form\n");
         throw (*this);
     }
 }

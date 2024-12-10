@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 17:11:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 18:39:36 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -166,45 +166,45 @@ int main(void){
     }
     { std::cout << "\n*INTERMISSION*\n\n";}
     {
-        try{
-            Bureaucrat obj1("RandomVogon", 70);
-            ShrubberyCreationForm obj2 ("Ford Prefect");
-            RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
-            PresidentialPardonForm obj4 ("Arthur Dent");
+        Bureaucrat obj("Kwaltz", 4);
+        Bureaucrat obj1("RandomVogon", 70);
+        ShrubberyCreationForm obj2 ("Ford Prefect");
+        RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
+        PresidentialPardonForm obj4 ("Arthur Dent");
 
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.execute(obj1); 
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: SIGNING\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << "\n\n";            
-            std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.execute(obj1); 
+        std::cout << "Form is signed: " << obj3.getState() << std::endl;
+        obj3.execute(obj1); 
+        std::cout << "Form is signed: " << obj4.getState() << std::endl;
+        obj4.execute(obj1);
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: SIGNING\n";
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj1);
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj1);
+        std::cout << "Form is signed: " << obj2.getState() << "\n\n";
+        std::cout << "Form is signed: " << obj3.getState() << std::endl;
+        obj3.beSigned(obj1);
+        std::cout << "Form is signed: " << obj3.getState() << std::endl;
+        obj3.beSigned(obj1);
+        std::cout << "Form is signed: " << obj3.getState() << "\n\n";
+        std::cout << "Form is signed: " << obj4.getState() << std::endl;
+        obj4.beSigned(obj);
+        std::cout << "Form is signed: " << obj4.getState() << std::endl;
+        obj4.beSigned(obj);
+        std::cout << "Form is signed: " << obj4.getState() << "\n\n";            
+        std::cout << "*--------------------------------------------------------------*\n";
+        try {
             std::cout << "TEST: EXECUTING WHEN SIGNED\n";
             std::cout << "Form is signed: " << obj2.getState() << std::endl;
             obj2.execute(obj1); 
             std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
+            obj3.execute(obj); 
+            obj3.execute(obj1);
             std::cout << "*--------------------------------------------------------------*\n";
         }
         catch (const std::exception& e){
@@ -213,45 +213,34 @@ int main(void){
     }
     { std::cout << "\n*INTERMISSION*\n\n";}
     {
-        try{
-            Bureaucrat obj1("RandomVogon", 130);
-            ShrubberyCreationForm obj2 ("Ford Prefect");
-            RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
-            PresidentialPardonForm obj4 ("Arthur Dent");
+        Bureaucrat obj("Kwaltz", 4);
+        Bureaucrat obj1("RandomVogon", 130);
+        ShrubberyCreationForm obj2 ("Ford Prefect");
+        RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
+        PresidentialPardonForm obj4 ("Arthur Dent");
 
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.execute(obj1); 
+        std::cout << "Form is signed: " << obj3.getState() << std::endl;
+        obj3.execute(obj1); 
+        std::cout << "Form is signed: " << obj4.getState() << std::endl;
+        obj4.execute(obj1);
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: SIGNING\n";
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj1);
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj1);
+        std::cout << "Form is signed: " << obj2.getState() << "\n\n";         
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: EXECUTING WHEN SIGNED\n";
+        try {
             std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.execute(obj1); 
+            obj2.execute(obj);
+            obj2.execute(obj1);
             std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: SIGNING\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << "\n\n";            
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: EXECUTING WHEN SIGNED\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.execute(obj1); 
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
             std::cout << "*--------------------------------------------------------------*\n";
         }
         catch (const std::exception& e){
@@ -260,46 +249,29 @@ int main(void){
     }
     { std::cout << "\n*INTERMISSION*\n\n";}
     {
-        try{
-            Bureaucrat obj1("RandomVogon", 148);
-            ShrubberyCreationForm obj2 ("Ford Prefect");
-            RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
-            PresidentialPardonForm obj4 ("Arthur Dent");
+        Bureaucrat obj("Kwaltz", 4);
+        Bureaucrat obj1("RandomVogon", 148);
+        ShrubberyCreationForm obj2 ("Ford Prefect");
+        RobotomyRequestForm obj3 ("Marvin the Paranoid Android");
+        PresidentialPardonForm obj4 ("Arthur Dent");
 
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.execute(obj1); 
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: SIGNING\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.beSigned(obj1);
-            std::cout << "Form is signed: " << obj2.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.beSigned(obj1);
-            std::cout << "Form is signed: " << obj3.getState() << "\n\n";
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.beSigned(obj1);
-            std::cout << "Form is signed: " << obj4.getState() << "\n\n";            
-            std::cout << "*--------------------------------------------------------------*\n";
-            std::cout << "TEST: EXECUTING WHEN SIGNED\n";
-            std::cout << "Form is signed: " << obj2.getState() << std::endl;
-            obj2.execute(obj1); 
-            std::cout << "Form is signed: " << obj3.getState() << std::endl;
-            obj3.execute(obj1); 
-            std::cout << "Form is signed: " << obj4.getState() << std::endl;
-            obj4.execute(obj1);
-            std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.execute(obj1); 
+        std::cout << "Form is signed: " << obj3.getState() << std::endl;
+        obj3.execute(obj1); 
+        std::cout << "Form is signed: " << obj4.getState() << std::endl;
+        obj4.execute(obj1);
+        std::cout << "*--------------------------------------------------------------*\n";
+        std::cout << "TEST: SIGNING\n";
+        try{
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj);
+        std::cout << "Form is signed: " << obj2.getState() << std::endl;
+        obj2.beSigned(obj1);
+        std::cout << "Form is signed: " << obj2.getState() << "\n\n";  
+        std::cout << "*--------------------------------------------------------------*\n";
         }
         catch (const std::exception& e){
             std::cout << "Error: " << e.what() << "\n";
