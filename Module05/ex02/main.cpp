@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 21:05:53 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 13:06:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int main(void){
     {
         try {
             std::cout << "\n";
-            Bureaucrat obj1("Lady Gaga", 4);
+            Bureaucrat obj1("Kwaltz", 4);
             PresidentialPardonForm obj2 ("Arthur Dent");
             ShrubberyCreationForm obj3 ("Ford Prefect");
             RobotomyRequestForm obj4 ("Marvin the Paranoid Android");

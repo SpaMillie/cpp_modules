@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:18 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 21:33:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 13:37:51 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
         if (executor.getGrade() <= this->getGradeExec()){
             std::string filename = executor.getName() + "_shrubbery";
             std::ofstream theFile(filename);
-            theFile << "    *     \n  ***  \n ***** \n*******\n";
+            theFile << "    *     \n  ***  \n ***** \n*******\n***||***\n";
             theFile.close();
         }
         else{
