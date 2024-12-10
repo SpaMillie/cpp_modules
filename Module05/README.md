@@ -19,3 +19,10 @@ you include the full definition in the header file only when it is absolutely ne
 - if you're defining a member function that returns the object of the HeaderFile class
 - if you have an HeaderFile class object as a member of the class (if they're a pointer or a reference, then no need)
 - when you're using it for template instantiation
+
+
+-using
+```const char* what() noexcept; 
+VS
+const char* what() throw();```
+write this

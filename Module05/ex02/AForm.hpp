@@ -28,15 +28,15 @@ class AForm : public std::exception{
     public:
         AForm(std::string target, int grade1, int grade2);
         virtual ~AForm();
-        const char *what(void) const throw();
         std::string getName(void) const;
         std::string getState(void) const;
         int     getGradeSign(void) const;
         int     getGradeExec(void) const;
         void    setState(void);
-        bool    beSigned(const Bureaucrat& obj);
         void    setMessage(int i);
         const char* getMessage(void) const;
+        const char* what(void) const noexcept;
+        virtual void    beSigned(const Bureaucrat& obj) = 0;
         virtual void execute(Bureaucrat const& executor) = 0;
 };
 

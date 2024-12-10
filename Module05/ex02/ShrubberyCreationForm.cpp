@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:18 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 13:37:51 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:58:24 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,42 @@
 #include <fstream>
 
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137){
-    std::cout << "Shrubbery created in form\n";
+    std::cout << "ShrubberyCreationForm created\n";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
-    std::cout << "Shrubbery uncreated\n";
+    std::cout << "ShrubberyCreationForm destroyed\n";
 }
 
 void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
     if (this->getState() == "true"){
         if (executor.getGrade() <= this->getGradeExec()){
-            std::string filename = executor.getName() + "_shrubbery";
+            std::string filename = this->getName() + "_shrubbery";
             std::ofstream theFile(filename);
-            theFile << "    *     \n  ***  \n ***** \n*******\n***||***\n";
+            theFile << "     *\n    ***\n   *****\n  *******\n ****|****\n";
             theFile.close();
+            std::cout << "Created shrubbery for " << this->getName() << "\n";
         }
-        else{
-            this->setMessage(1);
+        else
             throw (*this);
+    }
+    else
+        std::cout << "Could not create shrubbery for " << this->getName() << " because the form is missing a signature.\n";
+}    
+
+void ShrubberyCreationForm::beSigned(const Bureaucrat& obj) {
+    if (obj.getGrade() <= this->getGradeSign())
+    {
+        if (this->getState() == "true")
+                obj.signForm(*this, "it has already been signed\n");
+        else{
+            this->setState();
+            obj.signForm(*this, "");
         }
     }
     else
-        std::cout << "Could not execute " << this->getName() << " because it's not signed\n";
-}    
-
+    {
+        obj.signForm(*this, "their grade is too low\n");
+        throw (*this);
+    }
+}

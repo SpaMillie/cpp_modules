@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 20:38:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:46:19 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,9 +62,9 @@ void    Bureaucrat::decrement(void){
 
 void        Bureaucrat::signForm(AForm& obj, std::string str) const{
     if (obj.getState() == "true" && str.size() == 0)
-        std::cout << this->name << " signed " << obj.getName() << std::endl;
+        std::cout << this->name << " signed " << obj.getName() << "'s form\n";
     else{
-        std::cout << this->name << " couldn't sign " << obj.getName() << " because " << str;
+        std::cout << this->name << " couldn't sign " << obj.getName() << "'s form because " << str;
     }
 }
 

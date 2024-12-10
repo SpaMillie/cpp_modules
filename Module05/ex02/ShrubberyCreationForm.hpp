@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 12:56:40 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 21:09:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:33:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,10 @@
 
 #include "AForm.hpp"
 
-class ShrubberyCreationForm:protected AForm{
+class ShrubberyCreationForm : public AForm{
     public:
         ShrubberyCreationForm(std::string target);
         ~ShrubberyCreationForm(); 
-        void execute(Bureaucrat const& executor) override;
+        void    execute(Bureaucrat const& executor) override;
+        void    beSigned(const Bureaucrat& obj) override;
 };

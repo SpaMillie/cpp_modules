@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 19:45:23 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 15:38:03 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ class Bureaucrat : public std::exception{
         void        increment(void);
         void        decrement(void);
         void        signForm(AForm &obj, std::string str) const;
+        void        executeForm(AForm const& form) const;
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);

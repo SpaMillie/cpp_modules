@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/12/09 13:09:37 by mspasic          ###   ########.fr        #
+#    Updated: 2024/12/10 16:25:15 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SOURCE_FILES	= main.cpp \
 				Bureaucrat.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \
-				ShrubberyCreationForm.cpp
+				ShrubberyCreationForm.cpp \
+				AForm.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

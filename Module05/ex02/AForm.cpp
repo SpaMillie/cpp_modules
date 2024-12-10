@@ -45,34 +45,7 @@ void    AForm::setState(void){
 }
 
 const char* AForm::what(void) const throw(){
-    return(message);
-}
-
-void    AForm::setMessage(int i){
-    if (i == 0)
-        message = (char*)GradeTooHighException;
-    else
-        message = (char*)GradeTooLowException;
-}
- //maybe I dont need this because of e.what
-const char* AForm::getMessage(void) const{
-    return message;
-}
-
-bool AForm::beSigned(const Bureaucrat& obj) {
-    if (obj.getGrade() <= this->getGradeSign())
-    {
-        if (this->getState() == "true")
-                obj.signForm(*this, "it has already been signed\n");
-        else{
-            this->setState();
-            obj.signForm(*this, "");
-            return (true);
-        }
-    }
-    else
-        throw (AForm::GradeTooLowException);
-    return (false);
+    return(GradeTooLowException);
 }
 
 std::ostream& operator<<(std::ostream& os, const AForm& obj){

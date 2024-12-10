@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:08:25 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 21:31:08 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:52:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,19 +18,34 @@ PresidentialPardonForm::PresidentialPardonForm(std::string target) : AForm(targe
 }
 
 PresidentialPardonForm::~PresidentialPardonForm(){
-    std::cout << "PresidentialPardonForm has been unpardoned\n";
+    std::cout << "PresidentialPardonForm destroyed\n";
 }
 
 void PresidentialPardonForm::execute(Bureaucrat const& executor) {
     if (this->getState() == "true"){
         if (executor.getGrade() <= this->getGradeExec()){
-            std::cout << executor.getName() << " has been pardoned by Zaphod Beeblebrox\n";
+            std::cout << this->getName() << " has been pardoned by Zaphod Beeblebrox\n";
         }
-        else{
-            this->setMessage(1);
+        else
             throw (*this);
+    }
+    else
+        std::cout << "Could not pardon " << this->getName() << " because the form is missing a signature.\n";
+}
+
+void PresidentialPardonForm::beSigned(const Bureaucrat& obj) {
+    if (obj.getGrade() <= this->getGradeSign())
+    {
+        if (this->getState() == "true")
+                obj.signForm(*this, "it has already been signed\n");
+        else{
+            this->setState();
+            obj.signForm(*this, "");
         }
     }
     else
-        std::cout << "Could not execute " << this->getName() << " because it's not signed\n";
+    {
+        obj.signForm(*this, "their grade is too low\n");
+        throw (*this);
+    }
 }

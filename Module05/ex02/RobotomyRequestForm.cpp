@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 21:32:37 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/10 16:54:13 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,29 +14,44 @@
 #include "Bureaucrat.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45){
-    std::cout << "Robotomy Request submitted and pending approval\n";
+    std::cout << "RobotomyRequestForm created\n";
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
-    std::cout << "Robotomy Request destroyed\n";
+    std::cout << "RobotomyRequestForm destroyed\n";
 }
 
 void RobotomyRequestForm::execute(Bureaucrat const& executor) {
     if (this->getState() == "true"){
         if (executor.getGrade() <= this->getGradeExec()){
-            std::cout << "whirrwhirrrrrrrr\n";
+            std::cout << "\n*****whirrwhirrrrrrrr*****\n\n";
             std::srand(time(0));
             bool lottery = (std::rand() % 2);
             if (lottery != 0)
-                std::cout << executor.getName() << " has been successfully robotomised!\n";
+                std::cout << this->getName() << " has been successfully robotomised!\n";
             else
                 std::cout << "Uh-oh, robotomy failed :(\n";
         }
-        else{
-            this->setMessage(1);
+        else
             throw (*this);
+    }
+    else
+        std::cout << "Could not robotomise " << this->getName() << " because the form is missing a signature.\n";
+}
+
+void RobotomyRequestForm::beSigned(const Bureaucrat& obj) {
+    if (obj.getGrade() <= this->getGradeSign())
+    {
+        if (this->getState() == "true")
+                obj.signForm(*this, "it has already been signed\n");
+        else{
+            this->setState();
+            obj.signForm(*this, "");
         }
     }
     else
-        std::cout << "Could not execute " << this->getName() << " because it's not signed\n";
+    {
+        obj.signForm(*this, "their grade is too low\n");
+        throw (*this);
+    }
 }
