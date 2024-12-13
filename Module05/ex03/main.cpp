@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 15:41:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:10:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ int main(void)
         obj4->execute(obj1);
         std::cout << "*--------------------------------------------------------------*\n";
 
-        free(obj2);
-        free(obj3);
-        free(obj4);
+        delete(obj2);
+        delete(obj3);
+        delete(obj4);
     }
 //     { std::cout << "\n*INTERMISSION*\n\n";}
 //     {

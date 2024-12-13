@@ -6,25 +6,25 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 15:38:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:11:33 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form():target(""), isSigned(false), gradeSign(160), gradeExecute(160), allocated(false){
+Form::Form():target(""), isSigned(false), gradeSign(160), gradeExecute(160){
     this->setMessage(1);
     throw(*this);
 }
 
-Form::Form(std::string target, int grade1, int grade2):target(target),isSigned(false),gradeSign(grade1), gradeExecute(grade2), allocated(false){
+Form::Form(std::string target, int grade1, int grade2):target(target),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
     std::cout << "Form created!\n";
 }
 
 Form::~Form(){
-    if (allocated == true)
-        free(this);
+    // if (allocated == true)
+    //     free(this);
     std::cout << "Form destruction\n";
 }
 
@@ -58,9 +58,9 @@ void    Form::setMessage(int i){
         message = (char *)InvalidType;
 }
 
-void    Form::setAlloc(bool value){
-    allocated = value;
-}
+// void    Form::setAlloc(bool value){
+//     allocated = value;
+// }
 
 const char* Form::what(void) const throw(){
     return(message);

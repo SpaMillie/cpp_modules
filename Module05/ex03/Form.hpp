@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:30 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 15:40:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:11:48 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ class Form : public std::exception{
         bool                isSigned;
         const int   gradeSign;
         const int   gradeExecute;
-        bool    allocated;
+        // bool    allocated;
         const char* GradeTooLowException = "grade is too low";
         const char* InvalidType = "form is of an invalid type";
         char* message;
@@ -37,7 +37,7 @@ class Form : public std::exception{
         // int     getType(void) const;
         void    setState(void);
         void    setMessage(int i);
-        void    setAlloc(bool value);
+        // void    setAlloc(bool value);
         // void    setType(std::string name);
         const char* what(void) const noexcept;
         virtual void beSigned(const Bureaucrat& obj);
