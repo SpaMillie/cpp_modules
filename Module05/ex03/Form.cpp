@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 18:57:35 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:18:24 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,19 +85,6 @@ void Form::execute(Bureaucrat const& executor){
     else
         std::cout << executor.getName() << " refuses to execute a useless form that is not even signed\n";
 }
-
-// void    Form::setType(std::string name){
-//     type = name;
-// }
-
-// int Form::getType(void) const{
-//     std::string formOptions[] = {"shrubbery creation", "robotomy request", "presidential pardon", "no"};
-//     for (int i = 0; i < formOptions->size(); i++)
-//     {
-//         if (type == formOptions[i])
-//             return (i);
-//     }
-// }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj){
     os << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;

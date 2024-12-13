@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 19:49:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:11:38 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,7 +75,6 @@ void    Bureaucrat::executeForm(Form const& form) const{
     else
         std::cout << name << " cannot execute " << form.getName() << "\n";
 }
-
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj){
     os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << std::endl;

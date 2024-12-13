@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:39:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 18:15:16 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:13:18 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,9 +43,6 @@ Form* Intern::makeForm(std::string name, std::string target){
 
     while (i < 3 && name != this->formOptions[i])
         i++;
-    if (i < 3){
-        std::cout << "Intern created a " << formOptions[i] << " form!\n";
-    }
     switch (i){
         case 0:
             temp = new ShrubberyCreationForm(target);
@@ -60,5 +57,6 @@ Form* Intern::makeForm(std::string name, std::string target){
             Form invalidtemp;
             break;
     }
+    std::cout << "Intern created a " << formOptions[i] << " form!\n";
     return (temp);
 }
