@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2024/12/10 19:49:22 by mspasic          ###   ########.fr        #
+#    Updated: 2024/12/13 14:13:41 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= redTape 
 
-CXXFLAGS= -Wall -Werror -Wextra -std=c++17
+CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -g
 
 CXX = c++
 
@@ -21,7 +21,8 @@ SOURCE_FILES	= main.cpp \
 				PresidentialPardonForm.cpp \
 				RobotomyRequestForm.cpp \
 				ShrubberyCreationForm.cpp \
-				Form.cpp
+				Form.cpp \
+				Intern.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:24:10 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 20:08:07 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 14:42:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,8 @@ class Intern{
         Intern(const Intern& obj);
         Intern& operator=(const Intern& other);
         ~Intern();
-        Form& makeForm(std::string form, std::string target);
+        Form* makeForm(std::string form, std::string target);
 };
+
+
+//a way to return a form object.....you ll have to allocate for sure
