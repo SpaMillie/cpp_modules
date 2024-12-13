@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 18:10:32 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 19:07:37 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,13 @@
 int main(void)
     {
         Bureaucrat obj1("Kwaltz", 4);
+        Bureaucrat obj6("randomVogon", 150);
         Intern obj;
         Form *obj2 = obj.makeForm("shrubbery creation", "Ford Perfect");
         Form *obj3 = obj.makeForm("robotomy request", "Marvin the Paranoid Android");
         Form *obj4 = obj.makeForm("presidential pardon", "Arthur Dent");
+        Form obj7("Trillian", 23, 45);
+        std::cout << "\n";
         try{
             Form *obj5 = obj.makeForm("something else", "Test");
             obj5->beSigned(obj1);
@@ -32,7 +35,34 @@ int main(void)
         catch (const std::exception& e){
             std::cout << "Error: " << e.what() << "\n";
         }
+        try{
+            Form obj5;
+            std::cout << obj5 << "\n";
+        }
+        catch (const std::exception& e){
+            std::cout << "Error: " << e.what() << "\n";
+        }
+        try{
+            Form obj5("Tester", 161, 150);
+            std::cout << obj5 << "\n";
+        }
+        catch (const std::exception& e){
+            std::cout << "Error: " << e.what() << "\n";
+        }
+        try{
+            Form obj5("Tester", -23, 150);
+            std::cout << obj5 << "\n";
+        }
+        catch (const std::exception& e){
+            std::cout << "Error: " << e.what() << "\n";
+        }
+        std::cout << "\n";
 
+        std::cout << "TEST: OVERLOADED INSERTION OPERATOR\n";
+        std::cout << *obj2 << "\n";
+        std::cout << *obj3 << "\n";
+        std::cout << *obj4 << "\n";
+        std::cout << obj7 << "\n";
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: EXECUTING WHEN NOT SIGNED\n";
         std::cout << "Form is signed: " << obj2->getState() << std::endl;
@@ -41,6 +71,8 @@ int main(void)
         obj3->execute(obj1); 
         std::cout << "Form is signed: " << obj4->getState() << std::endl;
         obj4->execute(obj1);
+        std::cout << "Form is signed: " << obj7.getState() << std::endl;
+        obj7.execute(obj1);
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: SIGNING\n";
         std::cout << "Form is signed: " << obj2->getState() << std::endl;
@@ -58,6 +90,11 @@ int main(void)
         std::cout << "Form is signed: " << obj4->getState() << std::endl;
         obj4->beSigned(obj1);
         std::cout << "Form is signed: " << obj4->getState() << "\n\n";            
+        std::cout << "Form is signed: " << obj7.getState() << std::endl;
+        obj7.beSigned(obj1);
+        std::cout << "Form is signed: " << obj7.getState() << std::endl;
+        obj7.beSigned(obj1);
+        std::cout << "Form is signed: " << obj7.getState() << "\n\n"; 
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: EXECUTING WHEN SIGNED\n";
         std::cout << "Form is signed: " << obj2->getState() << std::endl;
@@ -66,6 +103,8 @@ int main(void)
         obj3->execute(obj1); 
         std::cout << "Form is signed: " << obj4->getState() << std::endl;
         obj4->execute(obj1);
+        std::cout << "Form is signed: " << obj7.getState() << std::endl;
+        obj7.execute(obj1);
         std::cout << "*--------------------------------------------------------------*\n";
 
         delete(obj2);

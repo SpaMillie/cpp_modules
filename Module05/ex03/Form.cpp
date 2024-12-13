@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 18:11:33 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:57:35 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,23 @@
 #include "Bureaucrat.hpp"
 
 Form::Form():target(""), isSigned(false), gradeSign(160), gradeExecute(160){
-    this->setMessage(1);
+    this->setMessage(2);
     throw(*this);
 }
 
 Form::Form(std::string target, int grade1, int grade2):target(target),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
+    if (grade1 < 1 || grade2 < 1){
+        this->setMessage(0);
+        throw (*this);
+    }  
+    else if (grade1 > 150 || grade2 > 150){
+        this->setMessage(1);
+        throw (*this);
+    }
     std::cout << "Form created!\n";
 }
 
 Form::~Form(){
-    // if (allocated == true)
-    //     free(this);
     std::cout << "Form destruction\n";
 }
 
@@ -54,25 +60,32 @@ void    Form::setState(void){
 void    Form::setMessage(int i){
     if (i == 0)
         message = (char *)GradeTooLowException;
+    else if (i == 1)
+        message = (char *)GradeTooHighException;
     else
         message = (char *)InvalidType;
 }
-
-// void    Form::setAlloc(bool value){
-//     allocated = value;
-// }
 
 const char* Form::what(void) const throw(){
     return(message);
 }
 
 void Form::beSigned(const Bureaucrat& obj){
-    std::cout << obj.getName() << " will never be able to sign this form\n";
+    if(this->getState() == "true")
+        obj.signForm(*this, "it has already been signed\n");
+    else{
+        this->setState();
+        obj.signForm(*this, "");
+    }
 }
 
-void Form::execute(const Bureaucrat& obj){
-    std::cout << obj.getName() << " will never be able to execute this form\n";
+void Form::execute(Bureaucrat const& executor){
+    if(this->getState() == "true")
+        std::cout << executor.getName() << " executed the form for " << this->getName() << ", but the form does nothing\n";
+    else
+        std::cout << executor.getName() << " refuses to execute a useless form that is not even signed\n";
 }
+
 // void    Form::setType(std::string name){
 //     type = name;
 // }

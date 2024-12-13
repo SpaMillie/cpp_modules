@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/10 19:39:22 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/13 18:12:07 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:15:16 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,5 @@ Form* Intern::makeForm(std::string name, std::string target){
             Form invalidtemp;
             break;
     }
-    // temp->setAlloc(true);
     return (temp);
 }

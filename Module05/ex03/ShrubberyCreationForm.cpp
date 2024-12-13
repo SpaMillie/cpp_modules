@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:18 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 19:49:22 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/13 18:43:09 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
         else
         {
             std::cout << executor.getName() << " is not authorised to execute this form\n";
+            this->setMessage(0);
             throw (*this);
         }
     }
@@ -54,6 +55,7 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat& obj) {
     else
     {
         obj.signForm(*this, "they are not authorised to sign this form\n");
+        this->setMessage(0);
         throw (*this);
     }
 }
