@@ -6,19 +6,24 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 17:55:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 15:44:44 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
 
-Bureaucrat::Bureaucrat(std::string name, int grade):name(name), grade(grade){
-    if (grade < 1 || grade > 150)
-        throw (*this);
-    std::cout << "Bureaucrat created\n";
+Bureaucrat::Bureaucrat() : _name("Husk"), _grade(150){
+    std::cout << "Bureaucrat class: default constructor called\n";
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& obj):name(obj.name), grade(obj.grade), GradeTooHighException(obj.GradeTooHighException), GradeTooLowException(obj.GradeTooLowException){
+Bureaucrat::Bureaucrat(std::string name, int grade):_name(name), _grade(grade){
+    checkGrade(_grade);
+    std::cout << "Bureaucrat class: custom constructor called\n";
+}
+
+Bureaucrat::Bureaucrat(const Bureaucrat& obj):
+    _name(obj._name), 
+    _grade(obj._grade){
     std::cout << "Bureaucrat class: copy constructor called\n";
 }
 
@@ -27,31 +32,38 @@ Bureaucrat::~Bureaucrat(){
 }
 
 std::string Bureaucrat::getName(void) const{
-    return (name);
+    return (_name);
 }
 
 int Bureaucrat::getGrade(void) const{
-    return (grade);
+    return (_grade);
 }
 
-const char* Bureaucrat::what(void) const throw(){
-    if (this->grade < 1)
-        return (GradeTooHighException);
-    else
-        return (GradeTooLowException);
+void Bureaucrat::checkGrade(int grade){
+    if (grade < 1)
+        throw (Bureaucrat::GradeTooHighException());
+    if (grade > 150)
+        throw (Bureaucrat::GradeTooLowException());
+}
+
+const char* Bureaucrat::GradeTooHighException::what(void) const noexcept{
+    return ("grade is too high");
+}
+
+const char* Bureaucrat::GradeTooLowException::what(void) const noexcept{
+    return ("grade is too low");
+
 }
 
 void    Bureaucrat::increment(void){
-    grade -= 1;
-    if (grade < 1)
-        throw (*this);
+    _grade -= 1;
+    checkGrade(_grade);
     std::cout << "Grade incremented\n";
 }
 
 void    Bureaucrat::decrement(void){
-    grade += 1;
-    if (grade > 150)
-        throw (*this);
+    _grade += 1;
+    checkGrade(_grade);
     std::cout << "Grade decremented\n";
 }
 
