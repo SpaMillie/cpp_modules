@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/14 16:30:46 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 17:08:52 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class Bureaucrat{
         Bureaucrat();
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat& obj);
-        Bureaucrat& operator=(const Bureaucrat& other);
+        Bureaucrat& operator=(const Bureaucrat& other) = delete;
         ~Bureaucrat();
 
         std::string getName(void) const;

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/14 15:53:07 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 17:13:29 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,6 @@ void        Bureaucrat::signForm(Form& obj, std::string str) const{
 }
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj){
-    os << obj.getName() << ", bureaucrat grade " << obj.getGrade();
+    os << obj.getName() << ", bureaucrat grade " << obj.getGrade() << "\n";
     return (os);
 }

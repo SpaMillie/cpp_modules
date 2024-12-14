@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:06:18 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 18:22:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 18:05:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,17 @@
 #include "Bureaucrat.hpp"
 #include <fstream>
 
+
+ShrubberyCreationForm::ShrubberyCreationForm() : AForm("Husk", 145, 137){
+    std::cout << "ShrubberyCreationForm class: default constructor called\n";
+}
+
 ShrubberyCreationForm::ShrubberyCreationForm(std::string target) : AForm(target, 145, 137){
-    std::cout << "ShrubberyCreationForm created\n";
+    std::cout << "ShrubberyCreationForm class: custom constructor called\n";
+}
+
+ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& obj) : AForm(obj.getName(), obj.getGradeSign(), obj.getGradeExec()){
+    std::cout << "ShrubberyCreationForm class: copy constructior called\n";
 }
 
 ShrubberyCreationForm::~ShrubberyCreationForm(){
@@ -34,7 +43,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const& executor) {
         else
         {
             std::cout << executor.getName() << " is not authorised to execute this form\n";
-            throw (*this);
+            throw (GradeTooLowException());
         }
     }
     else
@@ -54,6 +63,6 @@ void ShrubberyCreationForm::beSigned(const Bureaucrat& obj) {
     else
     {
         obj.signForm(*this, "they are not authorised to sign this form\n");
-        throw (*this);
+        throw (GradeTooLowException());
     }
 }

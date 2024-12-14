@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:11 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 15:38:03 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 17:09:22 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,19 +16,33 @@
 
 class AForm;
 
-class Bureaucrat : public std::exception{
+class Bureaucrat{
+
     private:
-        const std::string name;
-        int grade;
-        const char* GradeTooHighException = "grade is too high";
-        const char* GradeTooLowException = "grade is too low";
+        const std::string   _name;
+        int                 _grade;
+         
+        class GradeTooLowException : public std::exception{
+            public:
+                const char *what(void) const noexcept override; 
+        };
+        
+        class GradeTooHighException : public std::exception{
+            public:
+                const char *what(void) const noexcept override; 
+        };  
+
     public:
+        Bureaucrat();
         Bureaucrat(std::string name, int grade);
         Bureaucrat(const Bureaucrat& obj);
+        Bureaucrat& operator=(const Bureaucrat& other) = delete;
         ~Bureaucrat();
-        const char  *what(void) const throw();
+
         std::string getName(void) const;
         int         getGrade(void) const;
+        void        checkGrade(int grade);
+        
         void        increment(void);
         void        decrement(void);
         void        signForm(AForm &obj, std::string str) const;
@@ -36,4 +50,3 @@ class Bureaucrat : public std::exception{
 };
 
 std::ostream& operator<<(std::ostream& os, const Bureaucrat& obj);
-

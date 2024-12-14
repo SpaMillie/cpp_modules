@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 19:08:37 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 17:39:59 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,6 @@
 #include "PresidentialPardonForm.hpp"
 #include "RobotomyRequestForm.hpp"
 #include "ShrubberyCreationForm.hpp"
-
-// void test1(){
-//     Bureaucrat obj6("Grunt", 160);
-// }
-
-// void test2(){
-//     Bureaucrat obj4("Liara", 0);
-// }
 
 int main(void){
     {

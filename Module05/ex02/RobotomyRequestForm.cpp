@@ -6,15 +6,23 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 13:07:36 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/10 18:22:49 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 18:01:23 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 #include "Bureaucrat.hpp"
 
+RobotomyRequestForm::RobotomyRequestForm() : AForm("Husk", 72, 45){
+    std::cout << "RobotomyRequestForm class: default constructor called\n";
+}
+
 RobotomyRequestForm::RobotomyRequestForm(std::string target) : AForm(target, 72, 45){
-    std::cout << "RobotomyRequestForm created\n";
+    std::cout << "RobotomyRequestForm class: custom constructor called\n";
+}
+
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& obj) : AForm(obj.getName(), obj.getGradeSign(), obj.getGradeExec()){
+    std::cout << "RobotomyRequestForm class: copy constructior called\n";
 }
 
 RobotomyRequestForm::~RobotomyRequestForm(){
@@ -35,7 +43,7 @@ void RobotomyRequestForm::execute(Bureaucrat const& executor) {
         else
         {
             std::cout << executor.getName() << " is not authorised to execute this form\n";
-            throw (*this);
+            throw (GradeTooLowException());
         }
     }
     else
@@ -55,6 +63,6 @@ void RobotomyRequestForm::beSigned(const Bureaucrat& obj) {
     else
     {
         obj.signForm(*this, "they are not authorised to sign this form\n");
-        throw (*this);
+        throw (GradeTooLowException());
     }
 }
