@@ -6,69 +6,88 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:13 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 19:27:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 17:03:27 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Form.hpp"
 #include "Bureaucrat.hpp"
 
-Form::Form(std::string name, int grade1, int grade2):name(name),isSigned(false),gradeSign(grade1), gradeExecute(grade2){
-    if (grade1 < 1 || grade2 < 1 || grade1 > 150 || grade2 > 150)
-        throw (*this);
-    std::cout << "Form created!\n";
+Form::Form():_name("Husk"),_isSigned(false), _gradeSign(1), _gradeExecute(1){
+    std::cout << "Form class: default constructor called\n";
 }
 
-Form::Form(const Form& obj):name(obj.name),isSigned(obj.isSigned),gradeSign(obj.gradeSign), gradeExecute(obj.gradeExecute){
-    std::cout << "Form: copy constructor called\n";
+Form::Form(std::string name, int gradeS, int gradeE):
+    _name(name),
+    _isSigned(false),
+    _gradeSign(gradeS), 
+    _gradeExecute(gradeE){
+    checkGrades(_gradeSign, _gradeExecute);
+    std::cout << "Form class: custom constructor called\n";
+}
+
+Form::Form(const Form& obj):
+    _name(obj._name),
+    _isSigned(obj._isSigned),
+    _gradeSign(obj._gradeSign), 
+    _gradeExecute(obj._gradeExecute){
+    std::cout << "Form class: copy constructor called\n";
 }
 
 Form::~Form(){
-    std::cout << "Form destruction\n";
+    std::cout << "Form class: destructor called\n";
 }
 
 std::string Form::getName(void) const{
-    return (name);
+    return (_name);
 }
 
 std::string Form::getState(void) const{
-    if (isSigned == 1)
+    if (_isSigned == 1)
         return ("true");
     else
         return ("false");
 }
 
 int Form::getGradeSign(void) const{
-    return (gradeSign);
+    return (_gradeSign);
 }
 
 int Form::getGradeExec(void) const{
-    return(gradeExecute);
+    return(_gradeExecute);
 }
 
-const char* Form::what(void) const throw(){
-    if (gradeSign < 1 || gradeExecute < 1)
-        return (GradeTooHighException);
-    else
-        return (GradeTooLowException);
+void    Form::checkGrades(int gradeS, int gradeE){
+    if (gradeS < 1 || gradeE < 1)
+        throw (GradeTooHighException());
+    if (gradeS > 150 || gradeE > 150)
+        throw(GradeTooLowException());
 }
 
-void Form::beSigned(const Bureaucrat& obj){ //think if there is some other reason why sigining would fail and adjust this
-    if (obj.getGrade() <= gradeSign)
+const char* Form::GradeTooHighException::what(void) const noexcept{
+    return ("grade is too high");
+}
+
+const char* Form::GradeTooLowException::what(void) const noexcept{
+    return ("grade is too low");
+}
+
+void Form::beSigned(const Bureaucrat& obj){
+    if (obj.getGrade() <= _gradeSign)
     {
-        if (isSigned == true)
+        if (_isSigned == true)
             obj.signForm(*this, "it has already been signed\n");
         else{
-            isSigned = true;
+            _isSigned = true;
             obj.signForm(*this, "");
         }
     }
     else
-        throw (*this);
+        throw (GradeTooLowException());
 }
 
 std::ostream& operator<<(std::ostream& os, const Form& obj){
-    os << "Form: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << std::endl;
+    os << "Form: " << obj.getName() << "\n    Grade required for signature: " << obj.getGradeSign() << "\n    Grade required for execution: " << obj.getGradeExec() << "\n    Form is signed: " << obj.getState() << "\n";
     return (os);
 }
 

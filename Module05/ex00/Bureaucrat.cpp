@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:33:41 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/14 15:44:44 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 16:40:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,12 +56,14 @@ const char* Bureaucrat::GradeTooLowException::what(void) const noexcept{
 }
 
 void    Bureaucrat::increment(void){
+    checkGrade(_grade);
     _grade -= 1;
     checkGrade(_grade);
     std::cout << "Grade incremented\n";
 }
 
 void    Bureaucrat::decrement(void){
+    checkGrade(_grade);
     _grade += 1;
     checkGrade(_grade);
     std::cout << "Grade decremented\n";

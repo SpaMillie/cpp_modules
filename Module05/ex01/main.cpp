@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 19:31:37 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/09 15:38:11 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 16:59:34 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ void test4(){
 
 int main(void){
     {
+        try{
         std::cout << "*--------------------------------------------------------------*\n";
         std::cout << "TEST: CREATING OBJECTS WITHIN THE VALID GRADE RANGE\n";
         Bureaucrat obj("Shepard", 3);
@@ -41,7 +42,7 @@ int main(void){
         std::cout << obj3 << std::endl;
         Bureaucrat obj5("Miranda", 148);
         std::cout << obj5 << std::endl;
-        // Bureaucrat obj6(obj5); //testing the copy constructor
+        // Bureaucrat obj6(Bureaucrat("str", 432)); //testing the copy constructor
         // std::cout << obj6 << std::endl;
 
         Form form1("Shepardise", 4, 76);
@@ -90,6 +91,10 @@ int main(void){
         }
         std::cout << "\n";
         std::cout << "*--------------------------------------------------------------*\n";
+        }
+        catch(const std::exception& e){
+            std::cout << "Error: " << e.what() << "\n";
+        }
     }
     {
         try {
@@ -106,19 +111,21 @@ int main(void){
             form1.beSigned(obj1);
             std::cout << "Form is signed: " << form1.getState() << std::endl;
             std::cout << "*--------------------------------------------------------------*\n";
-            // std::cout << "TEST: BE_SIGNED MEMBER FUNCTION; INVALID\n";
-            // Form form2("Disease", 4, 8);
-            // std::cout << "Form is signed: " << form2.getState() << std::endl;
-            // obj1.decrement();
-            // form2.beSigned(obj1);
-            // std::cout << "Form is signed: " << form2.getState() << std::endl;
-            // std::cout << "*--------------------------------------------------------------*\n";
+            try{
+            std::cout << "TEST: BE_SIGNED MEMBER FUNCTION; INVALID\n";
+            Form form2("Disease", 4, 8);
+            std::cout << "Form is signed: " << form2.getState() << std::endl;
+            obj1.decrement();
+            form2.beSigned(obj1);
+            std::cout << "Form is signed: " << form2.getState() << std::endl;
+            std::cout << "*--------------------------------------------------------------*\n";}
+            catch(const std::exception& e){
+                std::cout << "Error: " << e.what() << std::endl;
+            }
+            std::cout << "\n";
         }
-        catch (const Bureaucrat& fi){
-           std::cout << "Error: " << fi.getName() << " " << fi.what() << std::endl; 
-        }
-        catch (const Form& ge){
-            std::cout << "Error: " << ge.getName() << " " << ge.what() << std::endl;
+        catch (const std::exception& fi){
+           std::cout << "Error: " << fi.what() << std::endl; 
         }
     }
 }

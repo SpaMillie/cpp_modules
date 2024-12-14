@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/03 20:01:30 by mspasic           #+#    #+#             */
-/*   Updated: 2024/12/06 18:31:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2024/12/14 15:57:56 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,37 @@
 
 class Bureaucrat;
 
-class Form : public std::exception{
+class Form{
     private:
-        const std::string   name;
-        bool                isSigned;
-        const int   gradeSign;
-        const int   gradeExecute;
-        const char* GradeTooHighException = "grade is too high";
-        const char* GradeTooLowException = "grade is too low";        
+        const std::string   _name;
+        bool                _isSigned;
+        const int   _gradeSign;
+        const int   _gradeExecute;
+         
+        class GradeTooLowException : public std::exception{
+            public:
+                const char *what(void) const noexcept override; 
+        };
+        
+        class GradeTooHighException : public std::exception{
+            public:
+                const char *what(void) const noexcept override; 
+        };
+
     public:
-        Form(std::string name, int grade1, int grade2);
+
+        Form();
+        Form(std::string name, int gradeS, int gradeE);
         Form(const Form& obj);
+        Form& operator=(const Form& other) = delete;
         ~Form();
-        const char *what(void) const throw();
+
         std::string getName(void) const;
         std::string getState(void) const;
         int     getGradeSign(void) const;
         int     getGradeExec(void) const;
+        
+        void    checkGrades(int gradeS, int gradeE);
         void    beSigned(const Bureaucrat& obj);
 };
 
