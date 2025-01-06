@@ -6,11 +6,12 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:25:46 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/06 18:43:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/06 19:29:51 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
+#include <iostream>
 
 int main(void){
     ScalarConverter* test = nullptr;
@@ -35,7 +36,7 @@ int main(void){
     test->convert("243323435346"); //too long of an integer
     test->convert("-243323435346"); //too long of a negative integer
     test->convert("243323435346L"); //long integer
-
+    // int check = inf;
     test->convert("inf");
     test->convert("324324.324324");
     test->convert("nan");
