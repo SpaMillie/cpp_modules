@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/06 19:34:18 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/06 19:37:17 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ size_t find_dot(std::string lit){
     return (dotty);
 }
 
+
+//should you really accept the string that says inf as inf or should you be resolving this with real inf tests?
 bool    check_edge(std::string literal){
     if (literal == "inf" || literal == "nan" || literal == "-inf" || literal == "+inf" )
         return (true);
