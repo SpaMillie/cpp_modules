@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/06 19:37:17 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/07 20:08:08 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ size_t find_dot(std::string lit){
         if (lit[i] == '.')
             dotty = i;
     }
+    if (dotty == 1)
+        return (dotty);
+    size_t i = lit.size() - 1;
+    while (lit[i] != '.' && (lit[i] == '0' || (lit[i] == 'f' && i == lit.size() - 1)))
+    {
+        std::cout << "dotty: " << dotty << " i: " << i << " lit[i]:  " << lit[i] << "\n";
+        i--;
+    }
+    if (i != lit.size() - 1)
+        dotty = i - dotty;
+    else
+        dotty = lit.size() - dotty - 1;
+    if (dotty == 0)
+        dotty = 1;
     return (dotty);
 }
 
@@ -60,16 +74,34 @@ void    print_char(std::string literal){
         std::cout << "  character: [??]\n";
 }
 
+bool is_char(std::string lit){
+    if ((lit.size() == 1 && (lit[0] >= 0 && lit[0] <= 127)))
+        return (true);
+    return (false);
+}
+
+// bool is_int(std::string lit){
+    
+// }
+
+/*how to recognise the type:
+- char > if it's a number between 0 and 127 or if its 1 char thats not a number
+- int > if its a number with stoi maybe?
+- float > number plus the dot plus the f
+- double > number plus the dot minus the f
+- invalid: string or something else*/
+
 void ScalarConverter::convert(std::string literal){
     double  dbl_lit;
-    size_t  dot_place = find_dot(literal);
+    size_t  dot_space = find_dot(literal);
     
     std::cout << "Converting the string: \"" << literal << "\" >>\n";
     print_char(literal);
     print_int(literal);
     try{
+        std::cout << "  dotty: " << dot_space << "\n";
         dbl_lit = std::stod(literal);
-        std::cout << std::fixed << std::setprecision(dot_place);
+        std::cout << std::fixed << std::setprecision(dot_space);
         std::cout << "  double: " << dbl_lit << "\n";
         std::cout << "  float: " << dbl_lit << "f\n";
     }
