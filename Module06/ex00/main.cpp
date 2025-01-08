@@ -6,15 +6,16 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:25:46 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/07 19:37:16 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/08 15:09:57 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iostream>
 #include <iomanip> //delete
+#include <limits> //delete
 
-int main(void){
+int main(void){{
     ScalarConverter* test = nullptr;
     
     std::cout << "TESTING: CHARACTER\n";
@@ -35,6 +36,7 @@ int main(void){
     test->convert("243323435346L"); //long integer
     std::cout << "*************************\n";
     std::cout << "TESTING: DOUBLE AND FLOATn";    
+    test->convert(".22123"); //regular double
     test->convert("42.0"); //regular double
     test->convert("42.0f"); //regular float
     test->convert("-42.0"); //regular negative double
@@ -48,8 +50,14 @@ int main(void){
     test->convert("nanf");
     test->convert("-inf");
     test->convert("+inf");
-
-    float num = 123456.678908f;
+}
+{
+    float num = std::numeric_limits<float>::infinity();
     std::cout << std::fixed << std::setprecision(6);
     std::cout << "check: " << num << std::endl;
+}{
+    float num = .324f;
+    std::cout << std::fixed << std::setprecision(6);
+    std::cout << "check: " << num << std::endl;
+}
 }
