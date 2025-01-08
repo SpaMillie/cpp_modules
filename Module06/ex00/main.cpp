@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 16:25:46 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/08 18:24:51 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/08 19:33:15 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,14 +80,28 @@ int main(void){{
     float num = std::numeric_limits<float>::infinity();
     std::cout << std::fixed << std::setprecision(6);
     std::cout << "check: " << num << std::endl;
-}{
+}
+{
     float num = .324f;
     std::cout << std::fixed << std::setprecision(6);
     std::cout << "check: " << num << std::endl;
 }
 {
+    double num = 324324.324324;
+    float check = (float) num;
+    std::cout << "check: " << check << std::endl;
+}
+{
     float num = 42.0f;
     char c = (char)num;
+    std::cout << "check: " << c << std::endl;
+}
+{
+    double num = 12345.67890123456789;
+    int num2 = 12345;
+    char c = (char)num;
+    std::cout << "check: " << c << std::endl;
+    c = (char)num2;
     std::cout << "check: " << c << std::endl;
 }
 }

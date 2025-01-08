@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/08 18:26:57 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/08 19:30:06 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -120,14 +120,14 @@ bool is_double(std::string lit){
 
 void    print_char(std::string literal){
     char    c = literal[0];
-    int     int_c = (int)c;
-    float   float_c = (float)c;
-    double  double_c = (double)c;
+    int     int_c = static_cast <int> (c);
+    float   float_c = static_cast <float> (c);
+    double  double_c = static_cast <double> (c);
 
-    if (c >= 32 && c <=126) //could use std::isprint(c) here but not sure if it's allowed
-        std::cout << "  character: " << c << "\n";
-    else
+    if ((c >= 0 && c < 32) || c == 127) //could use std::isprint(c) here but not sure if it's allowed
         std::cout << "  character: ?\n";
+    else
+        std::cout << "  character: " << c << "\n";
     std::cout << "  integer: " << int_c << "\n  float: ";
     std::cout << std::fixed << std:: setprecision(1) << float_c << "f\n  double: " << double_c << "\n";
 }
@@ -140,17 +140,17 @@ void    print_int(std::string literal){
 
     try{
         i = std::stoi(literal);
-        char_i = (char)i;
-        if (char_i < 32 || char_i > 126)
+        char_i = static_cast <char> (i);
+        if ((char_i >= 0 && char_i < 32) || char_i == 127)
             char_i = '?';
-        float_i = (float)i;
-        double_i = (double)i;
+        float_i = static_cast <float> (i);
+        double_i = static_cast <double> (i);
         std::cout << "  integer: " << i << "\n  character: " << char_i << "\n  float: ";
         std::cout << std::fixed << std:: setprecision(1) << float_i << "f\n  double: " << double_i << "\n";
     }
     catch(const std::exception& e){
         std::cout << "  integer: N/A\n  character: N/A\n  float: N/A\n  double: N/A\n";
-        std::cout << "Error: " << e.what() << "\n";
+        std::cout << "ERROR: " << e.what() << "\n";
     }
 }
 
@@ -162,18 +162,18 @@ void    print_float(std::string literal){
 
     try{
         f = std::stof(literal);
-        char_f = (char)f;
-        if (char_f < 32 || char_f > 126)
+        char_f = static_cast <char> (f);
+        if ((char_f >= 0 && char_f < 32) || char_f == 127)
             char_f = '?';
-        int_f = (int)f;
-        double_f = (double)f;
+        int_f = static_cast <int> (f);
+        double_f = static_cast <double> (f);
         std::cout << std::fixed << std::setprecision(find_dot(literal));
         std::cout << "  float: " << f << "f\n  character: " << char_f << "\n  integer: ";
         std::cout << int_f << "\n  double: " << double_f << "\n";
     }
     catch(const std::exception& e){
         std::cout << "float: N/A\n  integer: N/A\n  character: N/A  double: N/A\n";
-        std::cout << "Error: " << e.what() << "\n";
+        std::cout << "ERROR: " << e.what() << "\n";
     }
 }
 
@@ -185,21 +185,23 @@ void    print_double(std::string literal){
 
     try{
         d = std::stod(literal);
-        char_d = (char)d;
-        int_d = (int)d;
-        float_d = (double)d;
+        char_d = static_cast <char> (d);
+        if ((char_d >= 0 && char_d < 32) || char_d == 127)
+            char_d = '?';
+        int_d = static_cast <int> (d);
+        float_d = static_cast <float> (d);
         std::cout << std::fixed << std::setprecision(find_dot(literal));
         std::cout << "  double: " << d << "\n  character: " << char_d << "\n  integer: ";
         std::cout << int_d << "\n  float: " << float_d << "f\n";
     }
     catch(const std::exception& e){
         std::cout << "  double: N/A\n   integer: N/A\n  character: N/A\n    float: N/A\n";
-        std::cout << "Error: " << e.what() << "\n";
+        std::cout << "ERROR: " << e.what() << "\n";
     }
 }
 
 void    print_invalid(void){
-    std::cout << "[Error: string does not fit any of the types]\n";
+    std::cout << "[ERROR: string does not fit any of the types]\n";
     std::cout << "  character: N/A\n  integer: N/A\n  float: N/A\n  double: N/A\n";
 }
 
@@ -207,14 +209,14 @@ void    print_invalid(void){
 
 void ScalarConverter::convert(std::string literal){
     std::cout << "Converting the string: \"" << literal << "\" >>\n";
-    if (!literal.empty() && is_char(literal))
-        print_char(literal);
-    else if (!literal.empty() && is_int(literal))
+    if (!literal.empty() && is_int(literal))
         print_int(literal);
-    else if (!literal.empty() && is_float(literal))
-        print_float(literal);
+    else if (!literal.empty() && is_char(literal))
+        print_char(literal);
     else if (!literal.empty() && is_double(literal))
         print_double(literal);
+    else if (!literal.empty() && is_float(literal))
+        print_float(literal);
     else
         print_invalid();
 }
