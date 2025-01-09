@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/01/08 19:30:06 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/01/09 16:32:44 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <iostream>
 // #include <cmath>
 
-/* HELPER FUNCTIONS FOR CORRECTLY PRINTING DOUBLES AND FLOATS */
+/* HELPER FUNCTIONS FOR PRINTING */
 
 size_t find_dot(std::string lit){
     size_t dotty = 1;
@@ -36,6 +36,13 @@ size_t find_dot(std::string lit){
     if (dotty == 0)
         dotty = 1;
     return (dotty);
+}
+
+void    print_invalid(void){
+    std::cout << "  character: impossible\n";
+    std::cout << "  integer: impossible\n";
+    std::cout << "  float: impossible\n";
+    std::cout << "  double: impossible\n";
 }
 
 /* EDGE CASE FUNCTIONS FOR SCIENCE AND FUN */
@@ -116,23 +123,35 @@ bool is_double(std::string lit){
     return (true);
 }
 
-/* PRINTING FUNCTIONS */
+/* SETTING AND PRINTING FUNCTIONS */
 
-void    print_char(std::string literal){
+void    print_char(char c){
+    if ((c >= 0 && c < 32) || c == 127)
+        std::cout << "  character: Non displayable\n";
+    else if (c > 31 && c < 127)
+        std::cout << "  character: '" << c << "'\n";
+    else
+        std::cout << "  character: impossible\n";
+}
+
+void    print_all(char c, int i, float f, double d, size_t n){
+    print_char(c);
+    std::cout << "  integer: " << i << "\n";
+    std::cout << std::fixed << std::setprecision(n);
+    std::cout << "  float: " << f << "f\n";
+    std::cout << "  double: " << d << "\n";
+}
+
+void    set_char(std::string literal){
     char    c = literal[0];
     int     int_c = static_cast <int> (c);
     float   float_c = static_cast <float> (c);
     double  double_c = static_cast <double> (c);
 
-    if ((c >= 0 && c < 32) || c == 127) //could use std::isprint(c) here but not sure if it's allowed
-        std::cout << "  character: ?\n";
-    else
-        std::cout << "  character: " << c << "\n";
-    std::cout << "  integer: " << int_c << "\n  float: ";
-    std::cout << std::fixed << std:: setprecision(1) << float_c << "f\n  double: " << double_c << "\n";
+    print_all(c, int_c, float_c, double_c, 1);
 }
 
-void    print_int(std::string literal){
+void    set_print_int(std::string literal){
     int     i;
     char    char_i;
     float   float_i;
@@ -141,20 +160,17 @@ void    print_int(std::string literal){
     try{
         i = std::stoi(literal);
         char_i = static_cast <char> (i);
-        if ((char_i >= 0 && char_i < 32) || char_i == 127)
-            char_i = '?';
         float_i = static_cast <float> (i);
         double_i = static_cast <double> (i);
-        std::cout << "  integer: " << i << "\n  character: " << char_i << "\n  float: ";
-        std::cout << std::fixed << std:: setprecision(1) << float_i << "f\n  double: " << double_i << "\n";
+
+        print_all(char_i, i, float_i, double_i, 1);
     }
     catch(const std::exception& e){
-        std::cout << "  integer: N/A\n  character: N/A\n  float: N/A\n  double: N/A\n";
-        std::cout << "ERROR: " << e.what() << "\n";
+       print_invalid(); 
     }
 }
 
-void    print_float(std::string literal){
+void    set_print_float(std::string literal){
     int     int_f;
     char    char_f;
     float   f;
@@ -163,21 +179,20 @@ void    print_float(std::string literal){
     try{
         f = std::stof(literal);
         char_f = static_cast <char> (f);
-        if ((char_f >= 0 && char_f < 32) || char_f == 127)
-            char_f = '?';
         int_f = static_cast <int> (f);
         double_f = static_cast <double> (f);
-        std::cout << std::fixed << std::setprecision(find_dot(literal));
-        std::cout << "  float: " << f << "f\n  character: " << char_f << "\n  integer: ";
-        std::cout << int_f << "\n  double: " << double_f << "\n";
+        print_all(char_f, int_f, f, double_f, find_dot(literal));
+
+        // std::cout << std::fixed << std::setprecision(find_dot(literal));
+        // std::cout << "  float: " << f << "f\n  character: " << char_f << "\n  integer: ";
+        // std::cout << int_f << "\n  double: " << double_f << "\n";
     }
     catch(const std::exception& e){
-        std::cout << "float: N/A\n  integer: N/A\n  character: N/A  double: N/A\n";
-        std::cout << "ERROR: " << e.what() << "\n";
+       print_invalid(); 
     }
 }
 
-void    print_double(std::string literal){
+void    set_print_double(std::string literal){
     int     int_d;
     char    char_d;
     float   float_d;
@@ -186,37 +201,32 @@ void    print_double(std::string literal){
     try{
         d = std::stod(literal);
         char_d = static_cast <char> (d);
-        if ((char_d >= 0 && char_d < 32) || char_d == 127)
-            char_d = '?';
         int_d = static_cast <int> (d);
         float_d = static_cast <float> (d);
-        std::cout << std::fixed << std::setprecision(find_dot(literal));
-        std::cout << "  double: " << d << "\n  character: " << char_d << "\n  integer: ";
-        std::cout << int_d << "\n  float: " << float_d << "f\n";
+        print_all(char_d, int_d, float_d, d, find_dot(literal));
+        
+        // std::cout << std::fixed << std::setprecision(find_dot(literal));
+        // std::cout << "  double: " << d << "\n  character: " << char_d << "\n  integer: ";
+        // std::cout << int_d << "\n  float: " << float_d << "f\n";
     }
     catch(const std::exception& e){
-        std::cout << "  double: N/A\n   integer: N/A\n  character: N/A\n    float: N/A\n";
-        std::cout << "ERROR: " << e.what() << "\n";
+       print_invalid(); 
     }
 }
 
-void    print_invalid(void){
-    std::cout << "[ERROR: string does not fit any of the types]\n";
-    std::cout << "  character: N/A\n  integer: N/A\n  float: N/A\n  double: N/A\n";
-}
 
 /* THE MAIN FUNCTION FOR CONVERSION*/
 
 void ScalarConverter::convert(std::string literal){
     std::cout << "Converting the string: \"" << literal << "\" >>\n";
     if (!literal.empty() && is_int(literal))
-        print_int(literal);
+        set_print_int(literal);
     else if (!literal.empty() && is_char(literal))
-        print_char(literal);
+        set_char(literal);
     else if (!literal.empty() && is_double(literal))
-        print_double(literal);
+        set_print_double(literal);
     else if (!literal.empty() && is_float(literal))
-        print_float(literal);
+        set_print_float(literal);
     else
         print_invalid();
 }
