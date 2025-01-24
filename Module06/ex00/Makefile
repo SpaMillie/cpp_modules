@@ -6,11 +6,11 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/01/06 17:09:31 by mspasic          ###   ########.fr        #
+#    Updated: 2025/01/24 16:44:21 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= converting 
+NAME	= convert 
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 
