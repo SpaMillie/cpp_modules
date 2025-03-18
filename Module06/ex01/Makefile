@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/03/18 15:33:16 by mspasic          ###   ########.fr        #
+#    Updated: 2025/03/18 17:11:53 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= convert 
+NAME	= serialize 
 
-CXXFLAGS= -Wall -Werror -Wextra -std=c++17
+CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -g -fsanitize=address
 
 CXX = c++
 

@@ -6,11 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 14:54:34 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/18 15:07:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/18 16:43:54 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+
+# include <stdint.h>
+# include "Data.hpp"
 
 class Serializer{
     private:
