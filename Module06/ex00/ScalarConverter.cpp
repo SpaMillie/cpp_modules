@@ -6,14 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/18 12:23:50 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:01:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 #include <iomanip>
 #include <iostream>
-// #include <cmath>
 
 /* HELPER FUNCTIONS FOR PRINTING */
 

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/06 15:17:50 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/18 14:44:21 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/18 15:03:37 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 #include <string>
 
-// You can't put everything as private and delete it! Here's why:
+// FUN FACT: You can't put everything as private and delete it! Here's why:
 // compiler still expects a destructor
 // best practice > constructor should be private but default, means
 //                  > constructor still exists, so the compiler can generate it
