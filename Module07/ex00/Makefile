@@ -6,13 +6,13 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/03/19 20:10:45 by mspasic          ###   ########.fr        #
+#    Updated: 2025/03/19 20:30:50 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= convert 
+NAME	= templating 
 
-CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -g -fsanitize=address
+CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 
 CXX = c++
 
