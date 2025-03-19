@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 20:41:55 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/18 21:54:43 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:56:39 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,12 @@ int main (void){
                         object = nullptr;
                 }
                 std::cout << "*--------------------------------------------------------------*\n"; 
-                
+                std::cout << "TEST: NOTHING\n";
+                object = nullptr;
+                Base& check = *object;
+                object->identify(object);
+                object->identify(check);
+                std::cout << "*--------------------------------------------------------------*\n";                 
         }
         catch(std::exception& e){
                 std::cout << "Error: " << e.what() << "\n";

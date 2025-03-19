@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 17:48:59 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/18 21:54:16 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/19 19:55:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 # include <stdlib.h>
 
 Base*   Base::generate(void){
-    srand(time(0)); 
+    srand(static_cast<unsigned int>(time(0))); 
     int random = 1 + rand() % 3;
     switch (random){
         case 1:
@@ -43,53 +43,71 @@ void    Base::identify(Base* p){
     else if (dynamic_cast<B*>(p) != nullptr){
         std::cout << "This is a pointer of Derived class B!\n";
     }
-    else{
+    else if (dynamic_cast<C*>(p) != nullptr){
         std::cout << "This is a pointer of Derived class C!\n";
     }
-}
-
-void    Base::touch_grass(){
-    return;
-}
-
-bool    try_A(Base& p){
-    try{
-        A& obj = dynamic_cast<A&>(p);
-        obj.touch_grass();
-        return true;
-    }
-    catch(std::exception& e){
-        return false;
-    }
-}
-
-bool    try_B(Base& p){
-    try{
-        B& obj = dynamic_cast<B&>(p);
-        obj.touch_grass();
-        return true;
-    }
-    catch(std::exception& e){
-        return false;
-    }
-}
-
-bool    try_C(Base& p){
-    try{
-        C& obj = dynamic_cast<C&>(p);
-        obj.touch_grass();
-        return true;
-    }
-    catch(std::exception& e){
-        return false;
+    else{
+        std::cout << "This is neither A, B, nor C!\n";
     }
 }
 
 void    Base::identify(Base& p){
-    if (try_A(p) == true)
-        std::cout << "This is a reference of Derived class A!\n";
-    if (try_B(p) == true)
-        std::cout << "This is a reference of Derived class B!\n";
-    if (try_C(p) == true)
-        std::cout << "This is a reference of Derived class C!\n";
+    if (dynamic_cast<A*>(&p) != nullptr){
+        std::cout << "This is a pointer of Derived class A!\n";
+    }
+    else if (dynamic_cast<B*>(&p) != nullptr){
+        std::cout << "This is a pointer of Derived class B!\n";
+    }
+    else if (dynamic_cast<C*>(&p) != nullptr){
+        std::cout << "This is a pointer of Derived class C!\n";
+    }
+    else{
+        std::cout << "This is neither A, B, nor C!\n";
+    }
 }
+
+// void    Base::touch_grass(){
+//     return;
+// }
+
+// bool    try_A(Base& p){
+//     try{
+//         A& obj = dynamic_cast<A&>(p);
+//         obj.touch_grass();
+//         return true;
+//     }
+//     catch(std::exception& e){
+//         return false;
+//     }
+// }
+
+// bool    try_B(Base& p){
+//     try{
+//         B& obj = dynamic_cast<B&>(p);
+//         obj.touch_grass();
+//         return true;
+//     }
+//     catch(std::exception& e){
+//         return false;
+//     }
+// }
+
+// bool    try_C(Base& p){
+//     try{
+//         C& obj = dynamic_cast<C&>(p);
+//         obj.touch_grass();
+//         return true;
+//     }
+//     catch(std::exception& e){
+//         return false;
+//     }
+// }
+
+// void    Base::identify(Base& p){
+//     if (try_A(p) == true)
+//         std::cout << "This is a reference of Derived class A!\n";
+//     if (try_B(p) == true)
+//         std::cout << "This is a reference of Derived class B!\n";
+//     if (try_C(p) == true)
+//         std::cout << "This is a reference of Derived class C!\n";
+// }
