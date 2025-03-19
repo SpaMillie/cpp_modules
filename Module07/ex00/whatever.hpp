@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 20:10:49 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/19 20:24:10 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/19 20:28:02 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ template <typename T> void swap(T& x, T& y){
 }
 
 template <typename T> T min(T x, T y){
-    //shortest: return ((y < x) ? y : x);
+    // shortest: return ((y < x) ? y : x);
     if (y <= x)
         return y;
     return x;
 }
 
 template <typename T> T max(T x, T y){
-    //shortest: return ((y > x) ? y : x);
+    // shortest: return ((y > x) ? y : x);
     if (y >= x)
         return y;
     return x;
