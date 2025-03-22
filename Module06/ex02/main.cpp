@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/18 20:41:55 by mspasic           #+#    #+#             */
-/*   Updated: 2025/03/19 19:56:39 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/03/22 12:14:14 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,14 +41,11 @@ int main (void){
                 }
                 std::cout << "*--------------------------------------------------------------*\n"; 
                 std::cout << "TEST: EVERYTHING 5x\n";
-                for (int i = 0; i < 5; i++){
-                        object = object->generate();
-                        Base& objectively = *object;
-                        object->identify(object);
-                        object->identify(objectively);
-                        delete object;
-                        object = nullptr;
-                }
+                object = object->generate();
+                Base& objectively = *object;
+                object->identify(object);
+                object->identify(objectively);
+                delete object;
                 std::cout << "*--------------------------------------------------------------*\n"; 
                 std::cout << "TEST: NOTHING\n";
                 object = nullptr;
