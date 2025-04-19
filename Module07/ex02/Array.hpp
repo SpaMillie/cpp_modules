@@ -6,13 +6,14 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:39:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/19 20:30:56 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/19 20:46:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#ifndef ARRAY_HPP
+#define ARRAY_HPP
 
-#include <iostream>
+# include <iostream>
 
 template <class T>
 class Array{
@@ -30,8 +31,10 @@ class Array{
 
         T& at(unsigned int i);
         const T& at(unsigned int i) const;
-        unsigned int size();
         unsigned int size() const;
 
         void printAll() const;
 };
+# include "Array.tpp"
+
+#endif

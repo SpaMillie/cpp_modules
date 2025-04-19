@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/19 20:28:07 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/19 20:51:25 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,10 +33,13 @@ CYAN=\033[1;36m
 
 all:		${NAME}
 
-${NAME}:${OBJECT_FILES} ${HEADERS}
+${NAME}:${OBJECT_FILES} 
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
-			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
+			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
+
+%.o:%.cpp
+	${CXX} ${CXXFLAGS}  ${HEADERS} -c $< -o $@
 
 clean:
 			@ echo "${YELLOW}Deleting ${NAME} object files${COLOUR_END}..."
