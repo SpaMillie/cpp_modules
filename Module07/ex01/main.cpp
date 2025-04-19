@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/19 20:30:04 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/19 10:23:09 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/19 10:58:45 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,9 @@ void print_n(int c){std::cout << c << std::endl;}
 void print_cn(const int c){std::cout << c << std::endl;}
 
 void add(int& x){ x += 1;}
+
+int add_input(int& x){ x += 1;
+    return(x);}
 
 int main(void){
     {
@@ -38,6 +41,9 @@ int main(void){
             std::cout << "TESTING: INT ARRAY INCREMENTED AND PRINTED:\n";
             ::iter(array2, 4, add);
             ::iter(array2, 4, print_n);
+            std::cout << "Function returns a value: \n";
+            ::iter(array2, 4, add_input);
+            ::iter(array2, 4, print_cn);
             std::cout << "TESTING: NO ADDRESS:\n";
             int *test = nullptr;
             ::iter(test, 5, print_c);
