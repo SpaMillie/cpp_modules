@@ -6,17 +6,11 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/27 14:39:38 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/19 18:13:47 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/19 20:33:03 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
-
-//must use new []
-
-
-//T is the template argument which is a placeholder for the data type used
-//class is a keyword
 
 template <class T> Array<T>::Array() : _length(0){
     try{
@@ -74,7 +68,7 @@ template <class T> Array<T>::~Array(){
 }
 
 template <class T>
-const T& Array<T>::operator[](unsigned int i){
+T& Array<T>::operator[](unsigned int i){
     if (i >= _length)
         throw std::out_of_range;
     return (_array[i]);
@@ -88,7 +82,7 @@ const T& Array<T>::operator[](unsigned int i) const{
 }
 
 template <class T>
-const T& Array<T>::at(unsigned int i){
+T& Array<T>::at(unsigned int i){
     if (i >= _length)
         throw std::out_of_range;
     return (_array[i]);
@@ -113,4 +107,13 @@ template <class T> unsigned int Array<T>::size() const{
     while(_array && _array[i])
         i++;
     return (i);
+}
+
+template <class T>
+void Array<T>::printAll(){
+    if (_array){
+        for (unsigned int i = 0; i < _length; i++){
+            std::cout << _array[i] << std::endl;
+        }
+    }
 }

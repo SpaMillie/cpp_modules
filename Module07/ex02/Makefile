@@ -6,17 +6,19 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/19 11:33:20 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/19 20:28:07 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= convert 
+NAME	= arraying 
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -fsanitize=address -g
 
 CXX = c++
 
 SOURCE_FILES	= main.cpp
+
+HEADERS			= Array.tpp Array.hpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
@@ -31,7 +33,7 @@ CYAN=\033[1;36m
 
 all:		${NAME}
 
-${NAME}:${OBJECT_FILES}
+${NAME}:${OBJECT_FILES} ${HEADERS}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
 			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -I include/ -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
