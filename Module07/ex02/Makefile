@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/19 20:51:25 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/19 20:53:06 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ CXX = c++
 
 SOURCE_FILES	= main.cpp
 
-HEADERS			= Array.tpp Array.hpp
+HEADERS			= -I include/
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
