@@ -6,7 +6,7 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/19 21:07:39 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/20 14:12:25 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp
+SOURCE_FILES	= main.cpp \
+				Span.cpp
 
 HEADERS			= -I include/
 
