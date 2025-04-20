@@ -6,17 +6,17 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/03/26 19:12:36 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/20 12:55:59 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME	= templating 
 
-CXXFLAGS= -Wall -Werror -Wextra -std=c++98 -g -fsanitize=address
+CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp 
+SOURCE_FILES	= main.cpp
 
 OBJECT_FILES	= ${SOURCE_FILES:.cpp=.o}
 
