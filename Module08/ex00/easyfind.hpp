@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 21:27:22 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/19 22:23:43 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/21 17:22:46 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 template <typename T>
 void easyfind(T& container, int element){
     if (container.empty())
-        throw std::out_of_range("This bitch empty. Yeet!");
+        throw std::out_of_range("This container empty. Yeet!");
     auto it = std::find(container.begin(), container.end(), element);
     if (it == container.end()) 
         throw std::out_of_range("No such element found!");
