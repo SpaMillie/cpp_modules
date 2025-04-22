@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/19 22:04:36 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/21 17:28:38 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/22 12:32:56 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Container that wraps over fixed size static array.
         ::easyfind(array0, 456);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
@@ -49,7 +49,7 @@ unlike an array, it can dynamically grow and shrink in size
         ::easyfind(vector0, 456);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
@@ -72,7 +72,7 @@ Implementation of Doubly Linked List data structure.
         ::easyfind(list0, 456);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
@@ -91,7 +91,7 @@ a special type of queue
         ::easyfind(deque0, 456);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
@@ -104,7 +104,7 @@ a special type of queue
         ::easyfind(deque0, 456);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
@@ -115,7 +115,7 @@ a special type of queue
         ::easyfind(deque0, 0);
         std::cout << "**************************\n";
     }
-    catch(std::exception &e){
+    catch(const std::exception &e){
         std::cout << "Error: " << e.what() << "\n";
     }
 }
