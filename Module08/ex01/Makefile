@@ -6,11 +6,11 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/20 14:12:25 by mspasic          ###   ########.fr        #
+#    Updated: 2025/04/23 12:23:25 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= arraying 
+NAME	= spanning 
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17
 

@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:13:03 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/22 12:27:58 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/23 12:24:55 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,20 +27,21 @@ class Span {
         Span& operator=(const Span& other);
 
         void addNumber(int newNum);
-        void massAddNumber(int startingNum);
-        void massAddStaggNumber(int startingNum);
-        int shortestSpan();
-        int longestSpan();
+        void massAddNumber();
+        unsigned int shortestSpan();
+        unsigned int longestSpan();
+
+        void printAll() const;
 
         class MaxSizeReached : public std::exception{
             public:
                 const char* what() const noexcept override;
         };
 
-        class NumberNotFound : public std::exception{
-             public:
-                const char* what() const noexcept override;
-        };
+        class NotEnoughNums : public std::exception{
+            public:
+               const char* what() const noexcept override;
+       };
 };
 
 
