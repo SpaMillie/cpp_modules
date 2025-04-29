@@ -6,13 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:12:47 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/29 18:43:40 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/29 18:58:32 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
-#include <bits/stdc++.h>
+#include <numeric>
 
 Span::Span(): N(0){}
 
