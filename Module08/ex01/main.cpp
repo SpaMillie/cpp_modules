@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:11:17 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/23 12:33:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/29 18:45:52 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,11 @@ int main()
     try{
         std::cout << "TESTING: 1000 NUMBERS\n";
         Span sp = Span(1000);
-        sp.massAddNumber();
+        sp.massAddNumber(-234);
+        sp.printAll();
+        std::cout << sp.shortestSpan() << std::endl;
+        std::cout << sp.longestSpan() << std::endl;
+        sp.massRandAddNumber();
         sp.printAll();
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;
@@ -42,7 +46,7 @@ int main()
     try{
         std::cout << "TESTING: 10000 NUMBERS\n";
         Span sp = Span(10000);
-        sp.massAddNumber();
+        sp.massAddNumber(-234);
         sp.printAll();
         std::cout << sp.shortestSpan() << std::endl;
         std::cout << sp.longestSpan() << std::endl;

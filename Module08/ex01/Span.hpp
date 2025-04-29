@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:13:03 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/23 12:24:55 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/29 18:42:07 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ class Span {
         Span& operator=(const Span& other);
 
         void addNumber(int newNum);
-        void massAddNumber();
+        void massAddNumber(int newNum);
+        void massRandAddNumber();
         unsigned int shortestSpan();
         unsigned int longestSpan();
 

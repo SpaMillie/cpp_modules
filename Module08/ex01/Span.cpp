@@ -6,12 +6,13 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/20 14:12:47 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/23 12:34:37 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/29 18:43:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 #include <algorithm>
+#include <bits/stdc++.h>
 
 Span::Span(): N(0){}
 
@@ -41,11 +42,18 @@ void Span::addNumber(int newNum){
     container.insert(it, newNum);
 }
 
+void Span::massAddNumber(int newNum){
+    if (N == 0)
+        return ;
+    container.resize(N);
+    std::iota(container.begin(), container.end(), newNum);
+}
+
 int randomizer(){
     return (std::rand());
 }
 
-void Span::massAddNumber(){
+void Span::massRandAddNumber(){
     if (N == 0)
         return ;
     container.resize(N);
@@ -58,8 +66,8 @@ void Span::massAddNumber(){
 unsigned int Span::shortestSpan(){
     if (container.size() < 2)
         throw Span::NotEnoughNums();
-    int min = container.at(0);
-    for (unsigned int i = 0; i + 1 < container.size(); i++){
+    int min = container.at(1) - container.at(0);
+    for (unsigned int i = 1; i + 1 < container.size(); i++){
         min = std::min(min, container.at(i + 1) - container.at(i));
     }
     return (min);

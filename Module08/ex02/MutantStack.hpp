@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/23 12:41:54 by mspasic           #+#    #+#             */
-/*   Updated: 2025/04/24 19:44:21 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/04/29 18:03:19 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,12 +43,12 @@ class MutantStack : public std::stack<T, Container>{
         const_reverse_iterator crend() {return this->c.crend();}
 
         //at()
-        auto& at(size_t i) {return this->c.at(i);}
-        const auto& at(size_t i) const {return this->c.at(i);}
+        auto& at(std::size_t i) {return this->c.at(i);}
+        const auto& at(std::size_t i) const {return this->c.at(i);}
 
         //operator[]
-        auto& operator[](size_t i) {return this->c[i];}
-        const auto& operator[](size_t i) const {return this->c[i];}
+        auto& operator[](std::size_t i) {return this->c[i];}
+        const auto& operator[](std::size_t i) const {return this->c[i];}
 
         //using front()
         auto& front() {return this->c.front();}
