@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:47:46 by mspasic           #+#    #+#             */
-/*   Updated: 2025/09/30 08:26:23 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 00:36:25 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 
 class BitcoinExchange{
     private:
-        std::map<std::time_t, double> rates;
+        std::map<int, double> rates;
 
         int getDate(const std::string& date);
         
@@ -27,7 +27,7 @@ class BitcoinExchange{
         BitcoinExchange(const BitcoinExchange& obj);
         BitcoinExchange& operator=(const BitcoinExchange& obj);
         
-        void processRates();
-        void processFile(const std::string& input_file);
+        void BitcoinExchange::processFile(const std::string& input_file, unsigned char c, bool inputed);
+
         void exchange(const std::string& input_file);
 };
