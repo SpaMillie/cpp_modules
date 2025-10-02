@@ -1,0 +1,34 @@
+test
+
+- use custom input.txt
+- use 42s input.txt
+
+file
+-file doesnt exist (either)
+-file cant be opened (either)
+-file too big
+
+reading from the file
+- firstline cases
+- reading rest of the file
+
+date
+-date invalid
+    -too big
+    - too small
+    - has letters
+    - format is not ddd
+    - leap year
+    - correct number of days
+-date valid
+    - what happens when the year is too small or too big(either file)
+    - 
+
+rate 
+-rate invalid
+    - too big
+    - too small
+    - not numbers
+-rate valid
+    -formatting (how many digits)
+    - caluclations -> are they correct
