@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:47:09 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 22:28:19 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 22:37:03 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int BitcoinExchange::getDate(const std::string& date){
 
 	// february during leap year
 	if (month == 2){
-		if ((day > 29) || (isLeapYear(year) == true && day > 30) || (isLeapYear(year) == false && day > 29))
+		if ((day > 29) || (isLeapYear(year) == true && day > 29) || (isLeapYear(year) == false && day > 28))
 			throw std::invalid_argument("date invalid => " + date);
 	}
 
