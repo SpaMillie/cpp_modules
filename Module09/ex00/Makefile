@@ -6,17 +6,17 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/24 21:45:34 by mspasic          ###   ########.fr        #
+#    Updated: 2025/10/02 20:43:42 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= btc 
+NAME = btc
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -fsanitize=address -g
 
 CXX = c++
 
-SOURCE_FILES	= main.cpp \ 
+SOURCE_FILES	= main.cpp \
 					BitcoinExchange.cpp
 
 HEADERS			= -I include/
@@ -34,7 +34,7 @@ CYAN=\033[1;36m
 
 all:		${NAME}
 
-${NAME}:${OBJECT_FILES} 
+${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
 			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"

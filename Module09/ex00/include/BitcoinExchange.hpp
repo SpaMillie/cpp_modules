@@ -6,28 +6,28 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:47:46 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 00:36:25 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 21:12:14 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include <map>
-#include <ctime>
+#include <iostream>
 
 class BitcoinExchange{
-    private:
-        std::map<int, double> rates;
+	private:
+		std::map<int, double> rates;
 
-        int getDate(const std::string& date);
-        
-    public:
-        BitcoinExchange();
-        ~BitcoinExchange();
-        BitcoinExchange(const BitcoinExchange& obj);
-        BitcoinExchange& operator=(const BitcoinExchange& obj);
-        
-        void BitcoinExchange::processFile(const std::string& input_file, unsigned char c, bool inputed);
+		int getDate(const std::string& date);
 
-        void exchange(const std::string& input_file);
+		BitcoinExchange(const BitcoinExchange& obj) = delete;
+		BitcoinExchange& operator=(const BitcoinExchange& obj) = delete;
+
+	public:
+		BitcoinExchange();
+		~BitcoinExchange();
+		
+
+		void processFile(const std::string& input_file, unsigned char c, bool inputed);
 };
