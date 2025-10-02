@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:47:09 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 22:37:03 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 22:45:40 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ BitcoinExchange::BitcoinExchange(){}
 
 BitcoinExchange::~BitcoinExchange(){}
 
-bool spaces(const std::string& date){
+static bool spaces(const std::string& date){
 	for (unsigned char c : date){
 		if (std::isspace(c))
 			return true;
@@ -29,11 +29,11 @@ bool spaces(const std::string& date){
 //leap years
 //if divisible by 400
 //or if divisible by 4 but not 100
-bool isLeapYear(int year){
+static bool isLeapYear(int year){
 	return (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0));
 }
 
-int BitcoinExchange::getDate(const std::string& date){
+static int getDate(const std::string& date){
 	int year, month, day;
 
 	if (spaces(date) == true)

@@ -6,11 +6,11 @@
 #    By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/05 17:02:16 by mspasic           #+#    #+#              #
-#    Updated: 2025/04/24 21:46:05 by mspasic          ###   ########.fr        #
+#    Updated: 2025/10/02 22:41:46 by mspasic          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME	= RPN 
+NAME	= RPN
 
 CXXFLAGS= -Wall -Werror -Wextra -std=c++17 -g -fsanitize=address
 
@@ -34,7 +34,7 @@ CYAN=\033[1;36m
 
 all:		${NAME}
 
-${NAME}:${OBJECT_FILES} 
+${NAME}:${OBJECT_FILES}
 			@echo "${YELLOW}Compiling ${NAME} ${COLOUR_END}..."
 			${CXX} ${CXXFLAGS} ${OBJECT_FILES} -o ${NAME}
 			@echo "${GREEN}${NAME} created ✔️"
