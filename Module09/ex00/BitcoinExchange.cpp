@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:47:09 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 21:11:41 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 22:28:19 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,31 +68,18 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 	//checking whether the file exists and can be opened
 	std::fstream data(input_file, std::ios::in);
 	if (!data.is_open())
-		throw std::ios_base::failure("could not open file");
+		throw std::ios_base::failure("could not open file => " + input_file);
 
 	//set the first line
-	std::string firstline;
-	if (inputed == false)  {
-		firstline = "date" + c;
-		firstline += "value";
-	}
-	else{
-		firstline = "date " + c;
-		firstline += " value";
-	}
+	std::string firstline_data = "date,exchange_rate";
+	std::string firstline_input = "date | value";
 
-	//DELETE THIS
-	std::cout << "Firstline is: " << firstline << "\n";
-
+	std::string date, rate, content, line;
 	//reading from the file
-	std::string line;
 	std::getline(data, line);
-	if (line != firstline)
+	if ((inputed == false && line != firstline_data) || (inputed == true && line != firstline_input))
 		throw std::invalid_argument("invalid file content  => " + line);
 
-	std::string date;
-	std::string rate;
-	std::string content;
 	// address of an integer to store the number of characters processed
 	std::size_t  int_addr = 0;
 	int     date_conv;
@@ -102,8 +89,10 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 		if (content.max_size() - line.size() > content.size()){
 			content.append(line);
 			auto pos = line.find(c);
-			if (pos == std::string::npos)
-				throw std::invalid_argument("bad input => " + line);
+			if (pos == std::string::npos){
+				std::cout << "Error: bad input => " << line << "\n";
+				continue;
+			}
 			if (inputed == false){
 				date = line.substr(0, pos);
 				rate = line.substr(pos + 1);
@@ -112,8 +101,7 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 				date = line.substr(0, pos - 1);
 				rate = line.substr(pos + 2);
 			}
-			//DELETE THIS
-			std::cout << "Rate: " << rate << std::endl;
+
 			try{
 				date_conv = getDate(date);
 				rate_conv = std::stod(rate, &int_addr);
@@ -125,7 +113,6 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 				if (inputed == false)
 					rates[date_conv] = rate_conv;
 				else{
-					//uporedi date, izracunaj rate, isprintaj
 					//a valid rate value must be between 0 and 1000
 					if (rate_conv > 1000)
 						throw std::invalid_argument("too large a number.");
@@ -133,13 +120,13 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 					auto rate_year = rates.lower_bound(date_conv);
 					//1st case: exact match was found
 					if (rate_year != rates.end() && rate_year->first == date_conv){
-						std::cout << date << " => " << rate_year->second << " = " << rate_year->second * rate_conv << "\n";
+						std::cout << date << " => " << rate << " = " << rate_year->second * rate_conv << "\n";
 						continue;
 					}
 					//2nd case: no exact match, but earlier date exists
 					else if (rate_year != rates.begin()){
 						rate_year--;
-						std::cout << date << " => " << rate_year->second << " = " << rate_year->second * rate_conv << "\n";
+						std::cout << date << " => " << rate << " = " << rate_year->second * rate_conv << "\n";
 						continue;
 					}
 					else{
@@ -156,75 +143,3 @@ void BitcoinExchange::processFile(const std::string& input_file, unsigned char c
 	}
 	data.close();
 }
-
-// void BitcoinExchange::processRates(){
-//     std::fstream data("data.csv", std::ios::in);
-//     if (!data.is_open())
-//         throw std::ios_base::failure("data.csv could not be opened");
-
-//     //reading from the file
-//     std::string content;
-//     getline(data, content);
-//     if (content != "date,exchange_rate")
-//         throw std::invalid_argument("invalid data.csv content");
-
-//     std::string date;
-//     std::string rate;
-//     // address of an integer to store the number of characters processed
-//     std::size_t  int_addr = 0;
-//     double  rate_conv;
-//     while(getline(data, content)){
-//         auto pos = content.find(",");
-//         if (pos == std::string::npos)
-//             throw std::invalid_argument("invalid data.csv content");
-//         date = content.substr(0, pos);
-//         rate = content.substr(pos + 1);
-//         try{
-//             rate_conv = std::stod(rate, &int_addr);
-//             if (int_addr != rate.length() || (rate_conv < 0))
-//                 throw std::invalid_argument("invalid data.csv content");
-//             rates[getDate(date)] = rate_conv;
-//         } catch (std::exception& e){
-//             std::cout << "Error: " << e.what();
-//         }
-//     }
-// }
-
-// void BitcoinExchange::processFile(const std::string& input_file, unsigned char c){
-//        //checking for valid file
-//        std::fstream filein(input_file, std::ios::in);
-//        if (!filein.is_open())
-//             throw std::ios_base::failure("input file invalid");
-
-//        //reading from the file
-//        std::string content;
-//        std::string firstline = "date" + c;
-//        firstline += "value";
-//        std::string line;
-//        getline(filein, line);
-//        if (line != firstline){
-//             throw std::invalid_argument("content of the input file invalid");
-//        }
-
-//         while(std::getline(filein, line)){
-//             if (content.max_size() - line.size() > content.size()){
-//                content.append(line);
-//                auto pos = line.find(c);
-//                if (pos == std::string::npos)
-//                     throw std::invalid_argument("content of the input file invalid");
-//                 std::string date = line.substr(0, pos);
-//                 if (spaces(date) == true)
-//                     throw std::invalid_argument("content of the input file invalid");
-
-//         }
-//         else
-//             throw std::invalid_argument("file too big");
-//        }
-//        //checking if eof was reached as it should have been
-//        if (!filein.eof()){
-//            std::cout << "Error: File reading failed.\n";
-//            return ;
-//        }
-//        filein.close();
-// }
-

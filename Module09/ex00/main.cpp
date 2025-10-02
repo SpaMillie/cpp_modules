@@ -6,7 +6,7 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:49:19 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 21:16:41 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/02 21:19:50 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int main(int argc, char **argv){
 		exchange_office.processFile(input_file, '|', true);
 	}
 	catch(const std::exception& e){
-		std::cout << "Error: " << e.what();
+		std::cout << "Error: " << e.what() << "\n";
 	}
 	return 0;
 }

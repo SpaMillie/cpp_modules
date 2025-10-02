@@ -4,12 +4,12 @@ test
 - use 42s input.txt
 
 file
--file doesnt exist (either)
+-file doesnt exist (either)--------------- DONE
 -file cant be opened (either)
 -file too big
 
 reading from the file
-- firstline cases
+- firstline cases--------------- DONE
 - reading rest of the file
 
 date
