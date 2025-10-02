@@ -6,14 +6,19 @@
 /*   By: mspasic <mspasic@student.hive.fi>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/24 21:49:49 by mspasic           #+#    #+#             */
-/*   Updated: 2025/10/02 22:40:27 by mspasic          ###   ########.fr       */
+/*   Updated: 2025/10/03 00:08:41 by mspasic          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
+#include <stack>
+#include <iostream>
+
 class RPN{
     private:
+        std::stack<int> the_stack;
+        
         RPN(const RPN& obj) = delete;
         RPN& operator=(const RPN& obj) = delete;
 
@@ -21,4 +26,5 @@ class RPN{
         RPN();
         ~RPN();
 
+        void stack_em(const std::string& boys);
 };
